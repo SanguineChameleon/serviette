@@ -27,6 +27,9 @@ code .md-annotation {
   font-family: var(--md-text-font-family);
   font-weight: 400;
 }
+strong {
+  font-weight: 700;
+}
 em {
   font-style: italic;
 }
