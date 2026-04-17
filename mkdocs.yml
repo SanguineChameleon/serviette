@@ -28,3 +28,15 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+plugins:
+  - search
+  - awesome-nav:
+      logs:
+        nav_override: warning
+        root_title: warning
+        root_hide: warning
+        no_matches: warning
+
+hooks:
+  - hooks.py
