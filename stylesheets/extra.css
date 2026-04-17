@@ -1,0 +1,247 @@
+:root {
+  --md-text-font: "Noto Sans Display";
+  --md-code-font: "Noto Sans Mono";
+}
+
+aside,
+body,
+input {
+  font-family: var(--md-text-font-family);
+  font-weight: 400;
+}
+code,
+kbd,
+pre {
+  font-family: var(--md-code-font-family);
+  font-weight: 500;
+}
+.md-tooltip {
+  font-family: var(--md-text-font-family);
+  font-weight: 400;
+}
+code .md-annotation {
+  font-family: var(--md-code-font-family);
+  font-weight: 500;
+}
+.md-tooltip2 {
+  font-family: var(--md-text-font-family);
+  font-weight: 400;
+}
+strong {
+  font-weight: 700;
+}
+em {
+  font-style: italic;
+}
+
+td,
+th {
+  font-weight: 400;
+}
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 400;
+  letter-spacing: normal;
+}
+.md-typeset h3 {
+  font-weight: 400;
+  letter-spacing: normal;
+}
+.md-typeset h4 {
+  font-weight: 550;
+  letter-spacing: normal;
+}
+.md-typeset h5,
+.md-typeset h6 {
+  font-weight: 550;
+  letter-spacing: normal;
+}
+.md-typeset table:not([class]) th {
+  font-weight: 550;
+}
+.md-typeset .md-author--more {
+  font-weight: 550;
+}
+.md-feedback__title {
+  font-weight: 550;
+}
+.md-typeset .md-button {
+  font-weight: 550;
+}
+.md-header__topic:first-child {
+  font-weight: 550;
+}
+.md-draft {
+  font-weight: 550;
+}
+.md-nav__title {
+  font-weight: 550;
+}
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    font-weight: 550;
+  }
+}
+@media screen and (min-width: 76.25em) {
+  .md-nav__item--section > .md-nav__link {
+    font-weight: 550;
+  }
+}
+.md-pagination {
+  font-weight: 550;
+}
+.md-post__title {
+  font-weight: 550;
+}
+.md-search-result .md-typeset h1 {
+  font-weight: 400;
+}
+.md-search-result .md-typeset h2 {
+  font-weight: 550;
+}
+.md-typeset .md-tag {
+  font-weight: 550;
+  letter-spacing: normal;
+}
+.md-tooltip--inline {
+  font-weight: 550;
+}
+.md-annotation {
+  font-weight: 400;
+}
+@media print {
+  .md-annotation__index [data-md-annotation-id] {
+    font-weight: 550;
+  }
+}
+.md-typeset .md-annotation-list li:before {
+  font-weight: 550;
+}
+[role="tooltip"] > .md-tooltip2__inner {
+  font-weight: 550;
+}
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 550;
+}
+.md-typeset .footnote-ref {
+  font-weight: 550;
+}
+.highlight span.filename {
+  font-weight: 550;
+}
+.md-typeset .tabbed-labels > label {
+  font-weight: 550;
+}
+td,
+th {
+  font-weight: 400;
+}
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 550;
+  letter-spacing: normal;
+}
+.md-typeset h3 {
+  font-weight: 400;
+  letter-spacing: normal;
+}
+.md-typeset h4 {
+  font-weight: 550;
+  letter-spacing: normal;
+}
+.md-typeset h5,
+.md-typeset h6 {
+  font-weight: 550;
+  letter-spacing: normal;
+}
+.md-typeset table:not([class]) th {
+  font-weight: 550;
+}
+.md-typeset .md-author--more {
+  font-weight: 550;
+}
+.md-feedback__title {
+  font-weight: 550;
+}
+.md-typeset .md-button {
+  font-weight: 550;
+}
+.md-header__topic:first-child {
+  font-weight: 550;
+}
+.md-draft {
+  font-weight: 550;
+}
+.md-nav__title {
+  font-weight: 550;
+}
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    font-weight: 550;
+  }
+}
+@media screen and (min-width: 76.25em) {
+  .md-nav__item--section > .md-nav__link {
+    font-weight: 550;
+  }
+}
+.md-pagination {
+  font-weight: 550;
+}
+.md-post__title {
+  font-weight: 550;
+}
+.md-search-result .md-typeset h1 {
+  font-weight: 400;
+}
+.md-search-result .md-typeset h2 {
+  font-weight: 550;
+}
+.md-typeset .md-tag {
+  font-weight: 550;
+  letter-spacing: normal;
+}
+.md-tooltip--inline {
+  font-weight: 550;
+}
+.md-annotation {
+  font-weight: 400;
+}
+@media print {
+  .md-annotation__index [data-md-annotation-id] {
+    font-weight: 550;
+  }
+}
+.md-typeset .md-annotation-list li:before {
+  font-weight: 550;
+}
+[role="tooltip"] > .md-tooltip2__inner {
+  font-weight: 550;
+}
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 550;
+}
+.md-typeset .footnote-ref {
+  font-weight: 550;
+}
+.highlight span.filename {
+  font-weight: 550;
+}
+.md-typeset .tabbed-labels > label {
+  font-weight: 550;
+}
+
+html .md-footer-meta.md-typeset a {
+  color: var(--md-typeset-a-color);
+}
+
+html .md-footer-meta.md-typeset a:focus,
+html .md-footer-meta.md-typeset a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.md-copyright__highlight {
+  color: var(--md-footer-fg-color--lighter);
+}
