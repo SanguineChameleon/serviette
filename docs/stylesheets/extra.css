@@ -245,3 +245,9 @@ html .md-footer-meta.md-typeset a:hover {
 .md-copyright__highlight {
   color: var(--md-footer-fg-color--lighter);
 }
+
+.md-typeset .emojione,
+.md-typeset .gemoji,
+.md-typeset .twemoji {
+  vertical-align: -0.2em;
+}
