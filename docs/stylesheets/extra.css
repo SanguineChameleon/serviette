@@ -232,3 +232,16 @@ th {
 .md-typeset .tabbed-labels > label {
   font-weight: 550;
 }
+
+html .md-footer-meta.md-typeset a {
+  color: var(--md-typeset-a-color);
+}
+
+html .md-footer-meta.md-typeset a:focus,
+html .md-footer-meta.md-typeset a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.md-copyright__highlight {
+  color: var(--md-footer-fg-color--lighter);
+}

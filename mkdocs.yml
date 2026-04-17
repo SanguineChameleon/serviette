@@ -47,3 +47,5 @@ plugins:
 
 hooks:
   - hooks.py
+
+copyright: 'Website by <a class="" href="https://sanguinecha.me/leon">SanguineChameleon</a>'
