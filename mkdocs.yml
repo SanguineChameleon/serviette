@@ -19,6 +19,9 @@ theme:
       toggle:
         icon: material/circle-half-full
         name: Switch to light mode
+  icon:
+    logo: material/octagram-edit
+  favicon: images/favicon.svg
 
 markdown_extensions:
   - attr_list
