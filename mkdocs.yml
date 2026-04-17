@@ -44,6 +44,11 @@ plugins:
         root_title: warning
         root_hide: warning
         no_matches: warning
+  - git-committers:
+      repository: SanguineChameleon/serviette
+      branch: main
+  - git-revision-date-localized:
+      type: timeago
 
 hooks:
   - hooks.py
