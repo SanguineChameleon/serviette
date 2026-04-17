@@ -10,7 +10,7 @@ The name is, of course, a riff on Evan Chen's [Infinitely Large Napkin](https://
 
 Instead, the Serviette is exactly that: a convenient place where I can scrawl down notes about things I know, things I'm learning, and, well, things I don't know. There isn't really a sense of cohesion here. Expect a (somewhat) wide range of disciplines, mostly from STEM.
 
-Now, of course, there are already a *lot* of good resources out there, online or otherwise. You can pretty much self-learn anything at any time. I'm certainly not trying to reinvent the wheel, and I don't exactly think this place holds any groundbreaking knowledge. However, what *is* original is how I convey the information. I am free to decide on the presentation, what to focus on or gloss over, and how rigorous or informal I want to be.
+Now, I'm fully aware that there are already a *lot* of great resources available, online or otherwise. You can pretty much self-learn anything at any time. I'm certainly not trying to reinvent the wheel, and I don't exactly think this place holds any groundbreaking knowledge. However, what *is* original is how I convey the information. I am free to decide on the presentation, what to focus on or gloss over, and how rigorous or informal I want to be.
 
 At the end of the day, like all the things I create and share, I do it for myself, perhaps for a younger version of me. In that sense, I hope you find the Serviette useful. :heart:
 
