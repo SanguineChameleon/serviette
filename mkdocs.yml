@@ -23,6 +23,10 @@ theme:
     logo: material/octagram-edit
   favicon: images/favicon.svg
 
+  features:
+    - search.suggest
+    - search.highlight
+
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
