@@ -1,1 +1,4 @@
-site_name: My Docs
+site_name: A Sufficiently Large Serviette
+site_url: https://sanguinecha.me/serviette
+theme:
+  name: material
