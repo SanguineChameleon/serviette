@@ -16,7 +16,7 @@ At the end of the day, like all the things I create and share, I do it for mysel
 
 ## Contribute
 
-Whilst I am, I guess, the captain of this ship, I greatly appreciate help from others! If you have a neat idea for a topic and you'd like to be a co-author, or even donate a guest article, just contact me on Discord at ``@sanguinechameleon``. Alternatively, feel free to submit a [pull request](https://github.com/SanguineChameleon/serviette/pulls). Anything is welcome for consideration, from small error fixes to full-on rewrites. Again, I'm not trying to grow the Serviette into an encyclopedia, but it's always fun to learn something new, right?
+While I am, I guess, the captain of this ship, I greatly appreciate help from others! If you have a neat idea for a topic and you'd like to be a co-author, or even donate a guest article, just contact me on Discord at ``@sanguinechameleon``. Alternatively, feel free to submit a [pull request](https://github.com/SanguineChameleon/serviette/pulls). Anything is welcome for consideration, from small error fixes to full-on rewrites. Again, I'm not trying to grow the Serviette into an encyclopedia, but it's always fun to learn something new, right?
 
 ## Credits
 
