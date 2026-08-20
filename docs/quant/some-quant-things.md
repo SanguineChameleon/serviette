@@ -72,3 +72,73 @@ Two nominal interest rates are **equivalent** if they have the same effective in
 $$(1 + \frac{r^{(p)}}{p})^{p} = (1 + \frac{r^{(q)}}{q})^{q} $$
 
 For nonzero effective interest rates, if $p < q$, then $r^{(p)} > r^{(q)}$. Proof by calculus; I am too lazy to show it here.
+
+### Continuous Compounding
+
+Surely you have seen this before. If you crank $p$ up to infinity, you get the famous identity:
+
+$$a(t) = \lim_{p \to \infty}(1 + \frac{r}{p})^{p \cdot t} = e^{r \cdot t} $$
+
+I'm not really a fan of using the word "continuous", but it is what it is. We'll denote this continuously compounded rate by $r^{(\infty)}$.
+
+### Force of Interest
+
+I'm driving a car with an odometer. The odometer lets me know that I have driven a distance of $s(t)$ after $t$ units of time. So far so good, but I don't have a speedometer. What do?
+
+Something something calculus, something something velocity $v(t)$ is the derivative of $s(t)$. If you know $s$, you can derive $v$. If you know $v$, you can derive $s$ ($+C$, lol).
+
+Similarly, we can define the "velocity" at which we earn interest. This has a fancy name: the **force of interest**, denoted by $\delta(t)$.
+
+As we'll see shortly, this is more general than anything we've seen so far. Under this framework, we can derive that continuous compounding has a constant "velocity": $\delta(t) = r^{(\infty)}$. That's cool and all, but not super realistic. Cars slow down and speed up all the time. Now we have the freedom to define a function $\delta$ as convoluted as we desire.
+
+Okay, so first, how do we derive $\delta(t)$ from $a(t)$? We'll apply some basic limit-whacking. Consider a very small time step $h$. Since it's so small, we might as well assume we're using simple interest.
+
+The raw amount of interest we earn between $t$ and $t + h$ is $a(t + h) - a(t)$. However, remember that interest rates are measured relative to how much we currently have. In all our earlier examples, we assumed we started out with $1$ dollar. But here, we actually have $a(t)$ dollars.
+
+Putting this all together, and taking the limit as $h$ approaches $0$, we get:
+
+$$\delta(t) = \lim_{h \to 0}\frac{a(t + h) - a(t)}{a(t) \cdot h} = \frac{a^\prime(t)}{a(t)}$$
+
+So if we have $a$, we can derive $\delta$. Can we do it the other way around?
+
+Sure. Let $u(x) = \ln(a(x))$. By the chain rule, we have:
+
+$$u^{\prime}(x) = \frac{1}{a(x)} \cdot a^\prime(x) = \delta(x)$$
+
+Then, by the fundamental theorem of calculus:
+
+$$
+\begin{align*}
+\int_{0}^{t} \delta(x)\,dx
+&= \int_{0}^{t} u^{\prime}(x)\,dx \\
+&= u(t) - u(0) \\
+&= \ln(a(t)) - \ln(a(0)) \\
+&= \ln(a(t))
+\end{align*}
+$$
+
+Thus,
+
+$$
+a(t) = \exp\left(\int_{0}^{t} \delta(x)\,dx\right)
+$$
+
+Nice. And this gives us a neat corollary. For any two points in time $s$ and $t$ ($0 \leq s \leq t$), if we put in $1$ dollar at time $s$, then the amount of money we'll have at time $t$ is:
+
+$$
+\begin{align*}
+a(s, t) = \frac{a(t)}{a(s)}
+& = \exp\left(\int_{0}^{t} \delta(x)\,dx - \int_{0}^{s} \delta(x)\,dx \right) \\
+& = \exp\left(\int_{s}^{t} \delta(x)\,dx \right)
+\end{align*}
+$$
+
+### Principle of Consistency
+
+For $t_0 \leq t_1 \leq \ldots \leq t_n$,
+
+$$
+a(t_0, t_n) = a(t_0, t_1) \cdot a(t_1, t_2) \cdot \ldots \cdot a(t_{n - 1}, t_n)
+$$
+
+That's just how math works.
