@@ -92,3 +92,73 @@ For Benny, it's basically the same thing. He's converting $10$ brownies into $18
 Mathematically, if the price of $1$ apple pie is between $\frac{1}{2}$ and $\frac{3}{5}$ brownie, then both sides are happy. Similarly, if the price of $1$ brownie is between $\frac{5}{3}$ and $2$ apple pies, then both sides are happy. In the end, both boys have achieved a consumption combination outside their respective PPFs.
 
 Note that Andy has an absolute advantage over Benny in both apple pies and brownies (Benny gets teased relentlessly over this). However, it is ultimately still worth it for both sides to trade.
+
+## Market price
+
+Of course, no bakery is without customers, so let's not forget about them.
+
+How should Andy and Benny price their items, say, their brownies? First of all, they are competitors in close proximity (or at least, that's what the public thinks), so they should sell brownies at roughly the same price. If Andy's brownies were way more expensive, then people would flock over to Benny's bakery to get their brownie fix instead, and vice versa.
+
+But that's in relation to each other. How should they even decide the price in the first place? Well, with... more relations. Andy has some baker friends whom he can ask how much they sell their brownies for at *their* bakeries. Likewise, Benny has some baker ~~exes~~ enemies whom he spies on with the help of Andy. And of course, there's the wonderful Internet. Just look up ``brownie prices`` and there you go.
+
+The point is, all these prices from all these sources should (more or less) converge[^1]. Andy and Benny can sniff around nearby bakeries, but so can the customers. If the two boys set their price too high, then people would flock over to other bakeries. If they unnecessarily set it too low, then they might be shooting themselves in the foot: customers are willing to pay more, so why should they charge less?
+
+[^1]: I know *convergence* subtly implies they were divergent to begin with, but that's not really accurate. Of course, things still shift around and eventually settle after significant changes in a market, but markets are usually stable most of the time. You get what I mean.
+
+Now, there are some nuances to this. For example, if Andy and Benny's bakeries were right by a college campus, maybe they'd be incentivized to lower their prices just a bit for hungry students. Or maybe Benny can make his brownies a little bit more expensive, since they have chocolate chips after all. But anyway, we will forget all of that for now and assume that everything really *does* converge to a universal, mystical number known as the **market price**.
+
+## Marginal cost
+
+As we've seen with the PPFs, the more brownies the boys produce, the more apple pies they have to give up per $1$ brownie. This is generally true not just relative to apple pies: the more brownies you produce, the **marginal cost** (say, in dollars) of producing $1$ additional brownie eventually increases. Here we'll just assume it *always* increases.
+
+As a reminder, the boys are producing brownies on a daily basis, and hence we're implicitly taking the marginal cost to refer to the additional production cost of $1$ more brownie *within the same day*.
+
+## Supply and Demand
+
+### Supply curve
+
+Suppose the boys sell brownies at a market price of $P = 3$ per brownie. Then what is the total quantity of brownies, $Q$, that they should produce in a day? Well, the idea is straightforward. Keep producing brownies until the marginal cost of $1$ more brownie exceeds $3$. Say $Q = 50$.
+
+Now, imagine a universe where the price of a brownie is $P = 4$ instead. Andy and Benny are smart boys, so they can run the computations and predict that in this universe, they would produce $Q = 60$ brownies a day. Naturally, this number should be higher, since the marginal cost cut-off is now higher.
+
+On the other hand, the boys predict that if they were in a universe where the price of a brownie is $P = 2$, they would only produce $Q = 40$ brownies a day. Now the cut-off is lower, so naturally, fewer brownies.
+
+We can plot this for all possible prices $P$ to obtain the **supply curve**. Well, I say curve, but you know we're only going to deal with lines. Also, unlike how you'd normally plot dependent variables, $P$ is on the $y$-axis and $Q$ is on the $x$-axis, because economists are funny.
+
+### Demand curve
+
+Cindy is a good friend of Andy and Benny and a regular at their bakeries. She has quite the sweet tooth, so she finds herself craving $1$ brownie about every $5$ days. Using stronger (and unfortunately more common) terminology, we'll say she *demands* $1$ brownie every $5$ days, or $0.2$ brownies a day. If the market price were higher, maybe she'd find herself wanting to buy fewer brownies (so her wallet wouldn't hurt as much). If the market price were lower, maybe she'd rejoice and find herself wanting to buy more brownies.
+
+Of course, Cindy isn't the only customer at the boys' bakeries. We can sum up the quantities demanded across all customers for a fixed market price $P = 3$ and call it $Q$. Naming collision, oops. But this works out nicely, because $Q$ coincidentally (not really lol) also happens to be $50$.
+
+Same idea as the supply curve, though this should be more intuitive. In a universe with a lower market price, customers would want to buy more brownies, and in a universe with a higher market price, customers would want to buy fewer brownies.
+
+### Market equilibrium
+
+We know the supply curve has a positive slope and the demand curve has a negative slope. The point at which they intersect is the **market equilibrium**. Specifically, the $y$-coordinate, $P$, is the equilibrium price, and the $x$-coordinate, $Q$, is simultaneously the quantity supplied by the producers (the lover boys) and the quantity demanded by the consumers (the customers).
+
+![](some-econ-things/market-equilibrium.png){style="width:70%;"}
+
+It should be emphasized that most stable markets should already be close to equilibrium. However, for the sake of exposition, let's assume we're observing the market right after a significant change.
+
+If the current market price is *higher* than the equilibrium price, then there is a **surplus**: the boys are producing more brownies than customers actually want to buy. This is wasteful, so they'll want to *decrease* the price, both to produce fewer brownies, and also to encourage customers to buy more.
+
+If the current market price is *lower* than the equilibrium price, then there is a **shortage**: the boys aren't producing as many brownies as the customers want to buy. The customers are sad and brownie-less, so the boys will want to *increase* the price, which incentivizes them to produce more brownies, and also helps stop Cindy from buying brownies all the time.
+
+### Shifting the supply curve
+
+The local grocery store where Andy and Benny buy their brownie ingredients is having a massive sale! The boys are overjoyed.
+
+The supply curve shifts to the right, because the boys can produce so many more brownies now. The demand curve stays still, since the customers are (mostly) indifferent to the boys' shenanigans. The equilibrium price goes *down*, because brownies are now cheaper to produce. The equilibrium quantity goes *up*, as customers are encouraged to buy more brownies at the lower price.
+
+However, all good things must come to an end. The store's sale is over, and production is back to normal. The supply curve shifts to the left, so the equilibrium price goes back up and the equilibrium quantity goes back down.
+
+### Shifting the demand curve
+
+Cindy has just launched a social media campaign about how wonderful brownies are. Andy and Benny groan in despair.
+
+The demand curve shifts to the right, because customers want to buy so many more brownies now. The supply curve stays still; the boys can do nothing but watch helplessly. The equilibrium price goes *up*, incentivizing the boys to produce more brownies for the customers. The equilibrium quantity also goes *up* despite the higher price, as customers are willing to buy more brownies at *any* given price, just to fulfill their brownie needs.
+
+Eventually, the trend dies out, much to the boys' relief. The demand curve shifts to the left, so the equilibrium price and equilibrium quantity both go back down.
+
+
