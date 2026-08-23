@@ -251,3 +251,10 @@ html .md-footer-meta.md-typeset a:hover {
 .md-typeset .twemoji {
   vertical-align: -0.2em;
 }
+
+.md-typeset img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
