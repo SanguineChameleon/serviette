@@ -27,6 +27,7 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
+    - content.footnote.tooltips
 
 markdown_extensions:
   - smarty:
@@ -50,6 +51,7 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
+  - footnotes
 
 extra_css:
   - stylesheets/extra.css
