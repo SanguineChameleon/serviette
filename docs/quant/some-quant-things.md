@@ -142,3 +142,86 @@ a(t_0, t_n) = a(t_0, t_1) \cdot a(t_1, t_2) \cdot \ldots \cdot a(t_{n - 1}, t_n)
 $$
 
 That's just how math works.
+
+## Present Value and Time Value
+
+### Present Value
+
+Congrats! In $t$ units of time, you will receive $c$ dollars. But how much is that worth right now? Well, we know the total accumulated value of $1$ dollar after $t$ units of time is just $a(t)$. Sooo... $c$ dollars received in $t$ units of time is worth $\frac{c}{a(t)}$. Easy.
+
+And just because we can, we might as well generalize. For a **cash flow**
+
+$$ C = \{(c_1, t_1), (c_2, t_2), \ldots, (c_n, t_n)\} $$
+
+the present value of said cash flow is:
+
+$$ PV(C) = \sum_{i=1}^{n} \frac{c_i}{a(t_i)} $$
+
+FYI, this is called **discounting**.
+
+### Time Value
+
+What if we don't care about the present, but some other time $t^\prime$ instead? Well, we know how much $C$ is worth at present, so we just multiply by $a(t^\prime)$ to get:
+
+$$ {TV}_{t^\prime}(C) = PV(C) \cdot a(t^\prime) $$
+
+Note that $PV(C)$ is really just $TV_0(C)$. In general, for $0 \leq t \leq t^{\prime}$, we have:
+
+$$ 
+\begin{align*}
+TV_{t^\prime}(C)
+& = \frac{TV_{t}(C)}{a(t)} \cdot a(t^\prime) \\
+& = \frac{a(t^\prime)}{a(t)} \cdot TV_{t}(C) \\
+& = a(t, t^\prime) \cdot TV_{t}(C)
+\end{align*}
+$$
+
+Nice.
+
+### Principle of Equivalence
+
+Two cash flows $C_1$ and $C_2$ in the same environment (i.e., same accumulation function $a$) are equivalent if $TV_t(C_1) = TV_t(C_2)$ for *some* time $t \geq 0$. When this holds, $TV_t(C_1) = TV_t(C_2)$ is actually true for *all* times $t \geq 0$.
+
+This is fairly intuitive, but I think it's a neat property.
+
+### Deferred Cash Flow
+
+Sike, I lied. You'll actually receive your cash flow $C$ after a $k$-year delay, which we'll denote as $C_{(k)}$. What is its present value now?
+
+For an *annual effective interest rate* of $r$:
+
+$$ PV(C_{(k)}) = \frac{PV(C)}{(1 + r)^k} $$
+
+Don't get the numerator and denominator the wrong way round. If your cash flow is *deferred* by $k$ years, then it should be worth less at present, due to the compounded interest of those extra $k$ years. Well, assuming your cash flow is positive anyway.
+
+## Internal Rate of Return
+
+For reasons unknown, I find myself in an alien kingdom. There are plenty of banks here, which means plenty of opportunities to get my money's worth. Excellent.
+
+I go to one such bank. I ask them what their annual effective interest rate is. They have no idea what I'm talking about, because they don't speak English.
+
+I take out some units of their local currency from my pocket. Luckily, they seem to get the memo this time, and they show me a big table of cash payments:
+
+$$ C = \{(c_1, t_1), (c_2, t_2), \ldots, (c_n, t_n)\} $$
+
+"So, uh, what's your interest rate then?" I ask. They still have no idea what I'm talking about, because they still don't speak English.
+
+Well, if they refuse to be accommodating to foreigners, I guess I'll have to take matters into my own hands.
+
+For an annual effective interest rate of $r$, the present value of $C$ is:
+
+$$ PV(C) = \sum_{i=1}^{n} \frac{c_i}{(1 + r)^{t_i}} $$
+
+Since this is a bank after all, I expect that $PV(C)$ should equal the amount of money I offered them. We'll denote this initial payment as $(c_0, 0)$. Here, $c_0$ should be negative, since I'm giving the bank my money. All other $c_i$ should be positive, since the bank is giving *me* money.
+
+Thus, we wish to solve for the following **equation of value**:
+
+$$ c_0 + \sum_{i=1}^{n} \frac{c_i}{(1 + r)^{t_i}} = 0 $$
+
+Under these constraints ($c_0 < 0$, $c_i > 0$ and $t_i > 0$ for $i \geq 1$), it can be shown that this equation has a *unique* root $r > -1$, which we'll call the **internal rate of return** (IRR).
+
+That's cool and all, but who cares? It's not like the bank is actually paying me on a regular basis. Their payment times $t_i$ are all over the place.
+
+Well, if this alien bank had an IRR of $10\%$, and some other alien bank had an IRR of $50\%$, then it's (probably) worth going to the other bank instead. Of course, there's more nuance to this. If getting that $50\%$ IRR required me to pay way more money upfront, or the bank was ethically questionable and at risk of shutting down, then maybe I should think twice about it.
+
+But anyway, IRR gives us an imperfect but much more intuitive grasp than just staring at a pile of cash payments. This applies to many other things, such as companies making financial decisions about the profitability of projects, not just rude alien banks.
