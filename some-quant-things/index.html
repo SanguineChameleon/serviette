@@ -644,6 +644,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#present-value-and-time-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Present Value and Time Value
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Present Value and Time Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#present-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Present Value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-of-equivalence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle of Equivalence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deferred-cash-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deferred Cash Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-rate-of-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Rate of Return
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -791,6 +863,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#present-value-and-time-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Present Value and Time Value
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Present Value and Time Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#present-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Present Value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-of-equivalence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle of Equivalence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deferred-cash-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deferred Cash Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-rate-of-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Rate of Return
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -892,6 +1036,51 @@ a(s, t) = \frac{a(t)}{a(s)}
 a(t_0, t_n) = a(t_0, t_1) \cdot a(t_1, t_2) \cdot \ldots \cdot a(t_{n - 1}, t_n)
 \]</div>
 <p>That's just how math works.</p>
+<h2 id="present-value-and-time-value">Present Value and Time Value</h2>
+<h3 id="present-value">Present Value</h3>
+<p>Congrats! In <span class="arithmatex">\(t\)</span> units of time, you will receive <span class="arithmatex">\(c\)</span> dollars. But how much is that worth right now? Well, we know the total accumulated value of <span class="arithmatex">\(1\)</span> dollar after <span class="arithmatex">\(t\)</span> units of time is just <span class="arithmatex">\(a(t)\)</span>. Sooo&hellip; <span class="arithmatex">\(c\)</span> dollars received in <span class="arithmatex">\(t\)</span> units of time is worth <span class="arithmatex">\(\frac{c}{a(t)}\)</span>. Easy.</p>
+<p>And just because we can, we might as well generalize. For a <strong>cash flow</strong></p>
+<div class="arithmatex">\[ C = \{(c_1, t_1), (c_2, t_2), \ldots, (c_n, t_n)\} \]</div>
+<p>the present value of said cash flow is:</p>
+<div class="arithmatex">\[ PV(C) = \sum_{i=1}^{n} \frac{c_i}{a(t_i)} \]</div>
+<p>FYI, this is called <strong>discounting</strong>.</p>
+<h3 id="time-value">Time Value</h3>
+<p>What if we don't care about the present, but some other time <span class="arithmatex">\(t^\prime\)</span> instead? Well, we know how much <span class="arithmatex">\(C\)</span> is worth at present, so we just multiply by <span class="arithmatex">\(a(t^\prime)\)</span> to get:</p>
+<div class="arithmatex">\[ {TV}_{t^\prime}(C) = PV(C) \cdot a(t^\prime) \]</div>
+<p>Note that <span class="arithmatex">\(PV(C)\)</span> is really just <span class="arithmatex">\(TV_0(C)\)</span>. In general, for <span class="arithmatex">\(0 \leq t \leq t^{\prime}\)</span>, we have:</p>
+<div class="arithmatex">\[ 
+\begin{align*}
+TV_{t^\prime}(C)
+&amp; = \frac{TV_{t}(C)}{a(t)} \cdot a(t^\prime) \\
+&amp; = \frac{a(t^\prime)}{a(t)} \cdot TV_{t}(C) \\
+&amp; = a(t, t^\prime) \cdot TV_{t}(C)
+\end{align*}
+\]</div>
+<p>Nice.</p>
+<h3 id="principle-of-equivalence">Principle of Equivalence</h3>
+<p>Two cash flows <span class="arithmatex">\(C_1\)</span> and <span class="arithmatex">\(C_2\)</span> in the same environment (i.e., same accumulation function <span class="arithmatex">\(a\)</span>) are equivalent if <span class="arithmatex">\(TV_t(C_1) = TV_t(C_2)\)</span> for <em>some</em> time <span class="arithmatex">\(t \geq 0\)</span>. When this holds, <span class="arithmatex">\(TV_t(C_1) = TV_t(C_2)\)</span> is actually true for <em>all</em> times <span class="arithmatex">\(t \geq 0\)</span>.</p>
+<p>This is fairly intuitive, but I think it's a neat property.</p>
+<h3 id="deferred-cash-flow">Deferred Cash Flow</h3>
+<p>Sike, I lied. You'll actually receive your cash flow <span class="arithmatex">\(C\)</span> after a <span class="arithmatex">\(k\)</span>-year delay, which we'll denote as <span class="arithmatex">\(C_{(k)}\)</span>. What is its present value now?</p>
+<p>For an <em>annual effective interest rate</em> of <span class="arithmatex">\(r\)</span>:</p>
+<div class="arithmatex">\[ PV(C_{(k)}) = \frac{PV(C)}{(1 + r)^k} \]</div>
+<p>Don't get the numerator and denominator the wrong way round. If your cash flow is <em>deferred</em> by <span class="arithmatex">\(k\)</span> years, then it should be worth less at present, due to the compounded interest of those extra <span class="arithmatex">\(k\)</span> years. Well, assuming your cash flow is positive anyway.</p>
+<h2 id="internal-rate-of-return">Internal Rate of Return</h2>
+<p>For reasons unknown, I find myself in an alien kingdom. There are plenty of banks here, which means plenty of opportunities to get my money's worth. Excellent.</p>
+<p>I go to one such bank. I ask them what their annual effective interest rate is. They have no idea what I'm talking about, because they don't speak English.</p>
+<p>I take out some units of their local currency from my pocket. Luckily, they seem to get the memo this time, and they show me a big table of cash payments:</p>
+<div class="arithmatex">\[ C = \{(c_1, t_1), (c_2, t_2), \ldots, (c_n, t_n)\} \]</div>
+<p>"So, uh, what's your interest rate then?" I ask. They still have no idea what I'm talking about, because they still don't speak English.</p>
+<p>Well, if they refuse to be accommodating to foreigners, I guess I'll have to take matters into my own hands.</p>
+<p>For an annual effective interest rate of <span class="arithmatex">\(r\)</span>, the present value of <span class="arithmatex">\(C\)</span> is:</p>
+<div class="arithmatex">\[ PV(C) = \sum_{i=1}^{n} \frac{c_i}{(1 + r)^{t_i}} \]</div>
+<p>Since this is a bank after all, I expect that <span class="arithmatex">\(PV(C)\)</span> should equal the amount of money I offered them. We'll denote this initial payment as <span class="arithmatex">\((c_0, 0)\)</span>. Here, <span class="arithmatex">\(c_0\)</span> should be negative, since I'm giving the bank my money. All other <span class="arithmatex">\(c_i\)</span> should be positive, since the bank is giving <em>me</em> money.</p>
+<p>Thus, we wish to solve for the following <strong>equation of value</strong>:</p>
+<div class="arithmatex">\[ c_0 + \sum_{i=1}^{n} \frac{c_i}{(1 + r)^{t_i}} = 0 \]</div>
+<p>Under these constraints (<span class="arithmatex">\(c_0 &lt; 0\)</span>, <span class="arithmatex">\(c_i &gt; 0\)</span> and <span class="arithmatex">\(t_i &gt; 0\)</span> for <span class="arithmatex">\(i \geq 1\)</span>), it can be shown that this equation has a <em>unique</em> root <span class="arithmatex">\(r &gt; -1\)</span>, which we'll call the <strong>internal rate of return</strong> (IRR).</p>
+<p>That's cool and all, but who cares? It's not like the bank is actually paying me on a regular basis. Their payment times <span class="arithmatex">\(t_i\)</span> are all over the place.</p>
+<p>Well, if this alien bank had an IRR of <span class="arithmatex">\(10\%\)</span>, and some other alien bank had an IRR of <span class="arithmatex">\(50\%\)</span>, then it's (probably) worth going to the other bank instead. Of course, there's more nuance to this. If getting that <span class="arithmatex">\(50\%\)</span> IRR required me to pay way more money upfront, or the bank was ethically questionable and at risk of shutting down, then maybe I should think twice about it.</p>
+<p>But anyway, IRR gives us an imperfect but much more intuitive grasp than just staring at a pile of cash payments. This applies to many other things, such as companies making financial decisions about the profitability of projects, not just rude alien banks.</p>
 
 
 
@@ -912,7 +1101,7 @@ a(t_0, t_n) = a(t_0, t_1) \cdot a(t_1, t_2) \cdot \ldots \cdot a(t_{n - 1}, t_n)
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 20, 2026 04:57:32 UTC"><span class="timeago" datetime="2026-08-20T04:57:32+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 20, 2026 04:57:32 UTC">2026-08-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 24, 2026 03:30:24 UTC"><span class="timeago" datetime="2026-08-24T03:30:24+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 24, 2026 03:30:24 UTC">2026-08-24</span>
   </span>
 
     
