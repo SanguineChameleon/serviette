@@ -161,4 +161,59 @@ The demand curve shifts to the right, because customers want to buy so many more
 
 Eventually, the trend dies out, much to the boys' relief. The demand curve shifts to the left, so the equilibrium price and equilibrium quantity both go back down.
 
+## Inverse supply function
 
+Economists are funny, but there's a method to this madness. Typically, we think of quantity supplied as a function of the price, but we may as well think of price as a function of quantity supplied instead. They're inverses of each other, anyway.
+
+As a reminder, a point on the supply curve (say $P = 3$, $Q = 50$) means that for a price of $P = 3$ per brownie, the boys should produce $Q = 50$ brownies a day. Why $50$ and not $51$? Because the marginal cost of producing $1$ more brownie would exceed the price threshold of $3$, so they should just stop at $50$. For simplicity, we'll say the marginal cost of producing the $50$-th brownie is *exactly* $3$. Similarly, the point $P = 4$, $Q = 60$ means that the marginal cost of producing the $60$-th brownie is $4$.
+
+In fact, in our (simplified) model, the **inverse supply function** (i.e., what we typically think of as the supply curve) *is* the marginal cost curve. We can determine the marginal cost of the $i$-th brownie just by looking at where the supply curve intersects with the line $Q = i$.
+
+But brownies are merely discrete. We wish to ascend to another plane of, uh, continuity.
+
+Luckily, with a dash of calculus, there's a nice interpretation: the inverse supply function is simply the derivative of the total cost with respect to quantity!
+
+## Inverse demand function
+
+It's basically the same jazz for the consumers. Here we'd care about the **marginal benefit** (or willingness to pay) of the product instead. I trust that you can fill in the details.
+
+One thing worth noting is that this marginal value is with respect to the *entire* market, since our demand curve is for all customers. Roughly speaking, the marginal value represents how much someone at the bakery is willing to pay for the next brownie; it need not represent the same person at every quantity. But you can, of course, have a curve for each customer -- it'd just be a waste of ink.
+
+## Economic surplus
+
+For the $i$-th brownie, its marginal benefit $P$ is the intersection of the demand curve with the line $Q = i$. What happens when this $P$ is higher than the market equilibrium price, which we'll call $P_m$? Well, the customer buying that $1$ brownie must be very happy: they were willing to pay $P$ for it, but they only had to pay $P_m$. We call this difference, $P - P_m$, the **consumer surplus**.
+
+But customers are discrete, fleshy meatbags. We want to-- you get the point. Something something calculus; it's the area of the (triangular-ish) region above the equilibrium price and below the demand curve.
+
+Unsurprisingly, we also have **producer surplus**. That'd be the area of the (triangular-ish) region below the equilibrium price and above the supply curve.
+
+The sum of these is known appropriately as the **total surplus**.
+
+![](some-econ-things/surplus.png){style="width:70%;"}
+
+## Elasticity
+
+How can we intuitively compare different markets with each other? After all, the boys sell other baked good(s), like apple pies, and those might be produced and consumed at wildly different prices or quantities.
+
+One such metric we can use is **elasticity**. Consider some point on the demand curve. Here we'll just take the equilibrium price and quantity, $P$ and $Q$. The price elasticity of the demand curve is the ratio between the percentage change of quantity demanded and the percentage change of price.
+
+In symbols, this would look like:
+
+$$ \epsilon \approx \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}} $$
+
+Note the approximate symbol. Since $\Delta P$ (and thus $\Delta Q$) is chosen somewhat arbitrarily, we might end up with slightly different values of $\epsilon$. But of course, you already know by now that I'm a calculus zealot, so:
+
+$$
+\begin{align*}
+\epsilon
+& \approx \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}} \\
+& \approx \frac{\Delta Q}{\Delta P} \cdot \frac{P}{Q}\\
+& = \frac{dQ}{dP} \cdot \frac{P}{Q}\\
+\end{align*}
+$$
+
+By definition, $\epsilon$ depends on where on the demand curve you are. Again, here we're taking it at the market equilibrium, because, well, that's where markets tend to be anyway, right?
+
+Also by definition, unless the market is incredibly cursed, $\epsilon$ here must be negative. An increase in price results in a decrease in quantity demanded, after all. So by convention, we'll implicitly be talking about its absolute value instead. 
+
+You can find the elasticity of pretty much anything. Price elasticity of demand, price elasticity of supply, income elasticity of demand, cross-price elasticity of demand, whatever. Anything differentiable, most likely you can find its elasticity.
