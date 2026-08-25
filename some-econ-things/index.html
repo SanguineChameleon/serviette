@@ -603,6 +603,50 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#inverse-supply-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inverse supply function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-demand-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inverse demand function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#economic-surplus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Economic surplus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elasticity
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -871,6 +915,50 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#inverse-supply-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inverse supply function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-demand-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inverse demand function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#economic-surplus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Economic surplus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elasticity
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1008,6 +1096,38 @@
 <p>Cindy has just launched a social media campaign about how wonderful brownies are. Andy and Benny groan in despair.</p>
 <p>The demand curve shifts to the right, because customers want to buy so many more brownies now. The supply curve stays still; the boys can do nothing but watch helplessly. The equilibrium price goes <em>up</em>, incentivizing the boys to produce more brownies for the customers. The equilibrium quantity also goes <em>up</em> despite the higher price, as customers are willing to buy more brownies at <em>any</em> given price, just to fulfill their brownie needs.</p>
 <p>Eventually, the trend dies out, much to the boys' relief. The demand curve shifts to the left, so the equilibrium price and equilibrium quantity both go back down.</p>
+<h2 id="inverse-supply-function">Inverse supply function</h2>
+<p>Economists are funny, but there's a method to this madness. Typically, we think of quantity supplied as a function of the price, but we may as well think of price as a function of quantity supplied instead. They're inverses of each other, anyway.</p>
+<p>As a reminder, a point on the supply curve (say <span class="arithmatex">\(P = 3\)</span>, <span class="arithmatex">\(Q = 50\)</span>) means that for a price of <span class="arithmatex">\(P = 3\)</span> per brownie, the boys should produce <span class="arithmatex">\(Q = 50\)</span> brownies a day. Why <span class="arithmatex">\(50\)</span> and not <span class="arithmatex">\(51\)</span>? Because the marginal cost of producing <span class="arithmatex">\(1\)</span> more brownie would exceed the price threshold of <span class="arithmatex">\(3\)</span>, so they should just stop at <span class="arithmatex">\(50\)</span>. For simplicity, we'll say the marginal cost of producing the <span class="arithmatex">\(50\)</span>-th brownie is <em>exactly</em> <span class="arithmatex">\(3\)</span>. Similarly, the point <span class="arithmatex">\(P = 4\)</span>, <span class="arithmatex">\(Q = 60\)</span> means that the marginal cost of producing the <span class="arithmatex">\(60\)</span>-th brownie is <span class="arithmatex">\(4\)</span>.</p>
+<p>In fact, in our (simplified) model, the <strong>inverse supply function</strong> (i.e., what we typically think of as the supply curve) <em>is</em> the marginal cost curve. We can determine the marginal cost of the <span class="arithmatex">\(i\)</span>-th brownie just by looking at where the supply curve intersects with the line <span class="arithmatex">\(Q = i\)</span>.</p>
+<p>But brownies are merely discrete. We wish to ascend to another plane of, uh, continuity.</p>
+<p>Luckily, with a dash of calculus, there's a nice interpretation: the inverse supply function is simply the derivative of the total cost with respect to quantity!</p>
+<h2 id="inverse-demand-function">Inverse demand function</h2>
+<p>It's basically the same jazz for the consumers. Here we'd care about the <strong>marginal benefit</strong> (or willingness to pay) of the product instead. I trust that you can fill in the details.</p>
+<p>One thing worth noting is that this marginal value is with respect to the <em>entire</em> market, since our demand curve is for all customers. Roughly speaking, the marginal value represents how much someone at the bakery is willing to pay for the next brownie; it need not represent the same person at every quantity. But you can, of course, have a curve for each customer &ndash; it'd just be a waste of ink.</p>
+<h2 id="economic-surplus">Economic surplus</h2>
+<p>For the <span class="arithmatex">\(i\)</span>-th brownie, its marginal benefit <span class="arithmatex">\(P\)</span> is the intersection of the demand curve with the line <span class="arithmatex">\(Q = i\)</span>. What happens when this <span class="arithmatex">\(P\)</span> is higher than the market equilibrium price, which we'll call <span class="arithmatex">\(P_m\)</span>? Well, the customer buying that <span class="arithmatex">\(1\)</span> brownie must be very happy: they were willing to pay <span class="arithmatex">\(P\)</span> for it, but they only had to pay <span class="arithmatex">\(P_m\)</span>. We call this difference, <span class="arithmatex">\(P - P_m\)</span>, the <strong>consumer surplus</strong>.</p>
+<p>But customers are discrete, fleshy meatbags. We want to&ndash; you get the point. Something something calculus; it's the area of the (triangular-ish) region above the equilibrium price and below the demand curve.</p>
+<p>Unsurprisingly, we also have <strong>producer surplus</strong>. That'd be the area of the (triangular-ish) region below the equilibrium price and above the supply curve.</p>
+<p>The sum of these is known appropriately as the <strong>total surplus</strong>.</p>
+<p><img alt="" src="../econ/some-econ-things/surplus.png" style="width:70%;" /></p>
+<h2 id="elasticity">Elasticity</h2>
+<p>How can we intuitively compare different markets with each other? After all, the boys sell other baked good(s), like apple pies, and those might be produced and consumed at wildly different prices or quantities.</p>
+<p>One such metric we can use is <strong>elasticity</strong>. Consider some point on the demand curve. Here we'll just take the equilibrium price and quantity, <span class="arithmatex">\(P\)</span> and <span class="arithmatex">\(Q\)</span>. The price elasticity of the demand curve is the ratio between the percentage change of quantity demanded and the percentage change of price.</p>
+<p>In symbols, this would look like:</p>
+<div class="arithmatex">\[ \epsilon \approx \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}} \]</div>
+<p>Note the approximate symbol. Since <span class="arithmatex">\(\Delta P\)</span> (and thus <span class="arithmatex">\(\Delta Q\)</span>) is chosen somewhat arbitrarily, we might end up with slightly different values of <span class="arithmatex">\(\epsilon\)</span>. But of course, you already know by now that I'm a calculus zealot, so:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\epsilon
+&amp; \approx \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}} \\
+&amp; \approx \frac{\Delta Q}{\Delta P} \cdot \frac{P}{Q}\\
+&amp; = \frac{dQ}{dP} \cdot \frac{P}{Q}\\
+\end{align*}
+\]</div>
+<p>By definition, <span class="arithmatex">\(\epsilon\)</span> depends on where on the demand curve you are. Again, here we're taking it at the market equilibrium, because, well, that's where markets tend to be anyway, right?</p>
+<p>Also by definition, unless the market is incredibly cursed, <span class="arithmatex">\(\epsilon\)</span> here must be negative. An increase in price results in a decrease in quantity demanded, after all. So by convention, we'll implicitly be talking about its absolute value instead. </p>
+<p>You can find the elasticity of pretty much anything. Price elasticity of demand, price elasticity of supply, income elasticity of demand, cross-price elasticity of demand, whatever. Anything differentiable, most likely you can find its elasticity.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -1036,7 +1156,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 23, 2026 11:34:54 UTC"><span class="timeago" datetime="2026-08-23T11:34:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 23, 2026 11:34:54 UTC">2026-08-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 25, 2026 09:36:17 UTC"><span class="timeago" datetime="2026-08-25T09:36:17+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 25, 2026 09:36:17 UTC">2026-08-25</span>
   </span>
 
     
