@@ -645,6 +645,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Elasticity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elastic-and-inelastic-demand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic and inelastic demand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-and-inelastic-supply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic and inelastic supply
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -957,6 +985,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Elasticity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elastic-and-inelastic-demand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic and inelastic demand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-and-inelastic-supply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic and inelastic supply
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1113,7 +1169,7 @@
 <p><img alt="" src="../econ/some-econ-things/surplus.png" style="width:70%;" /></p>
 <h2 id="elasticity">Elasticity</h2>
 <p>How can we intuitively compare different markets with each other? After all, the boys sell other baked good(s), like apple pies, and those might be produced and consumed at wildly different prices or quantities.</p>
-<p>One such metric we can use is <strong>elasticity</strong>. Consider some point on the demand curve. Here we'll just take the equilibrium price and quantity, <span class="arithmatex">\(P\)</span> and <span class="arithmatex">\(Q\)</span>. The price elasticity of the demand curve is the ratio between the percentage change of quantity demanded and the percentage change of price.</p>
+<p>One such metric we can use is <strong>elasticity</strong>. Consider some point on the demand curve. Here we'll just take the equilibrium price and quantity, <span class="arithmatex">\(P\)</span> and <span class="arithmatex">\(Q\)</span>. The price elasticity of demand is the ratio between the percentage change of quantity demanded and the percentage change of price.</p>
 <p>In symbols, this would look like:</p>
 <div class="arithmatex">\[ \epsilon \approx \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}} \]</div>
 <p>Note the approximate symbol. Since <span class="arithmatex">\(\Delta P\)</span> (and thus <span class="arithmatex">\(\Delta Q\)</span>) is chosen somewhat arbitrarily, we might end up with slightly different values of <span class="arithmatex">\(\epsilon\)</span>. But of course, you already know by now that I'm a calculus zealot, so:</p>
@@ -1126,8 +1182,43 @@
 \end{align*}
 \]</div>
 <p>By definition, <span class="arithmatex">\(\epsilon\)</span> depends on where on the demand curve you are. Again, here we're taking it at the market equilibrium, because, well, that's where markets tend to be anyway, right?</p>
-<p>Also by definition, unless the market is incredibly cursed, <span class="arithmatex">\(\epsilon\)</span> here must be negative. An increase in price results in a decrease in quantity demanded, after all. So by convention, we'll implicitly be talking about its absolute value instead. </p>
+<p>Also by definition, unless the market is incredibly cursed, <span class="arithmatex">\(\epsilon\)</span> here must be negative. An increase in price results in a decrease in quantity demanded, after all. So by convention, we'll talk about its absolute value <span class="arithmatex">\(|\epsilon|\)</span> instead. </p>
 <p>You can find the elasticity of pretty much anything. Price elasticity of demand, price elasticity of supply, income elasticity of demand, cross-price elasticity of demand, whatever. Anything differentiable, most likely you can find its elasticity.</p>
+<h3 id="elastic-and-inelastic-demand">Elastic and inelastic demand</h3>
+<p>Let the total revenue <span class="arithmatex">\(R\)</span> be price times quantity, so <span class="arithmatex">\(R = P \cdot Q\)</span>. Then, by the product rule:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\frac{dR}{dP}
+&amp;= Q + P \cdot \frac{dQ}{dP} \\
+&amp;= Q(1 + \frac{P}{Q} \cdot \frac{dQ}{dP}) \\
+&amp;= Q(1 + \epsilon)
+\end{align*}
+\]</div>
+<p>Thus, we can conclude that:</p>
+<ul>
+<li>
+<p>If <span class="arithmatex">\(|\epsilon| &gt; 1\)</span> (so <span class="arithmatex">\(\epsilon &lt; -1\)</span>), then <span class="arithmatex">\(\frac{dR}{dP} &lt; 0\)</span>, which means <em>increasing</em> the price by a small amount results in a small <em>decrease</em> in revenue. We call this <em>elastic</em> demand.</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(|\epsilon| &lt; 1\)</span> (so <span class="arithmatex">\(\epsilon &gt; -1\)</span>), then <span class="arithmatex">\(\frac{dR}{dP} &gt; 0\)</span>, which means <em>increasing</em> the price by a small amount results in a small <em>increase</em> in revenue. We call this <em>inelastic</em> demand.</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(|\epsilon| = 1\)</span>, then the demand is <em>unit-elastic</em>. A small change in price (positive or negative) basically won't affect the revenue.</p>
+</li>
+</ul>
+<p>Why those names? Well, returning to our baker boys, if their baked goods were <em>inelastic</em>, that means their customers are loyal. If they charged a little bit more, the customers would still happily buy their baked goods. On the other hand, if their baked goods were <em>elastic</em>, that means their customers are more flexible with their options. Charge us more for your brownies? Who cares, we'll just go somewhere else.</p>
+<p>In particular, when the demand curve is a simple downward-sloping straight line, the quantity <span class="arithmatex">\(\frac{dQ}{dP}\)</span> is constant, so at higher prices <span class="arithmatex">\(P\)</span> (and thus lower quantities <span class="arithmatex">\(Q\)</span>), <span class="arithmatex">\(|\epsilon|\)</span> is higher, so the demand is more elastic. Likewise, for lower prices <span class="arithmatex">\(P\)</span> (and thus higher quantities <span class="arithmatex">\(Q\)</span>), the demand is more inelastic. This makes sense: I have been eating cheap Mixue ice creams for years now, and damn it, I would still eat them even if they charged <span class="arithmatex">\(50\)</span> more cents per ice cream.</p>
+<p>Some funny edge cases:</p>
+<ul>
+<li>
+<p>If <span class="arithmatex">\(|\epsilon| = 0\)</span>, that means the demand curve is really a straight vertical line. No matter how wildly you change the price, the quantity demanded will not change. We say the demand is <strong>perfectly inelastic</strong>.</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(|\epsilon| = \infty\)</span>, that means the demand curve is really a straight horizontal line. Make the price a little bit higher, and people will riot and stop buying your product immediately. Make the price a little bit lower, and people will go crazy and buy until you run out. We say the demand is <strong>perfectly elastic</strong>.</p>
+</li>
+</ul>
+<h3 id="elastic-and-inelastic-supply">Elastic and inelastic supply</h3>
+<p>Self-explanatory.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -1156,7 +1247,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 25, 2026 09:36:17 UTC"><span class="timeago" datetime="2026-08-25T09:36:17+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 25, 2026 09:36:17 UTC">2026-08-25</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 26, 2026 10:42:23 UTC"><span class="timeago" datetime="2026-08-26T10:42:23+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 26, 2026 10:42:23 UTC">2026-08-26</span>
   </span>
 
     
