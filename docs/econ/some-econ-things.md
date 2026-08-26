@@ -195,7 +195,7 @@ The sum of these is known appropriately as the **total surplus**.
 
 How can we intuitively compare different markets with each other? After all, the boys sell other baked good(s), like apple pies, and those might be produced and consumed at wildly different prices or quantities.
 
-One such metric we can use is **elasticity**. Consider some point on the demand curve. Here we'll just take the equilibrium price and quantity, $P$ and $Q$. The price elasticity of the demand curve is the ratio between the percentage change of quantity demanded and the percentage change of price.
+One such metric we can use is **elasticity**. Consider some point on the demand curve. Here we'll just take the equilibrium price and quantity, $P$ and $Q$. The price elasticity of demand is the ratio between the percentage change of quantity demanded and the percentage change of price.
 
 In symbols, this would look like:
 
@@ -214,6 +214,41 @@ $$
 
 By definition, $\epsilon$ depends on where on the demand curve you are. Again, here we're taking it at the market equilibrium, because, well, that's where markets tend to be anyway, right?
 
-Also by definition, unless the market is incredibly cursed, $\epsilon$ here must be negative. An increase in price results in a decrease in quantity demanded, after all. So by convention, we'll implicitly be talking about its absolute value instead. 
+Also by definition, unless the market is incredibly cursed, $\epsilon$ here must be negative. An increase in price results in a decrease in quantity demanded, after all. So by convention, we'll talk about its absolute value $|\epsilon|$ instead. 
 
 You can find the elasticity of pretty much anything. Price elasticity of demand, price elasticity of supply, income elasticity of demand, cross-price elasticity of demand, whatever. Anything differentiable, most likely you can find its elasticity.
+
+### Elastic and inelastic demand
+
+Let the total revenue $R$ be price times quantity, so $R = P \cdot Q$. Then, by the product rule:
+
+$$
+\begin{align*}
+\frac{dR}{dP}
+&= Q + P \cdot \frac{dQ}{dP} \\
+&= Q(1 + \frac{P}{Q} \cdot \frac{dQ}{dP}) \\
+&= Q(1 + \epsilon)
+\end{align*}
+$$
+
+Thus, we can conclude that:
+
+- If $|\epsilon| > 1$ (so $\epsilon < -1$), then $\frac{dR}{dP} < 0$, which means *increasing* the price by a small amount results in a small *decrease* in revenue. We call this *elastic* demand.
+
+- If $|\epsilon| < 1$ (so $\epsilon > -1$), then $\frac{dR}{dP} > 0$, which means *increasing* the price by a small amount results in a small *increase* in revenue. We call this *inelastic* demand.
+
+- If $|\epsilon| = 1$, then the demand is *unit-elastic*. A small change in price (positive or negative) basically won't affect the revenue.
+
+Why those names? Well, returning to our baker boys, if their baked goods were *inelastic*, that means their customers are loyal. If they charged a little bit more, the customers would still happily buy their baked goods. On the other hand, if their baked goods were *elastic*, that means their customers are more flexible with their options. Charge us more for your brownies? Who cares, we'll just go somewhere else.
+
+In particular, when the demand curve is a simple downward-sloping straight line, the quantity $\frac{dQ}{dP}$ is constant, so at higher prices $P$ (and thus lower quantities $Q$), $|\epsilon|$ is higher, so the demand is more elastic. Likewise, for lower prices $P$ (and thus higher quantities $Q$), the demand is more inelastic. This makes sense: I have been eating cheap Mixue ice creams for years now, and damn it, I would still eat them even if they charged $50$ more cents per ice cream.
+
+Some funny edge cases:
+
+- If $|\epsilon| = 0$, that means the demand curve is really a straight vertical line. No matter how wildly you change the price, the quantity demanded will not change. We say the demand is **perfectly inelastic**.
+
+- If $|\epsilon| = \infty$, that means the demand curve is really a straight horizontal line. Make the price a little bit higher, and people will riot and stop buying your product immediately. Make the price a little bit lower, and people will go crazy and buy until you run out. We say the demand is **perfectly elastic**.
+
+### Elastic and inelastic supply
+
+Self-explanatory.
