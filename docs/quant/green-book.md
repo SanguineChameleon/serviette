@@ -583,7 +583,7 @@ $$
 &= \frac{dy}{dz} \cdot \frac{dz}{dw} \cdot \frac{dw}{dx} \\
 &= e^z \cdot (\ln(w) + 1) \cdot \frac{1}{x} \\
 &= \ln(x)^{\ln(x)} \cdot (\ln(\ln(x)) + 1) \cdot \frac{1}{x} \\
-&= \frac{\ln(x)^{\ln(x)} \cdot \ln(\ln(x)) + \ln(x)^{\ln(x)}}{x} \\
+&= \boxed{\frac{\ln(x)^{\ln(x)} \cdot \ln(\ln(x)) + \ln(x)^{\ln(x)}}{x}} \\
 \end{align*}
 $$
 
@@ -614,7 +614,7 @@ g^\prime(x) &= \frac{\ln(x) - 1}{\ln(x)^2}
 \end{align*}
 $$
 
-Thus, $g^\prime(x) > 0$ for $x > e$, so $g(x)$ is increasing for $x > e$. Therefore, $g(\pi) > g(e)$, which means $e^{\pi} > \pi^{e}$.
+Thus, $g^\prime(x) > 0$ for $x > e$, so $g(x)$ is increasing for $x > e$. Therefore, $g(\pi) > g(e)$, which means $\boxed{e^{\pi} > \pi^{e}}$.
 
 !!! Exercise
 
@@ -626,7 +626,7 @@ $$
 \begin{align*}
 \lim_{x \to \infty} \frac{e^x}{x^2} &= \lim_{x \to \infty}\frac{e^x}{2x} \\
 &= \lim_{x \to \infty}\frac{e^x}{2} \\
-&= \infty
+&= \boxed{\infty}
 \end{align*}
 $$
 
@@ -640,7 +640,7 @@ $$
 \begin{align*}
 \lim_{x \to 0^+} \frac{\ln(x)}{x^{-2}} &= \lim_{x \to 0^+}\frac{1}{-2x^{-2}} \\
 &= \lim_{x \to 0^+}-\frac{1}{2}x^2 \\
-&= 0
+&= \boxed{0}
 \end{align*}
 $$
 
@@ -658,7 +658,7 @@ $$
 &= \int \frac{du}{dx} \cdot v\,dx \\
 &= u \cdot v - \int \frac{dv}{dx} \cdot u\,dx \\
 &= x \cdot \ln(x) - \int 1\,dx \\
-&= x \cdot \ln(x) - x + C\\
+&= \boxed{x \cdot \ln(x) - x + C}\\
 \end{align*}
 $$
 
@@ -687,7 +687,7 @@ Therefore:
 $$
 \begin{align*}
 \int_0^{\frac{\pi}{6}} \sec(x)\,dx &= \frac{1}{2}\left(\ln\left(1 + \frac{1}{2}\right) - \ln\left(1 - \frac{1}{2}\right)\right) - \frac{1}{2}(\ln(1 + 0) - \ln(1 - 0)) \\
-&= \frac{\ln(3)}{2}
+&= \boxed{\frac{\ln(3)}{2}}
 \end{align*}
 $$
 
@@ -727,6 +727,6 @@ $$
 \begin{align*}
 \int_{-1}^{1} 4(1 - z^2)\, dz &= \left[4z - \frac{4}{3}z^3\right]_{-1}^{1} \\
 &= \frac{8}{3} - \left(-\frac{8}{3}\right) \\
-&= \frac{16}{3}
+&= \boxed{\frac{16}{3}}
 \end{align*}
 $$
