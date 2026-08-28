@@ -568,3 +568,165 @@ Prisoner $i$ assumes the sum of all the prisoners' hat colors (including his own
 ## Chapter 3 -- Calculus and Linear Algebra
 
 Oh thank goodness, we're done with the brain teasers.
+
+### Limits and Derivatives
+
+!!! Exercise
+
+    What is the derivative of $y = \ln(x)^{\ln(x)}$?
+
+Let $w = \ln(x)$ and $z = \ln(y) = w \cdot \ln(w)$, so $y = e^z$. Then:
+
+$$
+\begin{align*}
+\frac{dy}{dx}
+&= \frac{dy}{dz} \cdot \frac{dz}{dw} \cdot \frac{dw}{dx} \\
+&= e^z \cdot (\ln(w) + 1) \cdot \frac{1}{x} \\
+&= \ln(x)^{\ln(x)} \cdot (\ln(\ln(x)) + 1) \cdot \frac{1}{x} \\
+&= \frac{\ln(x)^{\ln(x)} \cdot \ln(\ln(x)) + \ln(x)^{\ln(x)}}{x} \\
+\end{align*}
+$$
+
+!!! Exercise
+
+    Without calculating the numerical results, which is larger, $e^\pi$ or $\pi^e$?
+
+I remember seeing this on TikTok; apparently you're supposed to do this in your head. Insane.
+
+Note that $\ln(x)$ is increasing for $x > 0$, so it suffices to compare their logarithms instead:
+
+$$
+\begin{align*}
+e^\pi &\lessgtr \pi^e \\
+\iff \ln(e^\pi) &\lessgtr \ln(\pi^e) \\
+\iff \pi \cdot \ln(e) &\lessgtr e \cdot \ln(\pi) \\
+\iff \frac{\pi}{\ln{\pi}} &\lessgtr \frac{e}{\ln{e}}
+\end{align*}
+$$
+
+Let $g(x) = \frac{x}{\ln(x)}$. We wish to compare $g(\pi)$ and $g(e)$.
+
+Let's try computing $g^\prime(x)$ first and see what we get:
+
+$$
+\begin{align*}
+g^\prime(x) &= \frac{\ln(x) - 1}{\ln(x)^2}
+\end{align*}
+$$
+
+Thus, $g^\prime(x) > 0$ for $x > e$, so $g(x)$ is increasing for $x > e$. Therefore, $g(\pi) > g(e)$, which means $e^{\pi} > \pi^{e}$.
+
+!!! Exercise
+
+    What is the limit of $\frac{e^x}{x^2}$ as $x \to \infty$?
+
+Just whack L'Hôpital:
+
+$$
+\begin{align*}
+\lim_{x \to \infty} \frac{e^x}{x^2} &= \lim_{x \to \infty}\frac{e^x}{2x} \\
+&= \lim_{x \to \infty}\frac{e^x}{2} \\
+&= \infty
+\end{align*}
+$$
+
+!!! Exercise
+
+    What is the limit of $x^2 \ln(x)$ as $x \to 0^+$?
+
+Express $x^2 \ln(x)$ as $\frac{\ln(x)}{x^{-2}}$ and whack L'Hôpital again:
+
+$$
+\begin{align*}
+\lim_{x \to 0^+} \frac{\ln(x)}{x^{-2}} &= \lim_{x \to 0^+}\frac{1}{-2x^{-2}} \\
+&= \lim_{x \to 0^+}-\frac{1}{2}x^2 \\
+&= 0
+\end{align*}
+$$
+
+### Integrals
+
+!!! Exercise
+
+    What is the integral of $\ln(x)$?
+
+Whack integration by parts. Let $u = x$, $v = \ln(x)$. Then:
+
+$$
+\begin{align*}
+\int \ln(x)\,dx &= \int 1 \cdot \ln(x)\,dx \\
+&= \int \frac{du}{dx} \cdot v\,dx \\
+&= u \cdot v - \int \frac{dv}{dx} \cdot u\,dx \\
+&= x \cdot \ln(x) - \int 1\,dx \\
+&= x \cdot \ln(x) - x + C\\
+\end{align*}
+$$
+
+!!! Exercise
+
+    What is the integral of $\sec(x)$ from $x = 0$ to $x = \frac{\pi}{6}$?
+
+I genuinely had a stroke solving this.
+
+We'll use integration by substitution. Let $u = \sin(x)$. Then:
+
+$$
+\begin{align*}
+\int \sec(x)\,dx &= \int \frac{\cos(x)}{\cos^2(x)}\, dx \\
+&= \int \frac{1}{1 - \sin^2(x)} \cdot \cos(x) \, dx \\
+&= \int \frac{1}{1 - u^2} \cdot \frac{du}{dx} \, dx \\
+&= \int \frac{1}{1 - u^2} \, du \\
+&= \frac{1}{2} \cdot \int \left(\frac{1}{1 - u} + \frac{1}{1 + u}\right) \, du \\
+&= \frac{1}{2}(\ln(1 + u) - \ln(1 - u)) + C \\
+&= \frac{1}{2}(\ln(1 + \sin(x)) - \ln(1 - \sin(x))) + C \\
+\end{align*}
+$$
+
+Therefore:
+
+$$
+\begin{align*}
+\int_0^{\frac{\pi}{6}} \sec(x)\,dx &= \frac{1}{2}\left(\ln\left(1 + \frac{1}{2}\right) - \ln\left(1 - \frac{1}{2}\right)\right) - \frac{1}{2}(\ln(1 + 0) - \ln(1 - 0)) \\
+&= \frac{\ln(3)}{2}
+\end{align*}
+$$
+
+I don't wanna talk about it.
+
+!!! Exercise
+
+    Two infinitely long cylinders, each with radius $1$, are perpendicular to each other and intersect at their centers. What is the volume of the intersection?
+
+Literally NO ONE ASKED--
+
+Label the cylinders $C_1$ and $C_2$ and let them intersect at the origin, $(0, 0, 0)$. Also let $C_1$ be parallel to the $x$-axis and $C_2$ be parallel to the $y$-axis.
+
+Thus, the equations for $C_1$ and $C_2$ are:
+
+$$
+\begin{align*}
+C_1&:\, y^2 + z^2 \leq 1 \\
+C_2&:\, x^2 + z^2 \leq 1
+\end{align*}
+$$
+
+Consider the two-dimensional slice of their intersection at some specific $z$ level. The corresponding $x$ and $y$ coordinates must satisfy:
+
+$$
+\begin{align*}
+-\sqrt{1 - z^2} \leq x \leq \sqrt{1 - z^2} \\
+-\sqrt{1 - z^2} \leq y \leq \sqrt{1 - z^2}
+\end{align*}
+$$
+
+So the area of this slice is exactly $4(1 - z^2)$.
+
+Integrating from $z = -1$ to $z = 1$ gives us:
+
+$$
+\begin{align*}
+\int_{-1}^{1} 4(1 - z^2)\, dz &= \left[4z - \frac{4}{3}z^3\right]_{-1}^{1} \\
+&= \frac{8}{3} - \left(-\frac{8}{3}\right) \\
+&= \frac{16}{3}
+\end{align*}
+$$
