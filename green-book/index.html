@@ -1990,7 +1990,7 @@ see the hat colors of the other <span class="arithmatex">\(6\)</span> prisoners,
 &amp;= \frac{dy}{dz} \cdot \frac{dz}{dw} \cdot \frac{dw}{dx} \\
 &amp;= e^z \cdot (\ln(w) + 1) \cdot \frac{1}{x} \\
 &amp;= \ln(x)^{\ln(x)} \cdot (\ln(\ln(x)) + 1) \cdot \frac{1}{x} \\
-&amp;= \frac{\ln(x)^{\ln(x)} \cdot \ln(\ln(x)) + \ln(x)^{\ln(x)}}{x} \\
+&amp;= \boxed{\frac{\ln(x)^{\ln(x)} \cdot \ln(\ln(x)) + \ln(x)^{\ln(x)}}{x}} \\
 \end{align*}
 \]</div>
 <div class="admonition exercise">
@@ -2014,7 +2014,7 @@ e^\pi &amp;\lessgtr \pi^e \\
 g^\prime(x) &amp;= \frac{\ln(x) - 1}{\ln(x)^2}
 \end{align*}
 \]</div>
-<p>Thus, <span class="arithmatex">\(g^\prime(x) &gt; 0\)</span> for <span class="arithmatex">\(x &gt; e\)</span>, so <span class="arithmatex">\(g(x)\)</span> is increasing for <span class="arithmatex">\(x &gt; e\)</span>. Therefore, <span class="arithmatex">\(g(\pi) &gt; g(e)\)</span>, which means <span class="arithmatex">\(e^{\pi} &gt; \pi^{e}\)</span>.</p>
+<p>Thus, <span class="arithmatex">\(g^\prime(x) &gt; 0\)</span> for <span class="arithmatex">\(x &gt; e\)</span>, so <span class="arithmatex">\(g(x)\)</span> is increasing for <span class="arithmatex">\(x &gt; e\)</span>. Therefore, <span class="arithmatex">\(g(\pi) &gt; g(e)\)</span>, which means <span class="arithmatex">\(\boxed{e^{\pi} &gt; \pi^{e}}\)</span>.</p>
 <div class="admonition exercise">
 <p class="admonition-title">Exercise</p>
 <p>What is the limit of <span class="arithmatex">\(\frac{e^x}{x^2}\)</span> as <span class="arithmatex">\(x \to \infty\)</span>?</p>
@@ -2024,7 +2024,7 @@ g^\prime(x) &amp;= \frac{\ln(x) - 1}{\ln(x)^2}
 \begin{align*}
 \lim_{x \to \infty} \frac{e^x}{x^2} &amp;= \lim_{x \to \infty}\frac{e^x}{2x} \\
 &amp;= \lim_{x \to \infty}\frac{e^x}{2} \\
-&amp;= \infty
+&amp;= \boxed{\infty}
 \end{align*}
 \]</div>
 <div class="admonition exercise">
@@ -2036,7 +2036,7 @@ g^\prime(x) &amp;= \frac{\ln(x) - 1}{\ln(x)^2}
 \begin{align*}
 \lim_{x \to 0^+} \frac{\ln(x)}{x^{-2}} &amp;= \lim_{x \to 0^+}\frac{1}{-2x^{-2}} \\
 &amp;= \lim_{x \to 0^+}-\frac{1}{2}x^2 \\
-&amp;= 0
+&amp;= \boxed{0}
 \end{align*}
 \]</div>
 <h3 id="integrals">Integrals</h3>
@@ -2051,7 +2051,7 @@ g^\prime(x) &amp;= \frac{\ln(x) - 1}{\ln(x)^2}
 &amp;= \int \frac{du}{dx} \cdot v\,dx \\
 &amp;= u \cdot v - \int \frac{dv}{dx} \cdot u\,dx \\
 &amp;= x \cdot \ln(x) - \int 1\,dx \\
-&amp;= x \cdot \ln(x) - x + C\\
+&amp;= \boxed{x \cdot \ln(x) - x + C}\\
 \end{align*}
 \]</div>
 <div class="admonition exercise">
@@ -2075,7 +2075,7 @@ g^\prime(x) &amp;= \frac{\ln(x) - 1}{\ln(x)^2}
 <div class="arithmatex">\[
 \begin{align*}
 \int_0^{\frac{\pi}{6}} \sec(x)\,dx &amp;= \frac{1}{2}\left(\ln\left(1 + \frac{1}{2}\right) - \ln\left(1 - \frac{1}{2}\right)\right) - \frac{1}{2}(\ln(1 + 0) - \ln(1 - 0)) \\
-&amp;= \frac{\ln(3)}{2}
+&amp;= \boxed{\frac{\ln(3)}{2}}
 \end{align*}
 \]</div>
 <p>I don't wanna talk about it.</p>
@@ -2105,7 +2105,7 @@ C_2&amp;:\, x^2 + z^2 \leq 1
 \begin{align*}
 \int_{-1}^{1} 4(1 - z^2)\, dz &amp;= \left[4z - \frac{4}{3}z^3\right]_{-1}^{1} \\
 &amp;= \frac{8}{3} - \left(-\frac{8}{3}\right) \\
-&amp;= \frac{16}{3}
+&amp;= \boxed{\frac{16}{3}}
 \end{align*}
 \]</div>
 
@@ -2128,7 +2128,7 @@ C_2&amp;:\, x^2 + z^2 \leq 1
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 28, 2026 15:24:12 UTC"><span class="timeago" datetime="2026-08-28T15:24:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 28, 2026 15:24:12 UTC">2026-08-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 28, 2026 15:34:59 UTC"><span class="timeago" datetime="2026-08-28T15:34:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 28, 2026 15:34:59 UTC">2026-08-28</span>
   </span>
 
     
