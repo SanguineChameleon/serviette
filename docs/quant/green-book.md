@@ -730,3 +730,112 @@ $$
 &= \boxed{\frac{16}{3}}
 \end{align*}
 $$
+
+!!! Exercise
+
+    The snow started falling some time before noon at a constant rate. A snow plow was sent at noon to clear the road. The plow removes snow at a constant volume per minute. By $1$ PM, it had moved $2$ miles, and by $2$ PM, it had moved $3$ miles. When did the snow begin to fall?
+
+Let $f(t)$ be the height of the uncleared snow $t$ hours after noon. The snow falls at a constant rate, so $f(t) = a + bt$ for some unknown constants $a$ and $b$.
+
+Now let $g(t)$ be the distance the snow plow has traveled $t$ hours after noon. We know $g(0) = 0$, $g(1) = 2$, and $g(2) = 3$. What else can we say?
+
+Obligatory calculus whacking ensues. Let $\Delta t$ represent a very small difference in time. We can approximate what the snow plow removes as a cuboid with length $g(t + \Delta t) - g(t)$, height $f(t)$, and width $w$, where $w$ is a constant (it's just the width of the road). The volume of this cuboid is:
+
+$$
+\begin{align*}
+V(t) &= (g(t + \Delta t) - g(t)) \cdot f(t) \cdot w \\
+&= \frac{g(t + \Delta t) - g(t)}{\Delta t} \cdot f(t) \cdot \Delta t \cdot w \\
+&\approx g^\prime(t) \cdot f(t) \cdot \Delta t \cdot w
+\end{align*}
+$$
+
+Since the plow removes the same volume of snow over a fixed time period, there must exist a constant $X$ such that for all $t \geq 0$:
+
+$$
+\begin{align*}
+g^\prime(t) \cdot f(t) = X
+\end{align*}
+$$
+
+Therefore:
+
+$$
+\begin{align*}
+g(t) &= \int \frac{X}{f(t)}\,dt \\
+&= \int \frac{X}{a + bt}\,dt \\
+&= \frac{X}{b} \cdot \ln(a + bt) + C
+\end{align*}
+$$
+
+Now $g(0) = 0$, which means:
+
+$$
+\begin{align*}
+C &= -\frac{X}{b} \cdot \ln(a) \\
+\Longrightarrow g(t) &= \frac{X}{b} \cdot (\ln(a + bt) - \ln(a))
+\end{align*}
+$$
+
+Next, we have $g(1) = 2$ and $g(2) = 3$, so:
+
+$$
+\begin{align*}
+&\begin{cases}
+\frac{X}{b} \cdot (\ln(a + b) - \ln(a)) = 2 \\
+\frac{X}{b} \cdot (\ln(a + 2b) - \ln(a)) = 3
+\end{cases} \\
+\Longrightarrow\quad& (\ln(a + b) - \ln(a)) \cdot 3 = (\ln(a + 2b) - \ln(a)) \cdot 2 \\
+\Longrightarrow\quad& \left(\frac{a + b}{a}\right)^3 = \left(\frac{a + 2b}{a}\right)^2 \\
+\Longrightarrow\quad& (a + b)^3 = (a + 2b)^2 \cdot a \\
+\Longrightarrow\quad& a^3 + 3a^2b + 3ab^2 + b^3 = a^3 + 4a^2b + 4ab^2 \\
+\Longrightarrow\quad& b^3 = a^2b + ab^2 \\
+\Longrightarrow\quad& a^2 + ab - b^2 = 0 \\
+\Longrightarrow\quad& (2a + b)^2 = 5b^2 \\
+\Longrightarrow\quad& \frac{a}{b} = \frac{-1 \pm \sqrt{5}}{2} 
+\end{align*}
+$$
+
+Lastly, $a > 0$, because you can't have negative snow, and $b > 0$, because you can't have snow rising into the sky, which means $\frac{a}{b} > 0$.
+
+Thus, $\frac{a}{b} = \frac{\sqrt{5} - 1}{2}$, so the snow started falling that many hours before noon, at around $\boxed{\text{11:23 AM}}$.
+
+Wonderful problem.
+
+!!! Exercise
+
+    If $X \sim N(0, 1)$, what is $\mathbb{E}[X\, |\, X > 0]$?
+
+Yeah sure, why not:
+
+$$
+\begin{align*}
+\mathbb{E}[X\, |\, X > 0] &= \frac{\displaystyle \int_{0}^{\infty} x \cdot \frac{e^{\frac{-x^2}{2}}}{\sqrt{2 \pi}}\, dx}{P(X > 0)} \\
+&= \frac{\displaystyle \int_{0}^{\infty} x \cdot \frac{e^{\frac{-x^2}{2}}}{\sqrt{2 \pi}}\,dx}{\displaystyle \frac{1}{2}} \\
+&= \frac{2}{\sqrt{2 \pi}} \int_{0}^{\infty} x \cdot e^{\frac{-x^2}{2}}\,dx
+\end{align*}
+$$
+
+We'll compute the indefinite integral first. Let $u = \frac{-x^2}{2}$. Then:
+
+$$
+\begin{align*}
+\int x \cdot e^{\frac{-x^2}{2}}\,dx &= \int -e^u \cdot \frac{du}{dx} \,dx \\
+&= \int -e^u \,du \\
+&= -e^u + C \\
+&= -e^{\frac{-x^2}{2}} + C \\
+\end{align*}
+$$
+
+Plug that back into the previous equation:
+
+$$
+\begin{align*}
+\mathbb{E}[X\, |\, X > 0]
+&= \frac{2}{\sqrt{2 \pi}} \int_{0}^{\infty} x \cdot e^{\frac{-x^2}{2}}\,dx \\
+&= \frac{2}{\sqrt{2 \pi}} \lim_{x \to \infty} (1 - e^{\frac{-x^2}{2}}) \\
+&= \frac{2}{\sqrt{2 \pi}} \cdot 1 \\
+&= \boxed{\frac{2}{\sqrt{2 \pi}}}
+\end{align*}
+$$
+
+Fun fact: in the First Edition, or at least in the digital copy that I have been ~~pirating~~ using for convenience, the answer was off by a factor of $2$. But I just checked my (PHYSICAL and LEGAL) copy of the Second Edition, and the error has indeed been fixed.
