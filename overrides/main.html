@@ -1,3 +1,8 @@
 {% extends "base.html" %} {% block extrahead %}
+<meta property="og:site_name" content="{{ config.site_name }}" />
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:url" content="{{ page.canonical_url }}" />
+<meta property="og:type" content="{% if page.is_homepage %}website{% else %}article{% endif %}" />
+
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Mono:wght@100..900&display=swap" rel="stylesheet" />
 {% endblock %}
