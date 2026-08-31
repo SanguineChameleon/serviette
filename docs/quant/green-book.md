@@ -1038,3 +1038,83 @@ We are given that $y = 1$ for $x = 1$, so $C = 1$, which means:
 $$
 \boxed{y = \frac{\ln(x) + 1}{x}}
 $$
+
+!!! Statement
+
+    Solve the ODE $y^{\prime\prime} + y^{\prime} + y = 0$.
+
+Let $r_1$ and $r_2$ be the roots of the equation:
+
+$$
+r^2 + r + 1 = 0
+$$
+
+Observe that $y = e^{r_1 \cdot x}$ and $y = e^{r_2 \cdot x}$ are both solutions to the ODE.
+
+Unfortunately, $r_1$ and $r_2$ are complex:
+
+$$
+\begin{align*}
+r_1 = \frac{-1}{2} + \frac{\sqrt{3}}{2} i \\
+r_2 = \frac{-1}{2} - \frac{\sqrt{3}}{2} i
+\end{align*}
+$$
+
+Complex numbers are [not real](https://en.wikipedia.org/wiki/Complex_number#History), so we'd like to find a way around this.
+
+Let $\alpha = \frac{-1}{2}$ and $\beta = \frac{\sqrt{3}}{2}$, so $r_1 = \alpha + \beta i$ and $r_2 = \alpha - \beta i$.
+
+Then, by Euler's formula:
+
+$$
+\begin{align*}
+e^{r_1 \cdot x} &= e^{\alpha \cdot x} \cdot e^{i \cdot \beta x} \\
+&= e^{\alpha \cdot x} (\cos(\beta x) + i \sin(\beta x)) \tag{1} \\ 
+e^{r_2 \cdot x} &= e^{\alpha \cdot x} \cdot e^{i \cdot -\beta x} \\
+&= e^{\alpha \cdot x} (\cos(-\beta x) + i \sin(-\beta x)) \\
+&= e^{\alpha \cdot x} (\cos(\beta x) - i \sin(\beta x)) \tag{2}
+\end{align*}
+$$
+
+Now let $\displaystyle y_1 = \frac{e^{r_1 \cdot x} + e^{r_2 \cdot x}}{2}$ and $\displaystyle y_2 = \frac{e^{r_1 \cdot x} - e^{r_2 \cdot x}}{2 i}$.
+
+Note that $y_1$ and $y_2$ are also solutions to the ODE.
+
+Furthermore, from $(1)$ and $(2)$, we can derive that:
+
+$$
+\begin{align*}
+y_1 &= e^{\alpha \cdot x} \cos(\beta x) \\
+y_2 &= e^{\alpha \cdot x} \sin(\beta x)
+\end{align*}
+$$
+
+Finally, any linear combination of $y_1$ and $y_2$ is a solution to the ODE, and in fact, [it can be proven](https://en.wikipedia.org/wiki/Proof_by_intimidation) that *all* solutions to the ODE are linear combinations of $y_1$ and $y_2$.
+
+Therefore, the general solution for the ODE is:
+
+$$
+\boxed{y = C_1 \left(e^{\frac{-x}{2}} \cos\left(\frac{\sqrt{3}}{2} x\right)\right) + C_2 \left(e^{\frac{-x}{2}} \sin\left(\frac{\sqrt{3}}{2} x\right)\right)}
+$$
+
+!!! Statement
+
+    Solve the ODE $y^{\prime\prime} + y^{\prime} + y = 1$.
+
+Let $z = y - 1$. Note that $z^{\prime} = y^{\prime}$ and $z^{\prime\prime} = y^{\prime\prime}$.
+
+Thus, $z$ satisfies $z^{\prime\prime} + z^{\prime} + z = 0$, and... oh.
+
+$$
+\boxed{y = C_1 \left(e^{\frac{-x}{2}} \cos\left(\frac{\sqrt{3}}{2} x\right)\right) + C_2 \left(e^{\frac{-x}{2}} \sin\left(\frac{\sqrt{3}}{2} x\right)\right) + 1}
+$$
+
+!!! Statement
+
+    Solve the ODE $y^{\prime\prime} + y^{\prime} + y = x$.
+
+You get the idea.
+
+$$
+\boxed{y = C_1 \left(e^{\frac{-x}{2}} \cos\left(\frac{\sqrt{3}}{2} x\right)\right) + C_2 \left(e^{\frac{-x}{2}} \sin\left(\frac{\sqrt{3}}{2} x\right)\right) + x - 1}
+$$
