@@ -571,7 +571,7 @@ Oh thank goodness, we're done with the brain teasers.
 
 ### Limits and Derivatives
 
-!!! Exercise
+!!! Statement
 
     What is the derivative of $y = \ln(x)^{\ln(x)}$?
 
@@ -587,7 +587,7 @@ $$
 \end{align*}
 $$
 
-!!! Exercise
+!!! Statement
 
     Without calculating the numerical results, which is larger, $e^\pi$ or $\pi^e$?
 
@@ -616,7 +616,7 @@ $$
 
 Thus, $g^\prime(x) > 0$ for $x > e$, so $g(x)$ is increasing for $x > e$. Therefore, $g(\pi) > g(e)$, which means $\boxed{e^{\pi} > \pi^{e}}$.
 
-!!! Exercise
+!!! Statement
 
     What is the limit of $\frac{e^x}{x^2}$ as $x \to \infty$?
 
@@ -630,7 +630,7 @@ $$
 \end{align*}
 $$
 
-!!! Exercise
+!!! Statement
 
     What is the limit of $x^2 \ln(x)$ as $x \to 0^+$?
 
@@ -646,7 +646,7 @@ $$
 
 ### Integrals
 
-!!! Exercise
+!!! Statement
 
     What is the integral of $\ln(x)$?
 
@@ -662,7 +662,7 @@ $$
 \end{align*}
 $$
 
-!!! Exercise
+!!! Statement
 
     What is the integral of $\sec(x)$ from $x = 0$ to $x = \frac{\pi}{6}$?
 
@@ -693,7 +693,7 @@ $$
 
 I don't wanna talk about it.
 
-!!! Exercise
+!!! Statement
 
     Two infinitely long cylinders, each with radius $1$, are perpendicular to each other and intersect at their centers. What is the volume of the intersection?
 
@@ -731,7 +731,7 @@ $$
 \end{align*}
 $$
 
-!!! Exercise
+!!! Statement
 
     The snow started falling some time before noon at a constant rate. A snow plow was sent at noon to clear the road. The plow removes snow at a constant volume per minute. By $1$ PM, it had moved $2$ miles, and by $2$ PM, it had moved $3$ miles. When did the snow begin to fall?
 
@@ -801,7 +801,7 @@ Thus, $\frac{a}{b} = \frac{\sqrt{5} - 1}{2}$, so the snow started falling that m
 
 Wonderful problem.
 
-!!! Exercise
+!!! Statement
 
     If $X \sim N(0, 1)$, what is $\mathbb{E}[X\, |\, X > 0]$?
 
@@ -839,3 +839,202 @@ $$
 $$
 
 Fun fact: in the First Edition, or at least in the digital copy that I have been ~~pirating~~ using for convenience, the answer was off by a factor of $2$. But I just checked my (PHYSICAL and LEGAL) copy of the Second Edition, and the error has indeed been fixed.
+
+### Partial Derivatives and Multiple Integrals
+
+!!! Statement
+
+    Calculate $\displaystyle \int_{0}^{\infty} e^{\frac{-x^2}{2}}\,dx$.
+
+Fortunately, the pdf of the normal distribution is still fresh in my mind.
+
+We know that $\displaystyle \int_{-\infty}^{\infty} \frac{e^{\frac{-x^2}{2}}}{\sqrt{2 \pi}}\,dx = 1$. The bell curve is symmetric, so $\displaystyle \int_{0}^{\infty} \frac{e^{\frac{-x^2}{2}}}{\sqrt{2 \pi}}\,dx = \frac{1}{2}$.
+
+Thus:
+
+$$
+\int_{0}^{\infty} e^{\frac{-x^2}{2}}\,dx = \boxed{\frac{\sqrt{2 \pi}}{2}}
+$$
+
+### Important Calculus Methods
+
+!!! Statement
+
+    What is $i^i$?
+
+Obligatory [Stand-up Maths video](https://www.youtube.com/watch?v=9tlHQOKMHGA). Don't worry, we'll go through it together.
+
+First, Euler's formula tells us that:
+
+$$
+\begin{align*}
+e^{i \cdot \frac{\pi}{2}} &= \cos\left(\frac{\pi}{2}\right) + i \sin\left(\frac{\pi}{2}\right) \\
+&= i
+\end{align*}
+$$
+
+Thus, we [dubiously](https://en.wikipedia.org/wiki/Complex_logarithm) conclude that:
+
+$$
+\log(i) = i \cdot \frac{\pi}{2}
+$$
+
+Therefore:
+
+$$
+\begin{align*}
+i^i &= e^{\log(i^i)} \\
+&= e^{i \cdot \log(i)} \\
+&= e^{i \cdot i \cdot \frac{\pi}{2}} \\
+&= \boxed{e^{-\frac{\pi}{2}}}
+\end{align*}
+$$
+
+Just don't think about the infinitely many other answers we could've had instead.
+
+!!! Statement
+
+    Prove that $(1 + x)^n \geq 1 + nx$ for all real $x > -1$ and for all integers $n \geq 1$.
+
+This is a much weaker form of [Bernoulli's inequality](https://en.wikipedia.org/wiki/Bernoulli%27s_inequality), where $n$ is restricted to the positive integers. We'll proceed by induction.
+
+The base case $n = 1$ is trivially true. Now suppose the hypothesis holds for $n = k$. Then:
+
+$$
+\begin{align*}
+(1 + x)^{k + 1} &= (1 + x)^k \cdot (1 + x) \\
+&\geq (1 + kx)(1 + x) \\
+&= 1 + kx + x + kx^2 \\
+&\geq 1 + (k + 1)x
+\end{align*}
+$$ 
+
+and we are done.
+
+!!! Statement
+
+    Compute $\sqrt{37}$ to $3$ decimal places.
+
+I deviously pull out the calculator that I smuggled in and punch in the numbers.
+
+The interviewer falls to their knees.
+
+...
+
+Let's use the Babylonian method, starting with $6$:
+
+$$
+\frac{1}{2}\left(6 + \frac{37}{6}\right) \approx \frac{1}{2}\left(6 + 6.166\right) \approx 6.083
+$$
+
+One more iteration for good measure:
+
+$$
+\frac{1}{2}\left(6.083 + \frac{37}{6.083}\right) \approx \frac{1}{2}\left(6.083 + 6.082\right) \approx \boxed{6.083}
+$$
+
+I promise I did this by hand.
+
+!!! Statement
+
+    Can you explain some root-finding algorithms to solve $f(x) = 0$? Assume $f(x)$ is a differentiable function.
+
+No, I [won't](https://en.wikipedia.org/wiki/Root-finding_algorithm). Thank you for your time.
+
+!!! Statement
+
+    What is the distance from the origin to the plane $2x + 3y + 4z = 12$?
+
+I know you can just whack the distance-to-plane formula, but that feels like cheating, and I'd rather re-derive it.
+
+
+Let $A$ be the projection of the origin $O$ onto the plane. Note that $\overline{OA}$ is parallel to the normal vector of the plane, $(2, 3, 4)$, so:
+
+$$
+A = (2t, 3t, 4t)
+$$
+
+for some real $t$.
+
+But $A$ is on the plane, so:
+
+$$
+\begin{align}
+&2(2t) + 3(3t) + 4(4t) = 12 \\
+\Longrightarrow\quad& t = \frac{12}{29} \\
+\Longrightarrow\quad& |\overline{OA}| = \sqrt{(2t)^2 + (3t)^2 + (4t)^2} = \sqrt{29} \cdot t = \boxed{\frac{12}{\sqrt{29}}}
+\end{align}
+$$
+
+### Ordinary Differential Equations
+
+!!! Statement
+
+    Solve the ODE $y^{\prime} + 6xy = 0$, given that $y(0) = 1$.
+
+We have:
+
+$$
+\begin{align}
+&y^{\prime} + 6xy = 0 \\
+\Longrightarrow\quad& \frac{-1}{6y} \cdot \frac{dy}{dx} = x \\
+\Longrightarrow\quad& \int \frac{-1}{6y} \cdot \frac{dy}{dx}\, dx = \int x\, dx \\
+\Longrightarrow\quad& \int \frac{-1}{6y}\, dy = \int x\, dx \\
+\Longrightarrow\quad& \frac{-1}{6}\ln(y) = \frac{x^2}{2} + C \\
+\end{align}
+$$
+
+We are given that $y = 1$ for $x = 0$, so $C = 0$.
+
+Therefore:
+
+$$
+\begin{align}
+& \frac{-1}{6}\ln(y) = \frac{x^2}{2} \\
+\Longrightarrow\quad& \ln(y) = -3x^2 \\
+\Longrightarrow\quad& \boxed{y = e^{-3x^2}} \\
+\end{align}
+$$
+
+!!! Statement
+
+    Solve the ODE $y^{\prime} = \frac{x - y}{x + y}$.
+
+Let $u = x + y$. Then:
+
+$$
+\begin{align}
+&\frac{du}{dx} = 1 + y' \\
+\Longrightarrow\quad& \frac{du}{dx} = 1 + \frac{x - y}{x + y} \\
+\Longrightarrow\quad& \frac{du}{dx} = \frac{2x}{x + y} \\
+\Longrightarrow\quad& \frac{du}{dx} = \frac{2x}{u} \\
+\Longrightarrow\quad& u \cdot \frac{du}{dx} = 2x \\
+\Longrightarrow\quad& \int u\, du  = \int 2x\, dx \\
+\Longrightarrow\quad& u^2 = 2x^2 + C \\
+\Longrightarrow\quad& u = \pm \sqrt{2x^2 + C} \\
+\Longrightarrow\quad& x + y = \pm \sqrt{2x^2 + C} \\
+\Longrightarrow\quad& \boxed{y = \pm \sqrt{2x^2 + C} - x} \\
+\end{align}
+$$
+
+!!! Statement
+
+    Solve the ODE $y^{\prime} + \frac{y}{x} = \frac{1}{x^2}$ where $x > 0$, given that $y(1) = 1$.
+
+We have:
+
+$$
+\begin{align}
+&\frac{dy}{dx} + \frac{y}{x} = \frac{1}{x^2} \\
+\Longrightarrow\quad&\frac{dy}{dx} \cdot x + y = \frac{1}{x} \\
+\Longrightarrow\quad&\frac{d}{dx} (xy) = \frac{1}{x} \\
+\Longrightarrow\quad&xy = \ln(x) + C \\
+\Longrightarrow\quad&y = \frac{\ln(x) + C}{x}
+\end{align}
+$$
+
+We are given that $y = 1$ for $x = 1$, so $C = 1$, which means:
+
+$$
+\boxed{y = \frac{\ln(x) + 1}{x}}
+$$
