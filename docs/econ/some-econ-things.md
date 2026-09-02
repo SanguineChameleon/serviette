@@ -252,3 +252,126 @@ Some funny edge cases:
 ### Elastic and inelastic supply
 
 Self-explanatory.
+
+## Price controls
+
+Andy and Benny are well-mannered boys, but unfortunately, not all of their customers are.
+
+There are brownie wrappers *everywhere*. The whole country is a mess.
+
+It isn't long before President Peter knocks on their doors...
+
+### Price floor
+
+President Peter respectfully (and understandably) complains about how his citizens are eating too many brownies, so he proposes an idea to the boys: set the minimum price of brownies to be *above* the market equilibrium. What happens to the world then?
+
+![](some-econ-things/price-floor.png){style="width:40%;"}
+
+It's clear that the consumer surplus decreases. There's also a surplus of brownies in the market: at the current price level, the boys are willing to sell more brownies than the customers want to buy. The producer surplus may increase or decrease; it depends.
+
+What's more important is the **deadweight loss**: the orange triangular bit that represents the loss in "economic welfare" (i.e., gainz) as a result. There are hungry customers who want to eat brownies, and the boys are willing to produce them. Sadly, for those hungry customers, the price they are willing to pay for a brownie is *lower* than the price floor, so they won't buy their precious brownies.
+
+The boys are devastated. The customers are heartbroken. Everything sucks.
+
+### Price ceiling
+
+President Peter quickly realizes his mistake and rushes to the boys' bakeries. As an act of forgiveness, he offers to set the maximum price of brownies to be *below* the market equilibrium.
+
+The boys, not really thinking straight at this point, enthusiastically agree.
+
+The next day, the boys quickly realize their blunder.
+
+![](some-econ-things/price-ceiling.png){style="width:35%;"}
+
+Now there is a shortage of brownies in the market: at the current price level, the customers are willing to buy more brownies than the boys want to produce. The producer surplus decreases; the consumer surplus could go either way.
+
+There is still a deadweight loss.
+
+The boys are in shambles.
+
+## Taxes
+
+After several ~~heated arguments~~ civilized discussions with President Peter, the boys begrudgingly agree to have a tax $T$ imposed on each brownie sold. If the customers are this frenzied over brownies, President Peter may as well seize the opportunity for the greater good: education, housing, infrastructure, one more private yacht for his collection, and so on.
+
+### Imposed on producers
+
+Suppose the tax $T$ is imposed on the boys: every year or so, the boys have to visit President Peter's office and hand him their hard-earned cash.
+
+The demand curve does not change, since the customers are indifferent to the boys' misfortune. But what happens to the supply curve?
+
+Recall that the supply curve really represents the marginal cost of producing each additional brownie. Since the boys have to pay $T$ to President Peter for each brownie they sell, the whole supply curve shifts *up* by $T$ as a result.
+
+The new equilibrium quantity, $Q_t$, must be less than the original market equilibrium, $Q$. In particular, the corresponding point $(Q_t, P_c)$ on the demand curve and the corresponding point $(Q_t, P_p)$ on the *old* supply curve must satisfy:
+
+$$
+P_c = P_p + T
+$$
+
+Unsurprisingly, this implies:
+
+$$
+P_c - P_p = T
+$$
+
+### Imposed on consumers
+
+Next, suppose the tax $T$ is imposed on the customers instead: every year or so, each individual customer must visit President Peter's office and (truthfully!) pay $T$ for each brownie they bought throughout the period. The line is unimaginably long; you have no idea.
+
+This time, the supply curve does not change: the boys can relax and not have to deal with President Peter for a short while. Now, the demand curve really represents how much the next customer is willing to pay the boys for the next brownie. Since each customer has the additional burden of paying $T$ to President Peter for each brownie they buy, the price they're willing to pay the boys will *decrease* by $T$. Thus, the demand curve shifts *down* by $T$.
+
+Again, we have $Q_t < Q$, and the corresponding point $(Q_t, P_p)$ on the supply curve and the corresponding point $(Q_t, P_c)$ on the *old* demand curve must satisfy:
+
+$$
+P_p = P_c - T
+$$
+
+which implies:
+
+$$
+P_c - P_p = T
+$$
+
+...wait.
+
+### Relativity
+
+So it turns out that it doesn't really matter who the tax is imposed on: the price $P_c$ paid by the consumer and the price $P_p$ received by the producer don't change, nor does the equilibrium quantity. The shifts in the curves may vary, but as long as the difference $P_c - P_p$ (the **wedge**) is equal to $T$, President Peter is happy. You can even imagine a convoluted scheme where the boys pay $\frac{T}{2}$ for each brownie sold, and the customers pay $\frac{T}{2}$ for each brownie bought.
+
+What happens in the real world? As with all things, it depends. Sometimes taxes are remitted (or paid to the government) by companies, e.g., for retail goods. Sometimes taxes are remitted by individuals, e.g., for owning vehicles. And obviously, no one is knocking on the president's door; taxes are usually paid via a tax authority like the IRS.
+
+That's cool and all, but in the end, who actually pays what?
+
+### Economic burden
+
+The customers pay $P_c$ for each brownie they buy, instead of the *lower* equilibrium price $P$. Similarly, the boys receive $P_p$ for each brownie they sell, instead of the *higher* equilibrium price $P$.
+
+We say that the consumers carry the burden of $P_c - P$ per brownie, and the producers carry the burden of $P - P_p$ per brownie.
+
+Now, who carries the heavier burden? Here's a neat trick: we can directly compare the (absolute) elasticities of supply and demand at the market equilibrium. The $\frac{P}{Q}$ terms (remember?) cancel out, because we're taking both at the same point. So essentially, we're just comparing the slopes of both curves. The curve whose slope is steeper (i.e., is more inelastic) corresponds to the side that bears the heavier burden.
+
+## Fundamental theorems of welfare economics
+
+For this section, I think it's better to discretize everything. Assume there are no tax shenanigans.
+
+The supply curve represents the marginal cost of producing the next brownie, and the demand curve represents how much the next customer is willing to pay for it.
+
+So you can imagine a queue at the bakery where customers are ordered by how much they're willing to pay for their precious brownie.
+
+When it's the $i$-th customer's turn, we look at the corresponding points on the supply and demand curves: $(i, P_p)$ and $(i, P_c)$, respectively. What that means is that the $i$-th customer is willing to pay *at most* $P_c$ for the $i$-th brownie, and the boys are willing to receive *at least* $P_p$ for the $i$-th brownie.
+
+If $P_c > P_p$, that's great news: the transaction is successful as long as the price falls between $P_p$ and $P_c$, and both sides will benefit from it. If $P_c = P_p$, then both sides are indifferent; it doesn't really matter whether or not the transaction goes through. But if $P_c < P_p$, then too bad, no transaction occurs because there is no price that both sides would agree on.
+
+Now let $Q$ be the equilibrium quantity in the market. We can see that all transactions *before* the $Q$-th brownie benefit both sides, and all transactions *after* the $Q$-th brownie do not. Thus, after $Q$ brownies are sold, we are in a situation where *"no one can be made better off without making someone else worse off"*. We describe such a situation as **Pareto efficient**.
+
+The **first fundamental theorem of welfare economics** states that, under the (extremely) idealized conditions we've been working with so far, an equilibrium in a competitive market will be Pareto efficient.
+
+Now, the first theorem does not make any guarantees about whether the resulting allocation of brownies is "fair". Cindy may well be allowed to cut in line multiple times, as long as she has the money to pay for her brownies. Surely the other customers would get upset.
+
+President Peter proposes yet another idea. This Saturday, *everyone* will pay him a fixed tax (this is a type of **lump-sum tax**). Then, on Sunday, he will redistribute the accumulated taxes back to everyone in a way that's... "desirable".
+
+The **second fundamental theorem of welfare economics** states that, given a "desirable" Pareto efficient situation, there exists an initial redistribution of resources (for example, through lump-sum taxes and transfers) such that, in the end, when everything has stabilized and the competitive market is in equilibrium again, we end up in exactly the situation that we desired.
+
+So yes, as long as they're Pareto efficient, we can achieve outcomes where Cindy gets a lot of brownies, or perhaps outcomes where she gets none at all.
+
+There is one big asterisk to all this, though. President Peter still has to decide what situation is "desirable". He could try asking each of his citizens to rank all the possible outcomes, but what if those rankings conflict with each other? After all, he knows that all Cindy would want is a bajillion brownies. This is a [whole other story](https://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem) that we may or may not leave for another time.
+

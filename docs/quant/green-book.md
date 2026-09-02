@@ -1118,3 +1118,96 @@ You get the idea.
 $$
 \boxed{y = C_1 \left(e^{\frac{-x}{2}} \cos\left(\frac{\sqrt{3}}{2} x\right)\right) + C_2 \left(e^{\frac{-x}{2}} \sin\left(\frac{\sqrt{3}}{2} x\right)\right) + x - 1}
 $$
+
+### Linear Algebra
+
+!!! Statement
+
+    There are three random variables $X$, $Y$, and $Z$. The correlation between $X$ and $Y$ is $0.8$, and the correlation between $X$ and $Z$ is also $0.8$. What is the maximum and minimum correlation between $Y$ and $Z$?
+
+First, without loss of generality, we'll normalize $X$, $Y$, and $Z$ so that they all have mean $0$ and variance $1$, which means:
+
+$$
+\begin{gather}
+\mathbb{E}[X] = 0 \\
+\mathbb{E}[Y] = 0 \\
+\mathbb{E}[Z] = 0 \\
+\mathbb{E}[X^2] = 1 \\
+\mathbb{E}[Y^2] = 1 \\
+\mathbb{E}[Z^2] = 1 \\
+\text{corr}(X, Y) = \mathbb{E}[XY] = 0.8 \\
+\text{corr}(X, Z) = \mathbb{E}[XZ] = 0.8 \\
+\text{corr}(Y, Z) = \mathbb{E}[YZ] =\,\, ?
+\end{gather}
+$$
+
+Thus, we want to find the maximum and minimum of $\mathbb{E}[YZ]$.
+
+Maximizing $\mathbb{E}[YZ]$ is trivial: just let $Z = Y$, then $\mathbb{E}[YZ] = \mathbb{E}[Z^2] = 1$. We cannot do better than this, since $\mathbb{E}[YZ] = \text{corr}(Y, Z) \leq 1$.
+
+To find the minimum value of $\mathbb{E}[YZ]$, we will magically and miraculously[^1] consider the random variable $T = X - 0.625Y - 0.625Z$.
+
+[^1]: On a serious note, these numbers come from reverse engineering the [correlation matrix](https://en.wikipedia.org/wiki/Correlation#Correlation_matrices), which must be positive semidefinite (whatever that means).
+
+Note that $\text{Var}(T) \geq 0$, so $\mathbb{E}[T^2] - (\mathbb{E}[T])^2 \geq 0$. But $\mathbb{E}[T] = 0$, which means $\mathbb{E}[T^2] \geq 0$.
+
+Now, let's expand $\mathbb{E}[T^2]$:
+
+$$
+\begin{align*}
+\mathbb{E}[T^2]
+&= \mathbb{E}[(X - 0.625Y - 0.625Z)^2] \\
+&= \mathbb{E}[X^2 + 0.390625Y^2 + 0.390625Z^2 - 1.25XY - 1.25XZ + 0.78125YZ] \\
+&= 0.78125 \cdot \mathbb{E}[YZ] - 0.21875
+\end{align*}
+$$
+
+Therefore,
+
+$$
+\begin{align*}
+&0.78125 \cdot \mathbb{E}[YZ] - 0.21875 \geq 0 \\ 
+\Longrightarrow\quad& \mathbb{E}[YZ] \geq 0.28
+\end{align*}
+$$
+
+We can prove this bound is tight. Again, using magic, consider $Z = 1.6X - Y$.
+
+Clearly $\mathbb{E}[Z] = 0$; next we show $Z$ also satisfies $\mathbb{E}[Z^2] = 1$ and $\mathbb{E}[XZ] = 0.8$ :
+
+$$
+\begin{align*}
+\mathbb{E}[Z^2]
+&= \mathbb{E}[(1.6X - Y)^2] \\
+&= \mathbb{E}[2.56X^2 + Y^2 - 3.2XY] \\
+&= 1
+\\
+\\
+\mathbb{E}[XZ]
+&= \mathbb{E}[X(1.6X - Y)] \\
+&= \mathbb{E}[1.6X^2 - XY] \\
+&= 0.8
+\end{align*}
+$$
+
+So what is the value of $\mathbb{E}[YZ]$? Great question:
+
+$$
+\begin{align*}
+\mathbb{E}[YZ]
+&= \mathbb{E}[Y(1.6X - Y)] \\
+&= \mathbb{E}[1.6XY - Y^2] \\
+&= 0.28
+\end{align*}
+$$
+
+Done.
+
+$$
+\boxed{
+\begin{align*}
+\text{min}(\text{corr}(Y, Z)) &= 0.28 \\
+\text{max}(\text{corr}(Y, Z)) &= 1
+\end{align*}
+}
+$$
