@@ -2573,11 +2573,79 @@ y_2 &amp;= e^{\alpha \cdot x} \sin(\beta x)
 \end{align*}
 }
 \]</div>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>How would you design an algorithm for linear least squares regression?</p>
+</div>
+<p>Hoo boy, I really had to brush up on my basic linear algebra for this one.</p>
+<p>Let <span class="arithmatex">\(A \in \mathbb{R}^{m \times n}\)</span> be a matrix (<span class="arithmatex">\(m &gt; n\)</span>) and <span class="arithmatex">\(b \in \mathbb{R}^{m}\)</span> be a target vector. We wish to find a vector <span class="arithmatex">\(x \in \mathbb{R}^{n}\)</span> such that <span class="arithmatex">\(A x\)</span> is as "close" to <span class="arithmatex">\(b\)</span> as possible. Specifically, we wish to minimize:</p>
+<div class="arithmatex">\[
+\|Ax - b\|^2
+\]</div>
+<p>over all vectors <span class="arithmatex">\(x \in \mathbb{R}^{n}\)</span>.</p>
+<p>Let <span class="arithmatex">\(\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\)</span> be the columns of <span class="arithmatex">\(A\)</span>, so <span class="arithmatex">\(A = [\mathbf{v}_1\,\mathbf{v}_2\,\ldots\,\mathbf{v}_n]\)</span>. To prevent any future headaches, we'll assume these columns are linearly independent (if they aren't, your model has redundant variables!).</p>
+<p>Then, letting<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> <span class="arithmatex">\(x = [c_1\,c_2\,\ldots\,c_n]^T\)</span>, we have:</p>
+<div class="arithmatex">\[
+Ax = \mathbf{v}_1 c_1 + \mathbf{v}_2 c_2 + \ldots + \mathbf{v}_n c_n 
+\]</div>
+<p>Thus, the range of <span class="arithmatex">\(A\)</span> (i.e., the set <span class="arithmatex">\(\{A x : x \in \mathbb{R}^n\}\)</span>) is just the span of <span class="arithmatex">\(\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}\)</span>.</p>
+<p>Now, for <span class="arithmatex">\(w \in \text{span}(\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\})\)</span>, the value of <span class="arithmatex">\(\|w - b\|^2\)</span> is minimized when <span class="arithmatex">\(w\)</span> is the projection of <span class="arithmatex">\(b\)</span> onto the range of <span class="arithmatex">\(A\)</span>. In other words, <span class="arithmatex">\((w - b)\)</span> must be perpendicular to <span class="arithmatex">\(\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\)</span>, which means:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\mathbf{v}_1 \cdot (w - b) &amp;= 0 \\
+\mathbf{v}_2 \cdot (w - b) &amp;= 0 \\
+&amp;\ldots \\
+\mathbf{v}_n \cdot (w - b) &amp;= 0
+\end{align*}
+\]</div>
+<p>or, more succinctly:</p>
+<div class="arithmatex">\[
+A^T(w - b) = 0
+\]</div>
+<p>Therefore, we wish to find an <span class="arithmatex">\(x\)</span> such that:</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;A^T(Ax - b) = 0 \\
+\iff&amp; A^TAx = A^Tb \tag{1}
+\end{align*}
+\]</div>
+<p>Next, we're gonna do what's called a pro gamer move. The <a href="https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process">Gram&ndash;Schmidt process</a> allows us to represent the range of <span class="arithmatex">\(A\)</span> as a basis <span class="arithmatex">\(\{\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_n\}\)</span>, where all the vectors are unit vectors and are orthogonal (perpendicular) to each other. In fact, we can take things further and use this process to express <span class="arithmatex">\(A\)</span> itself as:</p>
+<div class="arithmatex">\[
+A = [\mathbf{u}_1\,\mathbf{u}_2\,\ldots\,\mathbf{u}_n]
+\begin{bmatrix}
+r_{1,1} &amp; r_{1,2} &amp; r_{1,3} &amp; \ldots &amp; r_{1,n} \\
+0 &amp; r_{2,2} &amp; r_{2,3} &amp; \ldots &amp; r_{2,n} \\
+0 &amp; 0 &amp; r_{3,3} &amp; \ldots &amp; r_{3,n} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; \ldots &amp; r_{n,n}
+\end{bmatrix}
+\]</div>
+<p>where <span class="arithmatex">\(\mathbf{v}_i = \mathbf{u}_1 r_{1,i} + \mathbf{u}_2 r_{2,i} + \ldots + \mathbf{u}_i r_{i,i}\)</span> and <span class="arithmatex">\(r_{i,i} \neq 0\)</span> for all <span class="arithmatex">\(1 \leq i \leq n\)</span>.</p>
+<p>Let <span class="arithmatex">\(Q \in \mathbb{R}^{m \times n}\)</span> be the matrix on the left and <span class="arithmatex">\(R \in \mathbb{R}^{n \times n}\)</span> be the matrix on the right.</p>
+<p>Substituting into <span class="arithmatex">\((1)\)</span>, we get:</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;A^TAx = A^Tb \\
+\iff &amp;(QR)^TQRx = (QR)^Tb \\
+\iff &amp;R^TQ^TQRx = R^TQ^Tb \\
+\iff &amp;R^TRx = R^TQ^Tb \\
+\iff &amp;Rx = Q^Tb \\
+\end{align*}
+\]</div>
+<p>The above transformation makes use of two facts:</p>
+<ul>
+<li><span class="arithmatex">\(Q^TQ\)</span> equals the identity matrix, since all columns in <span class="arithmatex">\(Q\)</span> are unit vectors and are orthogonal to each other.</li>
+<li><span class="arithmatex">\(R^T\)</span> is invertible, since it's a triangular matrix and all diagonal entries are nonzero.</li>
+</ul>
+<p>Now, we're pretty much done. Computing <span class="arithmatex">\(Q^T b\)</span> is easy, as it's just a matrix multiplied by a vector. Solving the resulting equation is also easy: since <span class="arithmatex">\(R\)</span> is upper triangular, we can just use back substitution.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
 <p>On a serious note, these numbers come from reverse engineering the <a href="https://en.wikipedia.org/wiki/Correlation#Correlation_matrices">correlation matrix</a>, which must be positive semidefinite (whatever that means).&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>I used to be grossed out by this "lazy" transpose shorthand, but now I think it's totally understandable.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -2601,7 +2669,7 @@ y_2 &amp;= e^{\alpha \cdot x} \sin(\beta x)
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 2, 2026 03:26:25 UTC"><span class="timeago" datetime="2026-09-02T03:26:25+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 2, 2026 03:26:25 UTC">2026-09-02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 03:57:34 UTC"><span class="timeago" datetime="2026-09-03T03:57:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 03:57:34 UTC">2026-09-03</span>
   </span>
 
     
