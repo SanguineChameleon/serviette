@@ -1300,3 +1300,66 @@ The above transformation makes use of two facts:
 - $R^T$ is invertible, since it's a triangular matrix and all diagonal entries are nonzero.
 
 Now, we're pretty much done. Computing $Q^T b$ is easy, as it's just a matrix multiplied by a vector. Solving the resulting equation is also easy: since $R$ is upper triangular, we can just use back substitution.
+
+!!! Statement
+
+    Find the eigenvalues and eigenvectors of $A = \begin{bmatrix}2 & 1 \\ 1 & 2 \end{bmatrix}$.
+
+Oh yeah, this is more my speed:
+
+$$
+\begin{align*}
+&\det(A - \lambda I) = 0 \\
+\iff& \det\left(\begin{bmatrix}2 - \lambda & 1 \\ 1 & 2 - \lambda \end{bmatrix}\right) = 0 \\
+\iff& (2 - \lambda)^2 - 1 = 0 \\
+\iff& \boxed{\lambda \in \{1, 3\}}
+\end{align*}
+$$
+
+Eigenvectors for $\lambda = 1$:
+
+$$
+\begin{align*}
+&(A - 1I)x = 0 \\
+\iff& \begin{bmatrix}1 & 1 \\ 1 & 1 \end{bmatrix}x = 0 \\
+\iff& \boxed{x = \begin{bmatrix}-1 \\ 1 \end{bmatrix}s \quad (s \in \mathbb{R} \setminus \{0\})}
+\end{align*}
+$$
+
+Eigenvectors for $\lambda = 3$:
+
+$$
+\begin{align*}
+&(A - 3I)x = 0 \\
+\iff& \begin{bmatrix}-1 & 1 \\ 1 & -1 \end{bmatrix}x = 0 \\
+\iff& \boxed{x = \begin{bmatrix}1 \\ 1 \end{bmatrix}t \quad (t \in \mathbb{R} \setminus \{0\})}
+\end{align*}
+$$
+
+!!! Statement
+
+    There are three random variables $X$, $Y$, and $Z$. The correlation between $X$ and $Y$ is $0.8$, and the correlation between $X$ and $Z$ is also $0.8$. What is the maximum and minimum correlation between $Y$ and $Z$?
+
+Hey wait a minute!
+
+!!! Statement
+
+    You are given a random number generator that generates samples from $N(0, 1)$, and a constant $\rho$ ($-1 \leq \rho \leq 1$). How can you generate two random variables $X$ and $Y$ such that $X, Y \sim N(0, 1)$ and the correlation between $X$ and $Y$ is $\rho$?
+
+Let $\alpha = \rho$ and $\beta = \sqrt{1 - \rho^2}$. Use the random number generator to independently generate $X \sim N(0, 1)$ and $Z \sim N(0, 1)$, then let $Y = \alpha X + \beta Z$.
+
+First note that $Y$ is a linear combination of independent random variables that are normally distributed, so $Y$ itself is also normally distributed. In particular, its mean is $0$ and its variance is $\alpha^2 + \beta^2 = 1$, so $Y \sim N(0, 1)$.
+
+The correlation between $X$ and $Y$ is:
+
+$$
+\begin{align}
+\text{corr}(X, Y) &= \mathbb{E}[XY] \\
+&= \mathbb{E}[X(\alpha X + \beta Z)] \\
+&= \mathbb{E}[\alpha X^2 + \beta X Z] \\
+&= \alpha \cdot \mathbb{E}[X^2] + \beta \cdot \mathbb{E}[X] \cdot \mathbb{E}[Z] \\
+&= \rho
+\end{align}
+$$
+
+and we are done.
