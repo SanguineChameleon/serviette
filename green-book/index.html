@@ -2638,6 +2638,57 @@ r_{1,1} &amp; r_{1,2} &amp; r_{1,3} &amp; \ldots &amp; r_{1,n} \\
 <li><span class="arithmatex">\(R^T\)</span> is invertible, since it's a triangular matrix and all diagonal entries are nonzero.</li>
 </ul>
 <p>Now, we're pretty much done. Computing <span class="arithmatex">\(Q^T b\)</span> is easy, as it's just a matrix multiplied by a vector. Solving the resulting equation is also easy: since <span class="arithmatex">\(R\)</span> is upper triangular, we can just use back substitution.</p>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>Find the eigenvalues and eigenvectors of <span class="arithmatex">\(A = \begin{bmatrix}2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}\)</span>.</p>
+</div>
+<p>Oh yeah, this is more my speed:</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;\det(A - \lambda I) = 0 \\
+\iff&amp; \det\left(\begin{bmatrix}2 - \lambda &amp; 1 \\ 1 &amp; 2 - \lambda \end{bmatrix}\right) = 0 \\
+\iff&amp; (2 - \lambda)^2 - 1 = 0 \\
+\iff&amp; \boxed{\lambda \in \{1, 3\}}
+\end{align*}
+\]</div>
+<p>Eigenvectors for <span class="arithmatex">\(\lambda = 1\)</span>:</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;(A - 1I)x = 0 \\
+\iff&amp; \begin{bmatrix}1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix}x = 0 \\
+\iff&amp; \boxed{x = \begin{bmatrix}-1 \\ 1 \end{bmatrix}s \quad (s \in \mathbb{R} \setminus \{0\})}
+\end{align*}
+\]</div>
+<p>Eigenvectors for <span class="arithmatex">\(\lambda = 3\)</span>:</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;(A - 3I)x = 0 \\
+\iff&amp; \begin{bmatrix}-1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix}x = 0 \\
+\iff&amp; \boxed{x = \begin{bmatrix}1 \\ 1 \end{bmatrix}t \quad (t \in \mathbb{R} \setminus \{0\})}
+\end{align*}
+\]</div>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>There are three random variables <span class="arithmatex">\(X\)</span>, <span class="arithmatex">\(Y\)</span>, and <span class="arithmatex">\(Z\)</span>. The correlation between <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span> is <span class="arithmatex">\(0.8\)</span>, and the correlation between <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Z\)</span> is also <span class="arithmatex">\(0.8\)</span>. What is the maximum and minimum correlation between <span class="arithmatex">\(Y\)</span> and <span class="arithmatex">\(Z\)</span>?</p>
+</div>
+<p>Hey wait a minute!</p>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>You are given a random number generator that generates samples from <span class="arithmatex">\(N(0, 1)\)</span>, and a constant <span class="arithmatex">\(\rho\)</span> (<span class="arithmatex">\(-1 \leq \rho \leq 1\)</span>). How can you generate two random variables <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span> such that <span class="arithmatex">\(X, Y \sim N(0, 1)\)</span> and the correlation between <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span> is <span class="arithmatex">\(\rho\)</span>?</p>
+</div>
+<p>Let <span class="arithmatex">\(\alpha = \rho\)</span> and <span class="arithmatex">\(\beta = \sqrt{1 - \rho^2}\)</span>. Use the random number generator to independently generate <span class="arithmatex">\(X \sim N(0, 1)\)</span> and <span class="arithmatex">\(Z \sim N(0, 1)\)</span>, then let <span class="arithmatex">\(Y = \alpha X + \beta Z\)</span>.</p>
+<p>First note that <span class="arithmatex">\(Y\)</span> is a linear combination of independent random variables that are normally distributed, so <span class="arithmatex">\(Y\)</span> itself is also normally distributed. In particular, its mean is <span class="arithmatex">\(0\)</span> and its variance is <span class="arithmatex">\(\alpha^2 + \beta^2 = 1\)</span>, so <span class="arithmatex">\(Y \sim N(0, 1)\)</span>.</p>
+<p>The correlation between <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span> is:</p>
+<div class="arithmatex">\[
+\begin{align}
+\text{corr}(X, Y) &amp;= \mathbb{E}[XY] \\
+&amp;= \mathbb{E}[X(\alpha X + \beta Z)] \\
+&amp;= \mathbb{E}[\alpha X^2 + \beta X Z] \\
+&amp;= \alpha \cdot \mathbb{E}[X^2] + \beta \cdot \mathbb{E}[X] \cdot \mathbb{E}[Z] \\
+&amp;= \rho
+\end{align}
+\]</div>
+<p>and we are done.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -2669,7 +2720,7 @@ r_{1,1} &amp; r_{1,2} &amp; r_{1,3} &amp; \ldots &amp; r_{1,n} \\
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 03:57:34 UTC"><span class="timeago" datetime="2026-09-03T03:57:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 03:57:34 UTC">2026-09-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 14:16:52 UTC"><span class="timeago" datetime="2026-09-03T14:16:52+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 14:16:52 UTC">2026-09-03</span>
   </span>
 
     
