@@ -1211,3 +1211,92 @@ $$
 \end{align*}
 }
 $$
+
+!!! Statement
+
+    How would you design an algorithm for linear least squares regression?
+
+Hoo boy, I really had to brush up on my basic linear algebra for this one.
+
+Let $A \in \mathbb{R}^{m \times n}$ be a matrix ($m > n$) and $b \in \mathbb{R}^{m}$ be a target vector. We wish to find a vector $x \in \mathbb{R}^{n}$ such that $A x$ is as "close" to $b$ as possible. Specifically, we wish to minimize:
+
+$$
+\|Ax - b\|^2
+$$
+
+over all vectors $x \in \mathbb{R}^{n}$.
+
+Let $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n$ be the columns of $A$, so $A = [\mathbf{v}_1\,\mathbf{v}_2\,\ldots\,\mathbf{v}_n]$. To prevent any future headaches, we'll assume these columns are linearly independent (if they aren't, your model has redundant variables!).
+
+Then, letting[^2] $x = [c_1\,c_2\,\ldots\,c_n]^T$, we have:
+
+[^2]: I used to be grossed out by this "lazy" transpose shorthand, but now I think it's totally understandable.
+
+$$
+Ax = \mathbf{v}_1 c_1 + \mathbf{v}_2 c_2 + \ldots + \mathbf{v}_n c_n 
+$$
+
+
+Thus, the range of $A$ (i.e., the set $\{A x : x \in \mathbb{R}^n\}$) is just the span of $\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$.
+
+Now, for $w \in \text{span}(\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\})$, the value of $\|w - b\|^2$ is minimized when $w$ is the projection of $b$ onto the range of $A$. In other words, $(w - b)$ must be perpendicular to $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n$, which means:
+
+$$
+\begin{align*}
+\mathbf{v}_1 \cdot (w - b) &= 0 \\
+\mathbf{v}_2 \cdot (w - b) &= 0 \\
+&\ldots \\
+\mathbf{v}_n \cdot (w - b) &= 0
+\end{align*}
+$$
+
+or, more succinctly:
+
+$$
+A^T(w - b) = 0
+$$
+
+Therefore, we wish to find an $x$ such that:
+
+$$
+\begin{align*}
+&A^T(Ax - b) = 0 \\
+\iff& A^TAx = A^Tb \tag{1}
+\end{align*}
+$$
+
+Next, we're gonna do what's called a pro gamer move. The [Gram--Schmidt process](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process) allows us to represent the range of $A$ as a basis $\{\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_n\}$, where all the vectors are unit vectors and are orthogonal (perpendicular) to each other. In fact, we can take things further and use this process to express $A$ itself as:
+
+$$
+A = [\mathbf{u}_1\,\mathbf{u}_2\,\ldots\,\mathbf{u}_n]
+\begin{bmatrix}
+r_{1,1} & r_{1,2} & r_{1,3} & \ldots & r_{1,n} \\
+0 & r_{2,2} & r_{2,3} & \ldots & r_{2,n} \\
+0 & 0 & r_{3,3} & \ldots & r_{3,n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \ldots & r_{n,n}
+\end{bmatrix}
+$$
+
+where $\mathbf{v}_i = \mathbf{u}_1 r_{1,i} + \mathbf{u}_2 r_{2,i} + \ldots + \mathbf{u}_i r_{i,i}$ and $r_{i,i} \neq 0$ for all $1 \leq i \leq n$.
+
+Let $Q \in \mathbb{R}^{m \times n}$ be the matrix on the left and $R \in \mathbb{R}^{n \times n}$ be the matrix on the right.
+
+Substituting into $(1)$, we get:
+
+$$
+\begin{align*}
+&A^TAx = A^Tb \\
+\iff &(QR)^TQRx = (QR)^Tb \\
+\iff &R^TQ^TQRx = R^TQ^Tb \\
+\iff &R^TRx = R^TQ^Tb \\
+\iff &Rx = Q^Tb \\
+\end{align*}
+$$
+
+The above transformation makes use of two facts:
+
+- $Q^TQ$ equals the identity matrix, since all columns in $Q$ are unit vectors and are orthogonal to each other.
+- $R^T$ is invertible, since it's a triangular matrix and all diagonal entries are nonzero.
+
+Now, we're pretty much done. Computing $Q^T b$ is easy, as it's just a matrix multiplied by a vector. Solving the resulting equation is also easy: since $R$ is upper triangular, we can just use back substitution.
