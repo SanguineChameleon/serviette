@@ -1363,3 +1363,452 @@ $$
 $$
 
 and we are done.
+
+## Chapter 4 -- Probability Theory
+
+### Coin toss game
+
+!!! Statement
+
+    Andy and Benny are playing a coin toss game. Andy has $n + 1$ fair coins and Benny has $n$ fair coins. What is the probability that Andy will have more heads than Benny if both flip all their coins?
+
+Andy puts one of his coins in his pocket and flips his remaining $n$ fair coins first. Then, Benny flips all his $n$ fair coins.
+
+By symmetry, the probability that Andy has flipped *strictly* more heads than Benny is exactly equal to the probability that Andy has flipped *strictly* fewer heads. If Andy has more heads, then flipping the coin in his pocket won't make a difference; he'll still have more heads than Benny. Likewise, if he has fewer heads, then flipping the coin in his pocket won't make a difference either; at most he can only tie with Benny.
+
+What about if they have the same number of heads? Then the final coin really *does* make a difference, and Andy has a $\frac{1}{2}$ probability of coming out on top.
+
+Combining these cases, the probability that Andy has more heads than Benny is exactly $\boxed{\frac{1}{2}}$.
+
+### Card game
+
+!!! Statement
+
+    A casino offers a simple card game involving a standard deck of $52$ cards. Cards are valued in the order: $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $10$, $J$, $Q$, $K$, $A$.
+
+    At the start, the deck is randomly shuffled. You pick a card from the deck and the dealer picks another one from the remaining cards. What is the probability that your card has a strictly higher value?
+
+Again, by symmetry, the probability that your card has a strictly higher value is exactly equal to the probability that your card has a strictly lower value. Hence, we only need to focus on the probability that both cards have the same value.
+
+After you pick your card, $3$ of the remaining $51$ cards have the same value as yours, so the probability that both cards have the same value is just $\frac{3}{51}$, or $\frac{1}{17}$.
+
+Thus, the probability that your card has a strictly higher value is:
+
+$$
+\left(1 - \frac{1}{17}\right)\frac{1}{2} = \boxed{\frac{8}{17}}
+$$
+
+### Drunk passenger
+
+!!! Statement
+
+    A line of $100$ airline passengers are waiting to board a plane. Each passenger is holding a ticket for one of the $100$ seats on that flight.
+
+    The first person in line is drunk, so they will randomly pick a seat out of all possible seats instead of their assigned one. All the other passengers are sober, so they will go to their assigned seat unless it is already occupied; in that case, they will randomly choose an unoccupied seat instead. 
+
+    You are the last person in line. What is the probability that you end up in your assigned seat?
+
+I've heard of this [before](https://math.stackexchange.com/questions/5595/taking-seats-on-a-plane), but I don't remember the slick way to solve it. So here's my not-so-slick approach instead.
+
+Let $P_n$ be the answer for $n$ airline passengers ($n \geq 2$), so we're looking for $P_{100}$.
+
+The drunk passenger (we'll call him Andy) has a $\frac{1}{n}$ probability of picking his own seat. If that happens, then hey, crisis averted, everyone will end up in their assigned seat. On the other hand, Andy also has a $\frac{1}{n}$ probability of picking *your* seat. If that happens, then too bad, you are definitely not ending up in your assigned seat.
+
+Next, consider when Andy picks a seat that is neither his nor yours; say he picks Benny's seat. Let $k$ be the number of remaining passengers when Benny boards the plane, including Benny himself (so $2 \leq k < n$). Then, we can pretend that Benny's assigned seat was actually Andy's originally assigned seat, and make Benny the drunk one instead (sorry, Benny). Now the problem simply reduces to $P_k$.
+
+Therefore, for all $n \geq 2$, we have:
+
+$$
+P_n = \frac{1}{n}(1 + P_2 + P_3 + \ldots + P_{n - 1})
+$$
+
+We can see that, actually, $P_n = \frac{1}{2}$ for *all* $n \geq 2$, so the answer to the original problem is just:
+
+$$
+P_{100} = \boxed{\frac{1}{2}}
+$$
+
+### N points on a circle
+
+!!! Statement
+
+    Pick $N$ independent and uniformly random points $P_1, P_2, \ldots, P_N$ on the circumference of a circle ($N \geq 2$). What is the probability that they all lie within a semicircle?
+
+We can assume no two points are diametrically opposite, as those cases contribute an infinitely thin probability-slice-thing anyway.
+
+Note that all points lie within the same semicircle if and only if there exists a point $P_i$ such that, after drawing the diameter through $P_i$ and dividing the circle into two halves, all points (excluding $P_i$) lie in the same half. Because we can, we'll call such a point a *yummy* point.
+
+Further observe that, out of all $N$ points, either exactly $2$ of them are yummy, or none of them are. Therefore, the probability that all $N$ points lie within a semicircle is equal to the expected number of points that are yummy, divided by $2$.
+
+Now, for each $i$, we consider the probability that $P_i$ is yummy. Consider some other point $P_j$ where $j \neq i$. Then, the remaining $N - 2$ points must lie in the same half as $P_j$. Thus, the probability that $P_i$ is yummy is:
+
+$$
+\frac{1}{2^{N - 2}}
+$$
+
+Summing up over all points $P_i$ and dividing by $2$, we reach the final answer of:
+
+$$
+\boxed{\frac{N}{2^{N - 1}}}
+$$
+
+### Poker hands
+
+!!! Statement
+
+    Consider a game of poker involving a standard deck of $52$ cards. Each player gets a hand of $5$ cards.
+
+    What is the probability of getting a four of a kind ($4$ of the $5$ cards have the same rank)?
+
+    What is the probability of getting a full house ($3$ cards of one rank and $2$ cards of another rank)?
+
+    What is the probability of getting a two pair ($2$ cards of one rank and $2$ cards of another rank)?
+
+See [Wikipedia](https://en.wikipedia.org/wiki/Poker_probability). Cheers.
+
+### Hopping rabbit
+
+!!! Statement
+
+    A rabbit sits at the bottom of a staircase with $n$ stairs. The rabbit can hop up $1$ or $2$ stairs at a time. How many different ways are there for the rabbit to reach the top of the stairs?
+
+Epic [LeetCode problem](https://leetcode.com/problems/climbing-stairs/).
+
+### Screwy pirates 2
+
+!!! Statement
+
+    $11$ pirates decide to protect their treasure box with locks. To open the treasure box, all locks need to be opened.
+
+    Each lock can be opened by more than one key, but each key can only open one lock. Keys are to be created and distributed among the pirates.
+
+    The pirates want to design a system where *at least* $6$ pirates are needed to open the treasure box. Additionally, *any* $6$ pirates can open the treasure box.
+
+    What is the minimum number of locks needed in such a system? How many keys would each pirate carry?
+
+The first step is to ensure that any $6$ pirates can open the treasure box. So for each lock on the treasure box, we should distribute its keys to exactly $6$ of the $11$ pirates. Any fewer than that, and we'd have a subset of $6$ pirates that can't open the treasure box. Any more than that, and we'd be making our system less secure, as we'll see shortly.
+
+Next, we need to ensure that any subset of $5$ pirates *cannot* open the treasure box. So each subset of $5$ pirates must be discriminated by at least one lock.
+
+Further note that each lock can only discriminate at most one subset of $5$ pirates, since its keys are distributed to exactly $6$ pirates. Therefore, the minimum number of locks needed is simply the number of subsets of $5$ pirates, which is:
+
+$$
+\binom{11}{5} = \boxed{462}
+$$
+
+A pirate won't receive the key for a lock if they belong to the subset of pirates the lock discriminates. Hence, the number of locks a pirate cannot open is the number of subsets of $5$ pirates that include said pirate, which is:
+
+$$
+\binom{10}{4} = 210
+$$
+
+So each pirate carries $462 - 210 = \boxed{252}$ keys.
+
+!!! Chess tournament
+
+    A chess tournament has $2^n$ players with different skill levels. It is organized as a single-elimination tournament: only the winners of each round proceed to the next. The match-ups in each round (except for the final) are decided at random. Assume that when two players meet in a game, the player with the higher skill level always wins.
+
+    What is the probability that the two players with the highest skill level meet in the final?
+
+Assign each player one of two colors: white if said player is competing under the first finalist's subtree, and black if said player is competing under the second finalist's subtree. Note that the color assignments are uniformly distributed.
+
+The probability that the two players with the highest skill level meet in the final is then the probability that they are assigned different colors.
+
+The total number of color assignments is:
+
+$$
+\binom{2^n}{2^{n - 1}}
+$$
+
+The number of color assignments where the two players are assigned different colors is:
+
+$$
+\binom{2^n - 2}{2^{n - 1} - 1} \cdot 2
+$$
+
+So the desired probability is:
+
+$$
+\begin{align*}
+\frac{\displaystyle \binom{2^n - 2}{2^{n - 1} - 1} \cdot 2}{\displaystyle \binom{2^n}{2^{n - 1}}} &= \frac{\displaystyle \frac{2(2^n - 2)!}{(2^{n - 1} - 1)!(2^{n - 1} - 1)!}}{\displaystyle \frac{(2^n)!}{(2^{n - 1})!(2^{n - 1})!}} \\
+&= \frac{2(2^n - 2)!(2^{n - 1})!(2^{n - 1})!}{(2^n)!(2^{n - 1} - 1)!(2^{n - 1} - 1)!} \\
+&= \frac{2\cdot2^{n - 1}\cdot2^{n - 1}}{(2^n - 1)2^n} \\
+&= \frac{2^{2n - 1}}{(2^n - 1)2^n} \\
+&= \boxed{\frac{2^{n - 1}}{2^n - 1}} \\
+\end{align*}
+$$
+
+### Application letters
+
+!!! Statement
+
+    You're sending job applications to $5$ firms. You have $5$ envelopes and $5$ cover letters personalized to each of these firms. Your young child randomly put letters into envelopes without realizing that the letters were personalized. What is the probability that all $5$ letters are in the wrong envelopes?
+
+First of all, keep the letters away from your child's reach. But anyway, we are looking for the number of [derangements](https://en.wikipedia.org/wiki/Derangement) of size $5$, which turns out to be $44$. So the probability that all $5$ letters are in the wrong envelopes is:
+
+$$
+\frac{44}{5!} = \boxed{\frac{11}{30}}
+$$
+
+### Birthday problem
+
+Obligatory [Wikipedia article](https://en.wikipedia.org/wiki/Birthday_problem) and [TED-Ed video](https://www.youtube.com/watch?v=KtT_cgMzHx8).
+
+### 100th digit
+
+!!! Statement
+
+    What is the $100$-th digit of $(1 + \sqrt{2})^{3000}$ after the decimal point?
+
+Observe that, for any even integer $n \geq 0$:
+
+$$
+\left(1 + \sqrt{2}\right)^{n} + \left(1 - \sqrt{2}\right)^{n} \in \mathbb{Z}^{+}
+$$
+
+Let $x = 1$ and $y = \sqrt{2}$. Then, via binomial expansion, all terms in the left power are of the form $\binom{n}{k}x^{n-k}y^k$, and all terms in the right power are of the form $\binom{n}{k}x^{n-k}(-y)^k$. For even $k$, both terms are integers. For odd $k$, these terms cancel out. This proves our result.
+
+Why do we care about this? Well, note that $(1 - \sqrt{2})^{3000}$ is positive and very small, so $\left(1 + \sqrt{2}\right)^{3000}$ must be very slightly less than a positive integer. Thus, the $100$-th digit after the decimal point must be $\boxed{9}$.
+
+Okay, but just so we don't get rejected by the interviewer:
+
+$$
+\begin{align*}
+\left(1 - \sqrt{2}\right)^{3000} &= \left(\sqrt{2} - 1\right)^{3000} \\
+&< (1.5 - 1)^{3000} \\
+&= {(0.5)}^{3000} \\
+&= 2^{-3000} \\
+&< 2^{-400} \\
+&= 16^{-100} \\
+&< 10^{-100} \\
+\end{align*}
+$$
+
+### Cubic of integer
+
+!!! Statement
+
+    Let $x$ be a random integer between $1$ and $10^{12}$ inclusive. What is the probability that $x^3$ ends in $11$?
+
+Sigh.
+
+Trying all residue classes modulo $100$ (by computer, not by hand, you heathen) reveals that only one of them gives a remainder of $11$ when cubed, so the answer is $\boxed{\frac{1}{100}}$.
+
+### Boys and girls
+
+!!! Statement
+
+    A company is holding a dinner for employees with at least one son. Cindy, a mother with two children, is invited. What is the probability that both children are boys?
+
+Philosophical language issues aside, what we really care about is:
+
+$$
+\begin{align*}
+&P(\text{Cindy has two sons}\,|\,\text{Cindy has at least one son}) \\
+=\,&\frac{P(\text{Cindy has two sons and she has at least one son})}{P(\text{Cindy has at least one son})} \\
+=\,&\frac{P(\text{Cindy has two sons})}{P(\text{Cindy has at least one son})} \\
+=\,&\frac{\displaystyle \left(\frac{1}{4}\right)}{\displaystyle \left(\frac{3}{4}\right)} \\
+=\,&\boxed{\frac{1}{3}}
+\end{align*}
+$$
+
+!!! Statement
+
+    Your new colleague Darcy has two children. If you see her walking with one of her children and that child is a boy, what is the probability that both her children are boys?
+
+Again, philosophical language issues aside, what we really care about is:
+
+$$
+\begin{align*}
+&P(\text{Darcy has two sons}\,|\,\text{Darcy was walking with a boy}) \\
+=\,&\frac{P(\text{Darcy has two sons and she was walking with a boy})}{P(\text{Darcy was walking with a boy})} \\
+=\,&\frac{P(\text{Darcy has two sons})}{P(\text{Darcy was walking with a boy})} \\
+=\,&\frac{\displaystyle \left(\frac{1}{4}\right)}{P(\text{Darcy was walking with a boy})} \\
+\end{align*}
+$$
+
+Now note that:
+
+$$
+\begin{align*}
+&P(\text{Darcy was walking with a boy}) \\
+\\
+=\,&P(\text{Darcy's first child was a boy}\,|\,\text{Darcy was walking with her first child}) \cdot P(\text{Darcy was walking with her first child}) \\
++\,&P(\text{Darcy's second child was a boy}\,|\,\text{Darcy was walking with her second child}) \cdot P(\text{Darcy was walking with her second child}) \\
+\\
+=\,&P(\text{Darcy's first child was a boy}) \cdot P(\text{Darcy was walking with her first child}) \\
++\,&P(\text{Darcy's second child was a boy}) \cdot P(\text{Darcy was walking with her second child}) \\
+\\
+=\,&\frac{1}{2} \cdot P(\text{Darcy was walking with her first child}) \\
++\,&\frac{1}{2} \cdot P(\text{Darcy was walking with her second child}) \\
+\\
+=\,&\frac{1}{2}
+\end{align*}
+$$
+
+So the desired probability is:
+
+$$
+\begin{align*}
+\frac{\displaystyle \left(\frac{1}{4}\right)}{\displaystyle \left(\frac{1}{2}\right)} = \boxed{\frac{1}{2}}
+\end{align*}
+$$
+
+Here, our derivation implicitly assumes that which child Darcy chooses to walk with is independent of whether they are a boy or a girl. This is fine and probably accurate for real life, but if, say, Darcy prefers to walk with girls rather than boys, we'd get a different result.
+
+### All heads?
+
+I was lenient with the blatant non-binary erasure in the last one, because that's how it's usually presented anyway. But the original statement for this one was hella sexist and I'm not here to endorse a decades-old societal norm, especially when there's a much more intuitive formulation that avoids it entirely.
+
+!!! Statement
+
+    A game is played with a fair coin. In each round, you repeatedly flip the coin and stop once it lands on heads.
+
+    As you play more and more rounds, what happens to the proportion of heads you see overall?
+
+Let $n$ be the number of rounds you've played so far, and $X_i$ be the number of coin flips in the $i$-th round. Then, the proportion of heads you've seen so far is:
+
+$$
+\frac{n}{X_1 + X_2 + \ldots + X_n}
+$$
+
+Treating $X_1, X_2, \ldots, X_n$ as observations of the same random variable $X$, the above proportion is precisely the reciprocal of the sample mean, $\frac{1}{\overline{X}_n}$.
+
+As $n$ approaches infinity, $\overline{X}_n$ approaches $\mathbb{E}[X] = 2$, so the proportion of heads you see overall approaches $\frac{1}{2}$.
+
+In fact, treating the coin flips as-is and ignoring how they're partitioned into different rounds, you would expect the proportion of heads to approach $\frac{1}{2}$ anyway. Oops.
+
+### Unfair coin
+
+!!! Statement
+
+    You are given $1000$ coins. $1$ coin has heads on both sides. The remaining $999$ are fair coins. You randomly choose a coin and flip it $10$ times. It shows head every single time.
+
+    What is the probability that the coin you chose was the unfair one?
+
+One-liner:
+
+$$
+\frac{0.001}{0.001 + 0.999 \cdot 0.5^{10}} = \boxed{\frac{1024}{2023}}
+$$
+
+### Fair probability from an unfair coin
+
+See [Wikipedia](https://en.wikipedia.org/wiki/Fair_coin#Fair_results_from_a_biased_coin).
+
+### Dart game
+
+!!! Statement
+
+    Andy throws two darts at a dartboard, aiming for the center. The second dart is further from the center than the first. If Andy throws a third dart (still aiming for the center), what is the probability that the third dart is further from the center than the first? Assume Andy's skill level remains constant.
+
+Label the darts $D_1$, $D_2$, and $D_3$, respectively, and order them by increasing distance to the center. Of the $3! = 6$ possible orderings, $3$ of them have $D_1$ before $D_2$, and $2$ of them have $D_1$ before $D_2$ *and* $D_1$ before $D_3$.
+
+So the probability that the third dart is further from the center than the first is $\boxed{\frac{2}{3}}$.
+
+### Birthday line
+
+!!! Statement
+
+    At a movie theater, a whimsical manager announces that she will give a free ticket to the first person in line whose birthday is the same as anyone who has already bought a ticket. You can choose where you want to be in the line. You don't know anyone else's birthday.
+
+    Assume all birthdays are uniformly distributed, and there are $365$ days in a year. Which position in line gives you the highest chance of getting the free ticket?
+
+Suppose you are the $n$-th person in line ($n \geq 2$). Then, in order for you to get the free ticket, everyone in front of you must have distinct birthdays, and *your* birthday must match one of theirs. So the probability that you get the free ticket is:
+
+$$
+P_n = \frac{365 \cdot 364 \cdot 363 \cdot \ldots \cdot (367 - n)}{365^{n - 1}} \cdot \frac{n - 1}{365}
+$$
+
+Now note that:
+
+$$
+\frac{P_{n + 1}}{P_n} = \frac{(366 - n)n}{365(n - 1)}
+$$
+
+Thus:
+
+$$
+\begin{align}
+P_{n + 1} > {P_n} &\iff \frac{P_{n + 1}}{P_n} > 1 \\
+&\iff 365(n - 1) < (366 - n)n \\
+&\iff 365n - 365 < 366n - n^2 \\
+&\iff n^2 - n < 365 \\
+\end{align}
+$$
+
+The smallest $n$ for which $n^2 - n \geq 365$ is $n = \boxed{20}$, which is indeed our answer.
+
+### Dice order
+
+!!! Statement
+
+    We throw $3$ dice one at a time. What is the probability that we get $3$ strictly increasing values?
+
+One-liner:
+
+$$
+\frac{\displaystyle \binom{6}{3}}{6^3} = \frac{20}{216} = \boxed{\frac{5}{54}}
+$$
+
+### Monty Hall problem
+
+[You](https://en.wikipedia.org/wiki/Monty_Hall_problem) [should](https://www.youtube.com/watch?v=mhlc7peGlGg) [switch](https://www.youtube.com/watch?v=TVq2ivVpZgQ).
+
+### Amoeba population
+
+!!! Statement
+
+    There is $1$ amoeba in a pond. After $1$ minute, the amoeba either dies, stays the same,
+    splits into $2$, or splits into $3$, each occurring with equal probability. Its offspring, if it has any, behave under the same rules, independent of other amoebas.
+
+    What is the probability that the amoebas die out?
+
+Let $p$ be the probability that the amoebas die out, given that there is currently $1$ amoeba.
+
+After $1$ minute, one of the following occurs:
+
+- The amoeba dies. Then the probability of extinction is $1$.
+- The amoeba stays the same. Then the probability of extinction is $p$.
+- The amoeba splits into $2$. Treating each of the offspring as an independent population, the probability that both go extinct is $p^2$.
+- The amoeba splits into $3$. Similarly, the probability of extinction is $p^3$.
+
+Putting everything together, we get:
+
+$$
+\begin{align*}
+&p = \frac{1}{4}(1 + p + p^2 + p^3) \\
+\iff\, &p^3 + p^2 - 3p + 1 = 0 \\
+\iff\, &(p - 1)(p^2 + 2p - 1) = 0
+\end{align*}
+$$
+
+Clearly $p = 1$ is a root of the above equation, but disturbingly, there is another positive root: $p = \sqrt{2} - 1$. So which one is it?
+
+Let's try again. Define $q_n$ to be the probability that, starting from $1$ amoeba, the amoebas have *not* gone extinct after $n$ minutes, so $q_0 = 1$.
+
+Then, we can do something like before to derive:
+
+$$
+\begin{align*}
+q_{n + 1} &= \frac{1}{4}(0 + q_n + (1 - (1 - q_n)^2) + (1 - (1 - q_n)^3)) \\
+&= \frac{1}{4}(q_n^3 - 4q_n^2 + 6q_n) \\
+\end{align*}
+$$
+
+Let $f(x) = \frac{1}{4}(x^3 - 4x^2 + 6x)$, so $q_{n + 1} = f(q_n)$. Note that:
+
+$$
+\begin{align*}
+f^{\prime}(x) &= \frac{1}{4}(3x^2 - 8x + 6) \\
+&= \frac{3}{4}\left(x^2 - \frac{8}{3}x + 2\right) \\
+&= \frac{3}{4}\left(\left(x - \frac{4}{3}\right)^2 + \frac{2}{9}\right) \\
+&> 0
+\end{align*}
+$$
+
+so $f(x)$ is increasing.
+
+Now let $\alpha = 2 - \sqrt{2}$. Observe that if $q_n > \alpha$, then $q_{n + 1} = f(q_n) > f(\alpha) = \alpha$. But $q_0 = 1 > \alpha$, so $q_n > \alpha$ for all $n$. Thus, this sequence cannot converge to $0$, which means $p \neq 1$. Therefore, the correct root is $p = \boxed{\sqrt{2} - 1}$.
+
+**Update**: The book doesn't even prove that $p$ cannot be $1$!! What a scam!!
