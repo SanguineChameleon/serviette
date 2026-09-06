@@ -220,11 +220,11 @@ You can find the elasticity of pretty much anything. Price elasticity of demand,
 
 ### Elastic and inelastic demand
 
-Let the total revenue $R$ be price times quantity, so $R = P \cdot Q$. Then, by the product rule:
+Let the total revenue $TR$ be price times quantity, so $TR = P \cdot Q$. Then, by the product rule:
 
 $$
 \begin{align*}
-\frac{dR}{dP}
+\frac{dTR}{dP}
 &= Q + P \cdot \frac{dQ}{dP} \\
 &= Q(1 + \frac{P}{Q} \cdot \frac{dQ}{dP}) \\
 &= Q(1 + \epsilon)
@@ -233,11 +233,11 @@ $$
 
 Thus, we can conclude that:
 
-- If $|\epsilon| > 1$ (so $\epsilon < -1$), then $\frac{dR}{dP} < 0$, which means *increasing* the price by a small amount results in a small *decrease* in revenue. We call this *elastic* demand.
+- If $|\epsilon| > 1$ (so $\epsilon < -1$), then $\frac{dTR}{dP} < 0$, which means *increasing* the price by a small amount results in a small *decrease* in total revenue. We call this *elastic* demand.
 
-- If $|\epsilon| < 1$ (so $\epsilon > -1$), then $\frac{dR}{dP} > 0$, which means *increasing* the price by a small amount results in a small *increase* in revenue. We call this *inelastic* demand.
+- If $|\epsilon| < 1$ (so $\epsilon > -1$), then $\frac{dTR}{dP} > 0$, which means *increasing* the price by a small amount results in a small *increase* in total revenue. We call this *inelastic* demand.
 
-- If $|\epsilon| = 1$, then the demand is *unit-elastic*. A small change in price (positive or negative) basically won't affect the revenue.
+- If $|\epsilon| = 1$, then the demand is *unit-elastic*. A small change in price (positive or negative) basically won't affect the total revenue.
 
 Why those names? Well, returning to our baker boys, if their baked goods were *inelastic*, that means their customers are loyal. If they charged a little bit more, the customers would still happily buy their baked goods. On the other hand, if their baked goods were *elastic*, that means their customers are more flexible with their options. Charge us more for your brownies? Who cares, we'll just go somewhere else.
 
@@ -375,3 +375,194 @@ So yes, as long as they're Pareto efficient, we can achieve outcomes where Cindy
 
 There is one big asterisk to all this, though. President Peter still has to decide what situation is "desirable". He could try asking each of his citizens to rank all the possible outcomes, but what if those rankings conflict with each other? After all, he knows that all Cindy would want is a bajillion brownies. This is a [whole other story](https://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem) that we may or may not leave for another time.
 
+## Externalities
+
+Let's come back to those litterbug customers. They are rude, annoying, and they litter brownie wrappers everywhere. President Peter's Robot Cleaners™ have to work much harder to clean up the whole mess.
+
+Now, Andy and Benny don't have to pay for the Robot Cleaners™ to work harder. For all they care, the costs are coming from President Peter's pocket anyway. But surely President Peter is unhappy: he is incurring a cost that isn't accounted for in the cost of producing or consuming a brownie. The customers don't have to pay for this cost, nor do the boys.
+
+This is known as an **externality**. In particular, it's a *negative* externality, because President Peter has to pay more for the Robot Cleaners™ as a result of the boys' brownie antics.
+
+As we've seen, one way to deal with negative externalities is to impose a tax on producers or consumers to reflect this external cost, creating an artificial shift in the corresponding curve. This decreases the equilibrium quantity, and President Peter is more than happy to do so.
+
+On the other hand, there are *positive* externalities: benefits received as a result of the actions of another party. The classic example is vaccines: getting vaccinated protects yourself, but it can also help protect others from harmful viruses. To encourage vaccinations, governments can offer **subsidies**: decrease the cost of getting vaccinated to increase the equilibrium quantity.
+
+## All the costs
+
+There are a bunch of cost curves for a bunch of things. Here we'll always take the $x$-axis to represent how many brownies the boys consider producing in a day, and the $y$-axis to represent some measure of cost at that level of production.
+
+### Fixed Cost
+
+No matter how many brownies the boys produce, they'll still have to pay the same amount of rent each day. This is known as the **fixed cost** ($FC$).
+
+Clearly, the $FC$ curve is just a straight horizontal line.
+
+### Variable Cost
+
+As we all know by now, the cost of producing brownies (ignoring fixed costs) changes depending on how many brownies are produced. This is known as the **variable cost** ($VC$).
+
+The $VC$ generally increases, because, well, producing more stuff costs more.
+
+### Total Cost
+
+It's just fixed cost plus variable cost. $TC = FC + VC$.
+
+### Marginal Cost
+
+As before, the marginal cost ($MC$) is the cost of producing $1$ additional brownie.
+
+The $MC$ is the derivative of the $TC$, but it's also the derivative of the $VC$, because that's how math works. A nice consequence is that the variable cost can be thought of as the sum of the marginal costs of each brownie produced so far.
+
+### The U-shape
+
+Many sections ago, I wrote:
+
+!!! note ""
+
+    As we've seen with the PPFs, the more brownies the boys produce, the more apple pies they have to give up per $1$ brownie. This is generally true not just relative to apple pies: the more brownies you produce, the **marginal cost** (say, in dollars) of producing $1$ additional brownie eventually increases.
+
+
+but then I made this dubious assumption:
+
+!!! note ""
+
+    Here we'll just assume it *always* increases.
+
+Now, a strictly increasing marginal cost is possible, but not as common. We should also account for how the robot bakers work with each other.
+
+At the start, only the robots that are (relatively) very good at producing brownies are on brownie duty. This is fine and all, but the problem is that there aren't enough robots to split up the work efficiently: they have to run around between counters and ovens, which is a huge waste of time. Eventually, though, as more brownies are produced, more robots are allowed on brownie duty, and the bakery enters a steadier rhythm of producing brownies.
+
+This results in the U-shape economists know and love: the $MC$ initially declines when the bakery is operating at too low an output level, then starts rising again once the specialization benefits run out and the boys have to use robots that are (relatively) less good at producing brownies.
+
+### Average Fixed Cost
+
+Fixed cost divided by quantity produced. $AFC = \frac{FC}{Q}$.
+
+Naturally, the $AFC$ is decreasing, because the $FC$ is constant.
+
+### Average Variable Cost
+
+Variable cost divided by quantity produced. $AVC = \frac{VC}{Q}$.
+
+Usually, the $AVC$ is also "U-shaped". The intuition is similar to why the $MC$ is U-shaped.
+
+However, it's been a while since we've done some actual mathematics, so...
+
+$$
+\begin{align*}
+\frac{d}{dQ}\left(AVC\right) &= \frac{d}{dQ}\left(\frac{VC}{Q}\right) \\
+&= \frac{\displaystyle Q \cdot \frac{d}{dQ}(VC) - VC \cdot \frac{d}{dQ}(Q)}{Q^2} \\
+&= \frac{Q \cdot MC - VC}{Q^2} \\
+&= \frac{MC - AVC}{Q} \\
+\end{align*}
+$$
+
+This has some pretty neat consequences:
+
+- If $MC > AVC$, then $\frac{d}{dQ}\left(AVC\right) > 0$, so $AVC$ is increasing.
+- If $MC < AVC$, then $\frac{d}{dQ}\left(AVC\right) < 0$, so $AVC$ is decreasing.
+- If $MC = AVC$, then $\frac{d}{dQ}\left(AVC\right) = 0$, so $AVC$ is at a stationary point, which is the minimum, assuming the $AVC$ really is U-shaped.
+
+Or, in English:
+
+- If the $MC$ is currently higher than the $AVC$, we should expect the $AVC$ to increase.
+- If the $MC$ is currently lower than the $AVC$, we should expect the $AVC$ to decrease.
+- The $MC$ curve intersects the $AVC$ curve at the $AVC$ curve's lowest point.
+
+### Average Total Cost
+
+Total cost divided by quantity produced. $ATC = \frac{TC}{Q}$.
+
+By the power of mathematics, the same properties of $AVC$ also apply to $ATC$:
+
+$$
+\frac{d}{dQ}\left(ATC\right) = \frac{MC - ATC}{Q}
+$$
+
+## Perfect competition
+
+At last, we are ready to (more or less) characterize what we've been talking about thus far.
+
+Andy and Benny are merely two boys among countless bakers scattered throughout the country. They have little to no effect on the market price: they can't just charge twice as much for their brownies and expect everyone else to do the same.
+
+Maybe in a few decades, they could dominate the brownie market and form an **oligopoly** with a few other great bakers, or take over the whole thing and form one big **monopoly**. But for now, the boys are humble **price-takers**: it's best for them to sell their brownies at the market price.  
+
+Strangely enough, Andy and Benny have been sharing the exact same brownie recipe for months now, and no one has noticed. Their loyal customers still think they've been at each other's throats for years. Maybe they should announce their relationship soon?
+
+Regardless, their brownies are **homogeneous**: they are perfect substitutes for each other, and the quality of the good does not vary between different suppliers.
+
+President Peter is annoying sometimes, but he's still kind-hearted at the end of the day. Public transport is free for everyone, so customers don't have to spend money to reach the boys' bakeries; they only have to pay for each brownie itself. Similarly, the boys don't have to pay anything extra either.
+
+We say the market has no **transaction costs**: buyers and sellers do not incur additional costs when participating in a transaction. Also, there are no **barriers to entry** and no **barriers to exit**: Andy and Benny can freely open or close their bakery without any restrictions.
+
+Lastly, there is **perfect information**: Andy and Benny are up to date on the latest news on brownie prices across the country, and so are their customers.
+
+These conditions (and many more I'm not going to cover because we'd be here all day) make up what is known as a **perfectly competitive market**.
+
+## Marginal revenue
+
+The marginal revenue $MR$ is the revenue earned by selling $1$ more brownie, or mathematically, the derivative of the total revenue $TR$ with respect to the quantity $Q$:
+
+$$
+\begin{align*}
+MR &= \frac{d}{dQ} \left(TR\right) \\
+&= \frac{d}{dQ} \left(P \cdot Q \right) \\
+&= P + Q \cdot \frac{dP}{dQ} \\
+&= P\left(1 + \frac{Q}{P} \cdot \frac{dP}{dQ}\right) \\
+&= P\left(1 + \frac{1}{\epsilon}\right) \\
+&= P\left(1 - \frac{1}{|\epsilon|}\right) \\
+\end{align*}
+$$
+
+Now, it's worth noting that the elasticity (and hence $MR$) can be taken relative to the entire brownie market as a whole, or relative to the boys in particular. Here, we're focusing on the latter.
+
+Assuming a perfectly competitive market, Andy and Benny obviously shouldn't charge *more* than the market price, because then no one would go to their bakery. They shouldn't charge *less* than the market price either, because then they'd just be making less money.
+
+Sound familiar? The boys' *individual* demand curve is perfectly elastic. This means $|\epsilon| = \infty$, so the above just simplifies to:
+
+$$
+MR = P
+$$
+
+In other words, no matter how many brownies the boys sell, they will always earn a marginal revenue of $P$ for each additional brownie.
+
+## Profit
+
+Equals total revenue minus total cost. $\Pi = TR - TC = Q(P - ATC)$.
+
+### Maximizing profit
+
+Recall that the $MC$ initially declines, then rises again. Andy and Benny should produce brownies until they reach the unique[^2] quantity $Q^*$ where $MC(Q^*) = P$:
+
+[^2]: Please ignore the funny edge cases where there are $0$ or $2$ intersections. 
+
+- For $Q < Q^*$, we have $MC(Q) < P$, so producing another brownie *increases* profit, which means they should keep producing brownies.
+- For $Q > Q^*$, we have $MC(Q) > P$, so producing another brownie *decreases* profit, which means they should stop producing brownies.
+
+In English, they should continue producing brownies until the marginal cost of producing $1$ more brownie exceeds the market price.
+
+What can we say about the profit $\Pi$? For that, we'll compare $P$ with the **break-even price** $P_{be}$, the minimum value on the $ATC$ curve:
+
+- If $P < P_{be}$ (i.e., $MC(Q^*) < P_{be}$), then we are *below* the $ATC$ curve, so $\Pi$ is negative.
+- If $P > P_{be}$ (i.e., $MC(Q^*) > P_{be}$), then we are *above* the $ATC$ curve, so $\Pi$ is positive.
+- If $P = P_{be}$ (i.e., $MC(Q^*) = P_{be}$), then we are *on* the $ATC$ curve, so $\Pi$ is zero.
+
+![](some-econ-things/profit.png){style="width:70%;"}
+
+Note that all these derivations implicitly assume that Andy and Benny have already started producing brownies. But what if the best course of action for them is to not produce anything?
+
+### Short run and long run
+
+Clearly, if $P > P_{be}$, then the boys should produce brownies, because they'd be making a profit. But what about $P \leq P_{be}$? Does that mean the boys shouldn't produce any brownies at all, because they'd be making a loss?
+
+Well, not necessarily. After all, the boys still have to pay rent, brownies or not. So if the revenue they'd earn is more than the variable cost, then they can at least use that difference to cover part of their rent. Hey, something is better than nothing, right?
+
+In other words, if $TR - VC = Q(P - AVC)$ is positive, then it's still worth producing brownies. If the difference is negative, then they should temporarily close their brownie operations for now.
+
+We can do something similar to before. This time, we'll compare $P$ with the **shutdown** price $P_{sd}$, the minimum value of the $AVC$ curve:
+
+- If $P < P_{sd}$, then we are *below* the $AVC$ curve, so the boys should not produce brownies.
+- If $P > P_{sd}$, then we are *above* the $AVC$ curve, so the boys should produce brownies.
+- If $P = P_{sd}$, then we are *on* the $AVC$ curve, so the boys are indifferent.
+
+Ultimately, though, this is only for the **short run**. In the **long run**, fixed costs are no longer fixed: the boys are planning to buy a house together sometime in the future, anyway. So there's really no point in them maintaining their bakeries when $P < P_{be}$. If that happens, they'll just run off into the sunset together.
