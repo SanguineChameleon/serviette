@@ -225,3 +225,67 @@ That's cool and all, but who cares? It's not like the bank is actually paying me
 Well, if this alien bank had an IRR of $10\%$, and some other alien bank had an IRR of $50\%$, then it's (probably) worth going to the other bank instead. Of course, there's more nuance to this. If getting that $50\%$ IRR required me to pay way more money upfront, or the bank was ethically questionable and at risk of shutting down, then maybe I should think twice about it.
 
 But anyway, IRR gives us an imperfect but much more intuitive grasp than just staring at a pile of cash payments. This applies to many other things, such as companies making financial decisions about the profitability of projects, not just rude alien banks.
+
+## Bonds
+
+The government needs money for things (allegedly). The government does not have enough money (allegedly). Monkey-brain human investor loves gambling and making profit.
+
+Governments issue **bonds** in the **primary market**, which you can buy. You can trade bonds in the **secondary market**. Bond prices fluctuate because of supply and demand, much like in the stock market. But this is not the stock market. These are different things.
+
+The exact same bond may be traded through different dealers or trading venues. But usually, it should have roughly the same price across all of them, because something something arbitrage. Much like the stock market. But this is still not the stock market. These are still different things.
+
+Okay, here's some notation dump:
+
+- $P$: **current price**. How much you must pay in the market to own the bond, at the current point in time.
+- $F$: **face value**. The government will periodically give you a bonus for loaning them your money. The size of each payment is based on $F$. These are called **coupon payments**, or interest payments (though, arguably, it's not the same "interest" as we've discussed).
+- $c$: **nominal coupon rate**. How much you are paid annually as a proportion of $F$.
+- $m$: **number of coupon payments per year**. Hence, each coupon payment is worth $\frac{cF}{m}$.
+- $n$: **total number of coupon payments remaining** until the "expiration date" (maturity date) of the bond. You will no longer receive periodic coupon payments after this.
+- $R$: **redemption value** (or maturity value). How much the government promises to pay you at maturity. Assume they keep their word, so there's no **default risk**.
+- $\lambda$: **nominal yield rate**. Just so we don't confuse ourselves, if $r$ is the effective annual IRR, then $1 + r = (1 + \frac{\lambda}{m})^m$. So in some sense $\lambda$ is kind of the nominal version of the IRR, assuming payments are made $m$ times a year. But y'know, notation schmotation.
+
+Anyway, our cash flow looks something like this:
+
+$$
+C = \left\{\left(\frac{cF}{m}, \frac{1}{m}\right), \left(\frac{cF}{m}, \frac{2}{m}\right), \ldots, \left(\frac{cF}{m}, \frac{n - 1}{m}\right), \left(\frac{cF}{m} + R, \frac{n}{m}\right)\right\}
+$$
+
+We then have:
+
+$$
+\begin{align*}
+P &= PV(C) \\
+&= \frac{R}{\displaystyle \left(1 + \frac{\lambda}{m}\right)^n} + \sum_{i=1}^{n} \frac{\displaystyle \frac{cF}{m}}{\displaystyle \left(1 + \frac{\lambda}{m}\right)^i}
+\end{align*}
+$$
+
+Let $u = \frac{\displaystyle 1}{\displaystyle 1 + \frac{\lambda}{m}} = \frac{\displaystyle m}{\displaystyle m + \lambda}$. Then:
+
+$$
+\begin{align*}
+P &= R \cdot u^n + \frac{cF}{m} \cdot \sum_{i=1}^{n} u^i \\
+&= R \cdot u^n + \frac{cF}{m} \cdot \frac{u - u^{n + 1}}{1 - u} \\
+&= R \cdot u^n + cF \cdot \frac{u}{m(1 - u)} \cdot (1 - u^n) \\
+&= R \cdot u^n + cF \cdot \frac{1}{(m + \lambda)(1 - u)} \cdot (1 - u^n) \\
+&= R \cdot u^n + cF \cdot \frac{1}{(m + \lambda) - m} \cdot (1 - u^n) \\
+&= R \cdot u^n + \frac{cF}{\lambda} \cdot (1 - u^n) \\
+\end{align*}
+$$
+
+Now, for most bonds, the redemption value is just the face value, so we can set $R = F$ to get:
+
+$$
+\begin{align*}
+P &= F \cdot u^n + \frac{cF}{\lambda} \cdot (1 - u^n) \\
+&= F\left(u^n + \frac{c}{\lambda} \cdot (1 - u^n)\right) \\
+&= F + F\left(u^n - 1 + \frac{c}{\lambda} \cdot (1 - u^n)\right) \\
+&= F + F\left(\frac{c - \lambda}{\lambda} \cdot (1 - u^n)\right) \\
+&= F + F \cdot \frac{c - \lambda}{\lambda} \cdot \left[1 - \frac{1}{\left(1 + \frac{\lambda}{m}\right)^n} \right] \\
+\end{align*}
+$$
+
+This gives us a nice result. For $c, \lambda > 0$:
+
+- $P > F$ if and only if $c > \lambda$. Such a bond is priced at a **premium**.
+- $P < F$ if and only if $c < \lambda$. Such a bond is priced at a **discount**.
+- $P = F$ if and only if $c = \lambda$. Such a bond is priced at **par**.
