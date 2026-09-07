@@ -723,6 +723,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bonds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonds
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -970,6 +981,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bonds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonds
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1116,6 +1138,58 @@ TV_{t^\prime}(C)
 <p>That's cool and all, but who cares? It's not like the bank is actually paying me on a regular basis. Their payment times <span class="arithmatex">\(t_i\)</span> are all over the place.</p>
 <p>Well, if this alien bank had an IRR of <span class="arithmatex">\(10\%\)</span>, and some other alien bank had an IRR of <span class="arithmatex">\(50\%\)</span>, then it's (probably) worth going to the other bank instead. Of course, there's more nuance to this. If getting that <span class="arithmatex">\(50\%\)</span> IRR required me to pay way more money upfront, or the bank was ethically questionable and at risk of shutting down, then maybe I should think twice about it.</p>
 <p>But anyway, IRR gives us an imperfect but much more intuitive grasp than just staring at a pile of cash payments. This applies to many other things, such as companies making financial decisions about the profitability of projects, not just rude alien banks.</p>
+<h2 id="bonds">Bonds</h2>
+<p>The government needs money for things (allegedly). The government does not have enough money (allegedly). Monkey-brain human investor loves gambling and making profit.</p>
+<p>Governments issue <strong>bonds</strong> in the <strong>primary market</strong>, which you can buy. You can trade bonds in the <strong>secondary market</strong>. Bond prices fluctuate because of supply and demand, much like in the stock market. But this is not the stock market. These are different things.</p>
+<p>The exact same bond may be traded through different dealers or trading venues. But usually, it should have roughly the same price across all of them, because something something arbitrage. Much like the stock market. But this is still not the stock market. These are still different things.</p>
+<p>Okay, here's some notation dump:</p>
+<ul>
+<li><span class="arithmatex">\(P\)</span>: <strong>current price</strong>. How much you must pay in the market to own the bond, at the current point in time.</li>
+<li><span class="arithmatex">\(F\)</span>: <strong>face value</strong>. The government will periodically give you a bonus for loaning them your money. The size of each payment is based on <span class="arithmatex">\(F\)</span>. These are called <strong>coupon payments</strong>, or interest payments (though, arguably, it's not the same "interest" as we've discussed).</li>
+<li><span class="arithmatex">\(c\)</span>: <strong>nominal coupon rate</strong>. How much you are paid annually as a proportion of <span class="arithmatex">\(F\)</span>.</li>
+<li><span class="arithmatex">\(m\)</span>: <strong>number of coupon payments per year</strong>. Hence, each coupon payment is worth <span class="arithmatex">\(\frac{cF}{m}\)</span>.</li>
+<li><span class="arithmatex">\(n\)</span>: <strong>total number of coupon payments remaining</strong> until the "expiration date" (maturity date) of the bond. You will no longer receive periodic coupon payments after this.</li>
+<li><span class="arithmatex">\(R\)</span>: <strong>redemption value</strong> (or maturity value). How much the government promises to pay you at maturity. Assume they keep their word, so there's no <strong>default risk</strong>.</li>
+<li><span class="arithmatex">\(\lambda\)</span>: <strong>nominal yield rate</strong>. Just so we don't confuse ourselves, if <span class="arithmatex">\(r\)</span> is the effective annual IRR, then <span class="arithmatex">\(1 + r = (1 + \frac{\lambda}{m})^m\)</span>. So in some sense <span class="arithmatex">\(\lambda\)</span> is kind of the nominal version of the IRR, assuming payments are made <span class="arithmatex">\(m\)</span> times a year. But y'know, notation schmotation.</li>
+</ul>
+<p>Anyway, our cash flow looks something like this:</p>
+<div class="arithmatex">\[
+C = \left\{\left(\frac{cF}{m}, \frac{1}{m}\right), \left(\frac{cF}{m}, \frac{2}{m}\right), \ldots, \left(\frac{cF}{m}, \frac{n - 1}{m}\right), \left(\frac{cF}{m} + R, \frac{n}{m}\right)\right\}
+\]</div>
+<p>We then have:</p>
+<div class="arithmatex">\[
+\begin{align*}
+P &amp;= PV(C) \\
+&amp;= \frac{R}{\displaystyle \left(1 + \frac{\lambda}{m}\right)^n} + \sum_{i=1}^{n} \frac{\displaystyle \frac{cF}{m}}{\displaystyle \left(1 + \frac{\lambda}{m}\right)^i}
+\end{align*}
+\]</div>
+<p>Let <span class="arithmatex">\(u = \frac{\displaystyle 1}{\displaystyle 1 + \frac{\lambda}{m}} = \frac{\displaystyle m}{\displaystyle m + \lambda}\)</span>. Then:</p>
+<div class="arithmatex">\[
+\begin{align*}
+P &amp;= R \cdot u^n + \frac{cF}{m} \cdot \sum_{i=1}^{n} u^i \\
+&amp;= R \cdot u^n + \frac{cF}{m} \cdot \frac{u - u^{n + 1}}{1 - u} \\
+&amp;= R \cdot u^n + cF \cdot \frac{u}{m(1 - u)} \cdot (1 - u^n) \\
+&amp;= R \cdot u^n + cF \cdot \frac{1}{(m + \lambda)(1 - u)} \cdot (1 - u^n) \\
+&amp;= R \cdot u^n + cF \cdot \frac{1}{(m + \lambda) - m} \cdot (1 - u^n) \\
+&amp;= R \cdot u^n + \frac{cF}{\lambda} \cdot (1 - u^n) \\
+\end{align*}
+\]</div>
+<p>Now, for most bonds, the redemption value is just the face value, so we can set <span class="arithmatex">\(R = F\)</span> to get:</p>
+<div class="arithmatex">\[
+\begin{align*}
+P &amp;= F \cdot u^n + \frac{cF}{\lambda} \cdot (1 - u^n) \\
+&amp;= F\left(u^n + \frac{c}{\lambda} \cdot (1 - u^n)\right) \\
+&amp;= F + F\left(u^n - 1 + \frac{c}{\lambda} \cdot (1 - u^n)\right) \\
+&amp;= F + F\left(\frac{c - \lambda}{\lambda} \cdot (1 - u^n)\right) \\
+&amp;= F + F \cdot \frac{c - \lambda}{\lambda} \cdot \left[1 - \frac{1}{\left(1 + \frac{\lambda}{m}\right)^n} \right] \\
+\end{align*}
+\]</div>
+<p>This gives us a nice result. For <span class="arithmatex">\(c, \lambda &gt; 0\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(P &gt; F\)</span> if and only if <span class="arithmatex">\(c &gt; \lambda\)</span>. Such a bond is priced at a <strong>premium</strong>.</li>
+<li><span class="arithmatex">\(P &lt; F\)</span> if and only if <span class="arithmatex">\(c &lt; \lambda\)</span>. Such a bond is priced at a <strong>discount</strong>.</li>
+<li><span class="arithmatex">\(P = F\)</span> if and only if <span class="arithmatex">\(c = \lambda\)</span>. Such a bond is priced at <strong>par</strong>.</li>
+</ul>
 
 
 
@@ -1136,7 +1210,7 @@ TV_{t^\prime}(C)
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 24, 2026 03:30:24 UTC"><span class="timeago" datetime="2026-08-24T03:30:24+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 24, 2026 03:30:24 UTC">2026-08-24</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 7, 2026 06:04:03 UTC"><span class="timeago" datetime="2026-09-07T06:04:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 7, 2026 06:04:03 UTC">2026-09-07</span>
   </span>
 
     
