@@ -1180,6 +1180,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#chess-tournament" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chess tournament
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#application-letters" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1316,6 +1327,50 @@
     <span class="md-ellipsis">
       
         Amoeba population
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candies-in-a-jar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candies in a jar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coin-toss-game_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coin toss game
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#russian-roulette-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Russian roulette series
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aces
       
     </span>
   </a>
@@ -1977,6 +2032,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#chess-tournament" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chess tournament
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#application-letters" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2113,6 +2179,50 @@
     <span class="md-ellipsis">
       
         Amoeba population
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candies-in-a-jar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candies in a jar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coin-toss-game_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coin toss game
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#russian-roulette-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Russian roulette series
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aces
       
     </span>
   </a>
@@ -3254,8 +3364,9 @@ P_{100} = \boxed{\frac{1}{2}}
 \binom{10}{4} = 210
 \]</div>
 <p>So each pirate carries <span class="arithmatex">\(462 - 210 = \boxed{252}\)</span> keys.</p>
-<div class="admonition chess tournament">
-<p class="admonition-title">Chess</p>
+<h3 id="chess-tournament">Chess tournament</h3>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
 <p>A chess tournament has <span class="arithmatex">\(2^n\)</span> players with different skill levels. It is organized as a single-elimination tournament: only the winners of each round proceed to the next. The match-ups in each round (except for the final) are decided at random. Assume that when two players meet in a game, the player with the higher skill level always wins.</p>
 <p>What is the probability that the two players with the highest skill level meet in the final?</p>
 </div>
@@ -3484,6 +3595,94 @@ f^{\prime}(x) &amp;= \frac{1}{4}(3x^2 - 8x + 6) \\
 <p>so <span class="arithmatex">\(f(x)\)</span> is increasing.</p>
 <p>Now let <span class="arithmatex">\(\alpha = 2 - \sqrt{2}\)</span>. Observe that if <span class="arithmatex">\(q_n &gt; \alpha\)</span>, then <span class="arithmatex">\(q_{n + 1} = f(q_n) &gt; f(\alpha) = \alpha\)</span>. But <span class="arithmatex">\(q_0 = 1 &gt; \alpha\)</span>, so <span class="arithmatex">\(q_n &gt; \alpha\)</span> for all <span class="arithmatex">\(n\)</span>. Thus, this sequence cannot converge to <span class="arithmatex">\(0\)</span>, which means <span class="arithmatex">\(p \neq 1\)</span>. Therefore, the correct root is <span class="arithmatex">\(p = \boxed{\sqrt{2} - 1}\)</span>.</p>
 <p><strong>Update</strong>: The book doesn't even prove that <span class="arithmatex">\(p\)</span> cannot be <span class="arithmatex">\(1\)</span>!! What a scam!!</p>
+<h3 id="candies-in-a-jar">Candies in a jar</h3>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>You are randomly taking out candies one by one from a jar that has <span class="arithmatex">\(10\)</span> red candies, <span class="arithmatex">\(20\)</span> blue candies,
+and <span class="arithmatex">\(30\)</span> green candies. What is the probability that there is at least <span class="arithmatex">\(1\)</span> blue candy and
+<span class="arithmatex">\(1\)</span> green candy left in the jar when you have taken out all the red candies?</p>
+</div>
+<p>Let's say you continue taking candies until there are none left in the jar. Then, for the final candy, the probability that it's blue is <span class="arithmatex">\(\frac{20}{10 + 20 + 30} = \frac{1}{3}\)</span>, and the probability that it's green is <span class="arithmatex">\(\frac{30}{10 + 20 + 30} = \frac{1}{2}\)</span>. Clearly we don't need to care about the case where the final candy is red.</p>
+<p>Now suppose the final candy was blue, and consider the last candy before that which was <em>not</em> blue. Then, conditioned on it being either red or green, the probability that it's green is <span class="arithmatex">\(\frac{30}{10 + 30} = \frac{3}{4}\)</span>. So this case contributes a probability of <span class="arithmatex">\(\frac{1}{3} \cdot \frac{3}{4} = \frac{1}{4}\)</span>.</p>
+<p>Similarly, if the final candy was green, we'd get a probability of <span class="arithmatex">\(\frac{1}{2} \cdot \frac{2}{3} = \frac{1}{3}\)</span>. So the answer is:</p>
+<div class="arithmatex">\[
+\frac{1}{4} + \frac{1}{3} = \boxed{\frac{7}{12}}
+\]</div>
+<h3 id="coin-toss-game_1">Coin toss game</h3>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>Andy and Benny take turns tossing a fair coin, with Andy going first. The sequence of heads and tails is recorded. If there is a head immediately followed by a tail, the game ends and the person who just tossed the tail wins. What is the probability that Andy wins?</p>
+</div>
+<p>Let <span class="arithmatex">\(P(x, y)\)</span> be the probability that Andy wins, given that the game is not over yet, the current player is <span class="arithmatex">\(x \in \{A, B\}\)</span>, and the most recent outcome was <span class="arithmatex">\(y \in \{H, T\}\)</span>. The answer to the problem is thus <span class="arithmatex">\(\frac{1}{2}[P(B, H) + P(B, T)]\)</span>.</p>
+<p>We have:</p>
+<div class="arithmatex">\[
+\begin{align*}
+P(A, H) &amp;= \frac{1}{2}[P(B, H) + 1] \\
+P(A, T) &amp;= \frac{1}{2}[P(B, H) + P(B, T)] \\
+P(B, H) &amp;= \frac{1}{2}[P(A, H) + 0] \\
+P(B, T) &amp;= \frac{1}{2}[P(A, H) + P(A, T)]
+\end{align*}
+\]</div>
+<p>Solving this system of equations gives us:</p>
+<div class="arithmatex">\[
+\begin{align*}
+P(A, H) &amp;= \frac{2}{3} \\
+P(A, T) &amp;= \frac{4}{9} \\
+P(B, H) &amp;= \frac{1}{3} \\
+P(B, T) &amp;= \frac{5}{9}
+\end{align*}
+\]</div>
+<p>So the answer is:</p>
+<div class="arithmatex">\[
+\begin{align*}
+\frac{1}{2}[P(B, H) + P(B, T)] &amp;= \frac{1}{2}\left[\frac{1}{3} + \frac{5}{9}\right] \\
+&amp;= \boxed{\frac{4}{9}}
+\end{align*}
+\]</div>
+<h3 id="russian-roulette-series">Russian roulette series</h3>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>A single bullet is put into a <span class="arithmatex">\(6\)</span>-chamber revolver. The cylinder is randomly spun so that each chamber is equally likely to be in the firing position. Two players take turns pulling the trigger without re-spinning the cylinder. The person who gets killed loses.</p>
+<p>Should you play as the first player or the second player? What is your probability of losing?</p>
+</div>
+<p>I'm sort of not really in the mood to talk about death.</p>
+<p><span class="arithmatex">\(6\)</span> is even, so both players have the same probability of losing, <span class="arithmatex">\(\boxed{\frac{1}{2}}\)</span>.</p>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>Now, let's change the rule slightly. We will spin the cylinder again after each turn.</p>
+<p>Should you play as the first player or the second player? What is your probability of losing?</p>
+</div>
+<p>Ugh. Let <span class="arithmatex">\(p\)</span> be the probability the first player loses. Then <span class="arithmatex">\(p = \frac{1}{6} + \frac{5}{6}(1 - p)\)</span>, since after the first turn, we can effectively assume the players have switched roles.</p>
+<p>Solving this gives <span class="arithmatex">\(p = \frac{6}{11}\)</span>, so you have slightly better odds as the second player, losing with probability <span class="arithmatex">\(\boxed{\frac{5}{11}}\)</span>.</p>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>Instead of <span class="arithmatex">\(1\)</span> bullet, now <span class="arithmatex">\(2\)</span> bullets are randomly put into the revolver. Your opponent
+went first and survived the initial trigger pull. You are given the option to either spin the cylinder or do nothing. What should you do?</p>
+</div>
+<p>Can we <em>not</em>?</p>
+<p>If you don't spin it, the probability of losing on your next turn is <span class="arithmatex">\(\boxed{\frac{2}{5}}\)</span>, since the previous chamber was safe. Otherwise, the probability of losing on your next turn is <span class="arithmatex">\(\boxed{\frac{1}{3}}\)</span>. Clearly you should spin it.</p>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p>What if the <span class="arithmatex">\(2\)</span> bullets are randomly put in <span class="arithmatex">\(2\)</span> consecutive positions? If your opponent survived the first turn, should you spin the cylinder?</p>
+</div>
+<p>&hellip;</p>
+<p>It's <span class="arithmatex">\(\boxed{\frac{1}{4}}\)</span> vs. <span class="arithmatex">\(\boxed{\frac{1}{3}}\)</span>. Don't spin it. </p>
+<h3 id="aces">Aces</h3>
+<p>Well, I'm glad there's no more of that.</p>
+<div class="admonition statement">
+<p class="admonition-title">Statement</p>
+<p><span class="arithmatex">\(52\)</span> cards are randomly distributed to <span class="arithmatex">\(4\)</span> players, with each player getting <span class="arithmatex">\(13\)</span> cards. What is the probability that each of them has an ace?</p>
+</div>
+<p>Since the order in which we distribute the cards doesn't matter, we may as well distribute the <span class="arithmatex">\(4\)</span> aces at the start. So suppose the first ace goes to Andy. Then:</p>
+<ul>
+<li>The probability the second ace goes to someone else (say, Benny) is <span class="arithmatex">\(\frac{51 - 12}{51} = \frac{13}{17}\)</span>.</li>
+<li>The probability the third ace goes to a new person (say, Cindy) is <span class="arithmatex">\(\frac{50 - 12 - 12}{50} = \frac{13}{25}\)</span>.</li>
+<li>The probability the fourth ace goes to a new person (say, Darcy) is <span class="arithmatex">\(\frac{49 - 12 - 12 - 12}{49} = \frac{13}{49}\)</span>.</li>
+</ul>
+<p>So the answer is:</p>
+<div class="arithmatex">\[
+\frac{13}{17} \cdot \frac{13}{25} \cdot \frac{13}{49} = \boxed{\frac{2197}{20825}}
+\]</div>
 <div class="footnote">
 <hr />
 <ol>
@@ -3515,7 +3714,7 @@ f^{\prime}(x) &amp;= \frac{1}{4}(3x^2 - 8x + 6) \\
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 4, 2026 15:49:32 UTC"><span class="timeago" datetime="2026-09-04T15:49:32+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 4, 2026 15:49:32 UTC">2026-09-04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 12, 2026 03:26:52 UTC"><span class="timeago" datetime="2026-09-12T03:26:52+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 12, 2026 03:26:52 UTC">2026-09-12</span>
   </span>
 
     
