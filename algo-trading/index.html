@@ -1,0 +1,1190 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sanguinecha.me/serviette/algo-trading/">
+      
+      
+        <link rel="prev" href="../green-book/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Algorithmic Trading 101 - A Sufficiently Large Serviette</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/timeago.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+<meta property="og:site_name" content="A Sufficiently Large Serviette" />
+<meta property="og:title" content="Algorithmic Trading 101" />
+<meta property="og:url" content="https://sanguinecha.me/serviette/algo-trading/" />
+<meta property="og:type" content="article" />
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Mono:wght@100..900&display=swap" rel="stylesheet" />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#algorithmic-trading-101" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="A Sufficiently Large Serviette" class="md-header__button md-logo" aria-label="A Sufficiently Large Serviette" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.2 16.06 3.88 12 2.2 7.94l4.06-1.68L7.94 2.2 12 3.88l4.06-1.68 1.68 4.06 4.06 1.68-.86 2.06c-.56.06-1.12.3-1.56.75L11 19.13v1.4L7.94 21.8l-1.68-4.06zm17.63-2.93.98-.98c.19-.2.52-.2.72 0l1.32 1.32c.2.2.2.53 0 .72l-.98.98zm1.34 2.75L15.04 22H13v-2.04l6.13-6.13z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A Sufficiently Large Serviette
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Algorithmic Trading 101
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8 8 8 0 0 1-8 8z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8 8 8 0 0 1-8 8z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="A Sufficiently Large Serviette" class="md-nav__button md-logo" aria-label="A Sufficiently Large Serviette" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.2 16.06 3.88 12 2.2 7.94l4.06-1.68L7.94 2.2 12 3.88l4.06-1.68 1.68 4.06 4.06 1.68-.86 2.06c-.56.06-1.12.3-1.56.75L11 19.13v1.4L7.94 21.8l-1.68-4.06zm17.63-2.93.98-.98c.19-.2.52-.2.72 0l1.32 1.32c.2.2.2.53 0 .72l-.98.98zm1.34 2.75L15.04 22H13v-2.04l6.13-6.13z"/></svg>
+
+    </a>
+    A Sufficiently Large Serviette
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures and Algorithms
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Structures and Algorithms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-lifting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binary Lifting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Economics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../some-econ-things/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Some Econ Things
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantitative Finance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quantitative Finance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../some-quant-things/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Some Quant Things
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../green-book/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Green Book Speedrun Any%
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmic Trading 101
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithmic Trading 101
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#financial-jargon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Financial jargon
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Financial jargon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#market-participants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market participants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Market participants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retail-investors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retail investors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#institutional-investors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Institutional investors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#market-makers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market makers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brokers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brokers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dealers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dealers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asset classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-traded-funds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange-traded funds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#financial-jargon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Financial jargon
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Financial jargon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#market-participants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market participants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Market participants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retail-investors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retail investors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#institutional-investors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Institutional investors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#market-makers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market makers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brokers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brokers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dealers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dealers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asset classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchange-traded-funds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchange-traded funds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="algorithmic-trading-101">Algorithmic Trading 101</h1>
+<p>This page was adapted and translated from my dad's notes. Thanks Dad!</p>
+<h2 id="financial-jargon">Financial jargon</h2>
+<p>Let's try speeding through some much-needed context.</p>
+<h3 id="assets">Assets</h3>
+<p>An <strong>asset</strong> is basically any resource owned by something or someone. Walk into any bakery and you'll see a ton of its assets: the ovens, the furniture, the ingredients, etc. Even the brownies that you buy and eat can be considered assets.</p>
+<p>Assets are divided into two main classes: <strong>tangible assets</strong> and <strong>intangible assets</strong>, which should hopefully be self-explanatory. Here, we focus mainly on one specific type of intangible asset, and that is <strong>financial assets</strong>.</p>
+<h3 id="investments">Investments</h3>
+<p>Companies need money (allegedly). Investors have money (allegedly). Naturally, investors can give companies money. However, this is not merely a charity: the investor expects to make a profit for putting their trust in the company.</p>
+<p>For example, if Andy and Benny need funding for their bakery, maybe they can call up their friend Cindy and ask her for <span class="arithmatex">\(\$1000\)</span>. Then, maybe at the end of the year, they promise to pay her back <span class="arithmatex">\(\$1500\)</span> using part of their revenue. Cindy is the <strong>investor</strong> and she has made an <strong>investment</strong>.</p>
+<p>Now, there are a few issues worth considering. First of all, Andy and Benny have been good friends with Cindy for years, so they keep in close contact with her. But what about companies that don't already have those connections? Surely they can't just go to the local bar and look for investors there. Second of all, Andy and Benny are nice boys, so of course they'll hold up their end of the deal. But we can't say the same for all companies. What if they successfully scam their investors and run away with all the money?</p>
+<p>Thus, we'd like an easy way for investors to put their trust in companies without having to physically meet, while (reasonably) ensuring that companies don't just pull a fast one on them. That's why they invented the&hellip;</p>
+<h3 id="exchange">Exchange</h3>
+<p>An <strong>exchange</strong> is a centralized place where people can trade&hellip; stuff.</p>
+<p>There is obviously more nuance to this, but the really important mental model you need to have for now is that, yes, there are a <em>lot</em> of flavors of exchange, and yes, there are a <em>lot</em> of exchanges with different flavors, each operating under its own rules.</p>
+<p>Just like with farmers' markets, there are many exchanges in the world, and you can buy and sell things from them. That's why exchanges are a type of&hellip; <strong>market</strong>. Yeah.</p>
+<p>The specific flavor of exchange we'll be dealing with throughout is the <strong>stock exchange</strong>. Each stock exchange only makes up one part of the entire <strong>stock market</strong> ecosystem.</p>
+<h2 id="market-participants">Market participants</h2>
+<p>Who actually participates in the <del>casino</del> stock market, anyway?</p>
+<p>This list is not exhaustive, and the actual line between these categories isn't really that clear-cut.</p>
+<h3 id="retail-investors">Retail investors</h3>
+<p>Individuals who are willing to gamble away their life savings. Yes, you too can be a retail investor!</p>
+<h3 id="institutional-investors">Institutional investors</h3>
+<p>Organizations that gamble a <em>lot</em> more than the average Joe. These include <strong>pension funds</strong>, <strong>mutual funds</strong>, and <strong>hedge funds</strong>. Essentially, they all work under the same idea: give us <em>your</em> money, and we'll invest it for you. You can think of them as banks with a gambling addiction.</p>
+<h3 id="traders">Traders</h3>
+<p>Buy sell buy buy sell buy sell buy sell sell. Profit. They can either be retail or institutional.</p>
+<h3 id="market-makers">Market makers</h3>
+<p>Very roughly (and using brownies as a placeholder), market makers sell brownies to those who want to buy brownies, but they also buy brownies from those who want to sell brownies. They provide <strong>liquidity</strong> in the market: thanks to them, you can more easily convert brownies into dollars. Usually, market makers make a profit too.</p>
+<h3 id="brokers">Brokers</h3>
+<p>Unlike a casino, a retail investor can't just walk into a trading floor and demand brownies. Instead, they'll do it via a third party, known as a <strong>broker</strong>, who executes the trades on their behalf, or at least routes the trades to someone else. Brokers can make money by charging retail investors a little bit extra for their transactions, or through arrangements with market makers.</p>
+<h3 id="dealers">Dealers</h3>
+<p>Firms that YOLO with their own money. They can larp as market makers, but aren't required to do so. Market makers generally have obligations under the stock exchange's regulations to, you know, make markets or whatever.</p>
+<h2 id="asset-classes">Asset classes</h2>
+<p>What can you gamble in the stock market, anyway? Again, this list is not exhaustive.</p>
+<h3 id="stocks">Stocks</h3>
+<p><strong>Stocks</strong> are also known as <strong>equities</strong>. The primary unit of stocks is <strong>shares</strong>.</p>
+<p>Andy and Benny give Cindy <span class="arithmatex">\(500\)</span> slips of paper (shares) with their signatures in exchange for investing <span class="arithmatex">\(\$1000\)</span> in their bakery. Thus, Cindy paid <span class="arithmatex">\(\$2\)</span> for each share.</p>
+<p>On the way home, Cindy meets up with Darcy, so she decides to sell Darcy <span class="arithmatex">\(200\)</span> of her existing shares. She can sell them at the same price, undercharge, overcharge&hellip; it doesn't really matter, but you get the idea. Darcy can then sell her shares to someone else, and so on. Sooner or later, the whole neighborhood is buying and selling shares.</p>
+<p>For a <strong>private company</strong>, its shares are not publicly available for trade: they simply handle things privately with their investors. But a <strong>public company</strong> is where the fun begins: you can buy and sell your shares to your heart's content.</p>
+<p>Now, there are various legal implications of owning a share. As a <strong>shareholder</strong>, you technically own a (very small) part of the company itself. The more shares you own, the more ownership you have over the company proportionally. Depending on the type of shares, shareholders can vote on company decisions, receive a portion of the profit earned by the company (a <strong>dividend</strong>), get access to certain company information like annual financial reports, and so on. We don't really need to care about all that jazz; we're just here to gamble, of course.</p>
+<h3 id="exchange-traded-funds">Exchange-traded funds</h3>
+<p>Commonly abbreviated as <strong>ETFs</strong>.</p>
+<p>ETFs are sort of like private funds in that you give them money and they invest in stuff. But unlike private funds, you usually don't have to pay a decent chunk of money upfront. The way you invest in an ETF is simply by purchasing its shares. Share price goes up as the ETF's investments increase in value. Naturally, ETF shares are publicly available for trade.</p>
+<p>In theory, an ETF can YOLO-gamble like your average private fund, but most ETFs are <strong>index funds</strong>. Index funds don't do anything daring; they just follow a <strong>stock index</strong>. If the stock index says this company has a weight of <span class="arithmatex">\(7\%\)</span>, then the ETF will invest <span class="arithmatex">\(7\%\)</span> of its funding into said company. Of course, there are many different stock indexes which are maintained by many different organizations and stock experts.</p>
+<h3 id="options">Options</h3>
+<p>Suppose you own <span class="arithmatex">\(1000\)</span> shares of company <span class="arithmatex">\(X\)</span>, priced at <span class="arithmatex">\(\$200\)</span> each. While you have high hopes that the share price will eventually rise to <span class="arithmatex">\(\$250\)</span>, you're also worried that company <span class="arithmatex">\(X\)</span> is going through a rough patch right now and suspect that the share price may drop to as low as <span class="arithmatex">\(\$150\)</span>. What can you do?</p>
+<p>That's where <strong>options</strong> come in. For example, you can buy a <strong>put option</strong> which gives you the <em>option</em> (ha) to sell <span class="arithmatex">\(100\)</span> of your shares at a price of <span class="arithmatex">\(\$190\)</span> sometime in the near future (based on the option's terms and conditions). Conversely, there are also <strong>call options</strong>.</p>
+<p>If the share price doesn't actually drop in the first place, then hey, crisis averted, and you only incur the cost of buying the put option. If the share price <em>does</em> drop to <span class="arithmatex">\(\$150\)</span>, then you can choose to exercise the put option and sell <span class="arithmatex">\(100\)</span> of your shares at a higher price of <span class="arithmatex">\(\$190\)</span> instead, which is at least better than nothing, right?</p>
+<p>Alternatively, you can choose to sell the put option itself. It'd be quite valuable right now for other people who own a lot of company <span class="arithmatex">\(X\)</span>'s shares. The ability to buy and sell options really does open up a whole new world of 5D chess in the stock exchange. </p>
+<p>Unlike shares, which are initially issued by companies, in theory, anyone in the market can offer (<strong>write</strong>) an option, and anyone in the market can buy (<strong>hold</strong>) that option. Lastly, and this is somewhat obvious, but for options that are publicly available for trade, they're generally standardized by the stock exchange's regulations. You can't just make up a put option to sell a bajillion shares at a ludicrously high price, for example.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 12, 2026 13:30:05 UTC"><span class="timeago" datetime="2026-09-12T13:30:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 12, 2026 13:30:05 UTC">2026-09-12</span>
+  </span>
+
+    
+    
+    
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/SanguineChameleon" class="md-author" title="@SanguineChameleon">
+          
+          <img src="https://avatars.githubusercontent.com/u/97085374?v=4&size=72" alt="SanguineChameleon">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Website by <a class="" href="https://sanguinecha.me/leon">SanguineChameleon</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.suggest", "search.highlight", "content.code.copy", "content.footnote.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/timeago.min.js"></script>
+      
+        <script src="../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
