@@ -1504,7 +1504,9 @@ $$
 
 So each pirate carries $462 - 210 = \boxed{252}$ keys.
 
-!!! Chess tournament
+### Chess tournament
+
+!!! Statement
 
     A chess tournament has $2^n$ players with different skill levels. It is organized as a single-elimination tournament: only the winners of each round proceed to the next. The match-ups in each round (except for the final) are decided at random. Assume that when two players meet in a game, the player with the higher skill level always wins.
 
@@ -1812,3 +1814,119 @@ so $f(x)$ is increasing.
 Now let $\alpha = 2 - \sqrt{2}$. Observe that if $q_n > \alpha$, then $q_{n + 1} = f(q_n) > f(\alpha) = \alpha$. But $q_0 = 1 > \alpha$, so $q_n > \alpha$ for all $n$. Thus, this sequence cannot converge to $0$, which means $p \neq 1$. Therefore, the correct root is $p = \boxed{\sqrt{2} - 1}$.
 
 **Update**: The book doesn't even prove that $p$ cannot be $1$!! What a scam!!
+
+### Candies in a jar
+
+!!! Statement
+
+    You are randomly taking out candies one by one from a jar that has $10$ red candies, $20$ blue candies,
+    and $30$ green candies. What is the probability that there is at least $1$ blue candy and
+    $1$ green candy left in the jar when you have taken out all the red candies?
+
+Let's say you continue taking candies until there are none left in the jar. Then, for the final candy, the probability that it's blue is $\frac{20}{10 + 20 + 30} = \frac{1}{3}$, and the probability that it's green is $\frac{30}{10 + 20 + 30} = \frac{1}{2}$. Clearly we don't need to care about the case where the final candy is red.
+
+Now suppose the final candy was blue, and consider the last candy before that which was *not* blue. Then, conditioned on it being either red or green, the probability that it's green is $\frac{30}{10 + 30} = \frac{3}{4}$. So this case contributes a probability of $\frac{1}{3} \cdot \frac{3}{4} = \frac{1}{4}$.
+
+Similarly, if the final candy was green, we'd get a probability of $\frac{1}{2} \cdot \frac{2}{3} = \frac{1}{3}$. So the answer is:
+
+$$
+\frac{1}{4} + \frac{1}{3} = \boxed{\frac{7}{12}}
+$$
+
+### Coin toss game
+
+!!! Statement
+
+    Andy and Benny take turns tossing a fair coin, with Andy going first. The sequence of heads and tails is recorded. If there is a head immediately followed by a tail, the game ends and the person who just tossed the tail wins. What is the probability that Andy wins?
+
+Let $P(x, y)$ be the probability that Andy wins, given that the game is not over yet, the current player is $x \in \{A, B\}$, and the most recent outcome was $y \in \{H, T\}$. The answer to the problem is thus $\frac{1}{2}[P(B, H) + P(B, T)]$.
+
+We have:
+
+$$
+\begin{align*}
+P(A, H) &= \frac{1}{2}[P(B, H) + 1] \\
+P(A, T) &= \frac{1}{2}[P(B, H) + P(B, T)] \\
+P(B, H) &= \frac{1}{2}[P(A, H) + 0] \\
+P(B, T) &= \frac{1}{2}[P(A, H) + P(A, T)]
+\end{align*}
+$$
+
+Solving this system of equations gives us:
+
+$$
+\begin{align*}
+P(A, H) &= \frac{2}{3} \\
+P(A, T) &= \frac{4}{9} \\
+P(B, H) &= \frac{1}{3} \\
+P(B, T) &= \frac{5}{9}
+\end{align*}
+$$
+
+So the answer is:
+
+$$
+\begin{align*}
+\frac{1}{2}[P(B, H) + P(B, T)] &= \frac{1}{2}\left[\frac{1}{3} + \frac{5}{9}\right] \\
+&= \boxed{\frac{4}{9}}
+\end{align*}
+$$
+
+### Russian roulette series
+
+!!! Statement
+
+    A single bullet is put into a $6$-chamber revolver. The cylinder is randomly spun so that each chamber is equally likely to be in the firing position. Two players take turns pulling the trigger without re-spinning the cylinder. The person who gets killed loses.
+
+    Should you play as the first player or the second player? What is your probability of losing?
+
+I'm sort of not really in the mood to talk about death.
+
+$6$ is even, so both players have the same probability of losing, $\boxed{\frac{1}{2}}$.
+
+!!! Statement
+
+    Now, let's change the rule slightly. We will spin the cylinder again after each turn.
+
+    Should you play as the first player or the second player? What is your probability of losing?
+
+Ugh. Let $p$ be the probability the first player loses. Then $p = \frac{1}{6} + \frac{5}{6}(1 - p)$, since after the first turn, we can effectively assume the players have switched roles.
+
+Solving this gives $p = \frac{6}{11}$, so you have slightly better odds as the second player, losing with probability $\boxed{\frac{5}{11}}$.
+
+!!! Statement
+
+    Instead of $1$ bullet, now $2$ bullets are randomly put into the revolver. Your opponent
+    went first and survived the initial trigger pull. You are given the option to either spin the cylinder or do nothing. What should you do?
+
+Can we *not*?
+
+If you don't spin it, the probability of losing on your next turn is $\boxed{\frac{2}{5}}$, since the previous chamber was safe. Otherwise, the probability of losing on your next turn is $\boxed{\frac{1}{3}}$. Clearly you should spin it.
+
+!!! Statement
+
+    What if the $2$ bullets are randomly put in $2$ consecutive positions? If your opponent survived the first turn, should you spin the cylinder?
+
+...
+
+It's $\boxed{\frac{1}{4}}$ vs. $\boxed{\frac{1}{3}}$. Don't spin it. 
+
+### Aces
+
+Well, I'm glad there's no more of that.
+
+!!! Statement
+
+    $52$ cards are randomly distributed to $4$ players, with each player getting $13$ cards. What is the probability that each of them has an ace?
+
+Since the order in which we distribute the cards doesn't matter, we may as well distribute the $4$ aces at the start. So suppose the first ace goes to Andy. Then:
+
+- The probability the second ace goes to someone else (say, Benny) is $\frac{51 - 12}{51} = \frac{13}{17}$.
+- The probability the third ace goes to a new person (say, Cindy) is $\frac{50 - 12 - 12}{50} = \frac{13}{25}$.
+- The probability the fourth ace goes to a new person (say, Darcy) is $\frac{49 - 12 - 12 - 12}{49} = \frac{13}{49}$.
+
+So the answer is:
+
+$$
+\frac{13}{17} \cdot \frac{13}{25} \cdot \frac{13}{49} = \boxed{\frac{2197}{20825}}
+$$
