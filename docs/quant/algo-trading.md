@@ -97,3 +97,40 @@ If the share price doesn't actually drop in the first place, then hey, crisis av
 Alternatively, you can choose to sell the put option itself. It'd be quite valuable right now for other people who own a lot of company $X$'s shares. The ability to buy and sell options really does open up a whole new world of 5D chess in the stock exchange. 
 
 Unlike shares, which are initially issued by companies, in theory, anyone in the market can offer (**write**) an option, and anyone in the market can buy (**hold**) that option. Lastly, and this is somewhat obvious, but for options that are publicly available for trade, they're generally standardized by the stock exchange's regulations. You can't just make up a put option to sell a bajillion shares at a ludicrously high price, for example.
+
+## Central limit order book
+
+The **central limit order book** (**CLOB**) is a mystical data structure at the heart of (most) exchanges. Simply put, it maintains a list of unmatched buy and sell orders. The **matching engine** then matches these orders using some algorithm.
+
+At any point, for company $X$'s shares, the highest unmatched bid (buy) price is always less than the lowest ask (sell) price. Buyers want to buy shares at $\$190$ or below, but sellers only want to sell shares at $\$210$ or above, and thus no orders can be matched. The **bid-ask spread** is the size of this gap, so $\$210 - \$190 = \$20$. It's only when someone **crosses** this spread (i.e., someone submits a sell order at $\leq \$190$ or submits a buy order at $\geq \$210$) that a match occurs.
+
+When an order comes in and there's more than one order that it can be matched with, most sane matching algorithms will prioritize by price: buy orders at higher prices will get matched first, and conversely, sell orders at lower prices will get matched first.
+
+An order may not be **filled** completely: if someone wants to sell $100$ shares and an incoming buy order only wants $80$ shares, then after the match, the original sell order still remains, but at a smaller size of $100 - 80 = 20$ shares. 
+
+If there are multiple orders at the same price level, the matching algorithm can, for example, either prioritize by time (**FIFO**), or fill orders proportionally by their size, so as to incentivize larger-sized orders to join the queue (**Pro-Rata**).
+
+### Limit orders
+
+When you submit a **buy limit order** at $\$100$, the matching engine immediately matches your buy order against other **resting** (unmatched) sell orders at price levels not exceeding $\$100$. After all the matching, if the order still hasn't been filled completely, the remainder either gets placed into the CLOB, or canceled, depending on the buy order's specs. Same logic for a **sell limit order**.
+
+### Cancel requests
+
+If you have a resting order in the CLOB and you wanna get rid of it, just submit a **cancel request**. If it hasn't been matched by the time the request is processed, it will be removed.
+
+### Market orders
+
+For matching purposes, a **market buy order** is equivalent to a limit buy order at a price of $\infty$, and a **market sell order** is equivalent to a limit sell order at a price of $-\infty$. If there are enough resting orders (which there usually are), your order will be filled completely.
+
+The main concern of market orders is **slippage**: for market buy orders, the ask prices you match with may gradually increase, and for market sell orders, the bid prices you match with may gradually decrease.
+
+### Data
+
+We love data, because we can analyze it and stuff to gamble better. The stock exchanges can sell their market data to the data providers (that's actually a pretty big source of their revenue). The data providers then clean up and repackage the data to sell to us peasants.
+
+Now, one big issue is that there is *way* too much raw data. The stock exchanges aren't just sending their data via e-mail or whatever; most likely they're transmitting it over the wire. So along the way, things might get cut down to make the data more manageable. Thus, what we peasants get may be **aggregated**.
+
+A basic form of data is CLOB data. First, we tally up all the resting orders in the CLOB and record each order's **price**, **size** (number of shares), and **side** (whether the submitted order was a buy or a sell). Public data usually does not reveal who made what order, but there are some rare exceptions.
+
+Then, for a fixed price and side, the total size across all orders on that side and at that price level is accumulated into one mega-order. So if it says there are $1000$ shares at bid price $\$100$, we don't know whether those $1000$ shares are coming from $1$ order or $100$ orders, let alone how many participants submitted those orders.
+
