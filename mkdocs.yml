@@ -24,6 +24,7 @@ theme:
   favicon: images/favicon.svg
 
   features:
+    - navigation.indexes
     - search.suggest
     - search.highlight
     - content.code.copy
