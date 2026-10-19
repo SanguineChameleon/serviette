@@ -237,6 +237,10 @@ html .md-footer-meta.md-typeset a {
   color: var(--md-typeset-a-color);
 }
 
+.md-typeset details.statement h4 {
+  font-size: 1.2em;
+}
+
 html .md-footer-meta.md-typeset a:focus,
 html .md-footer-meta.md-typeset a:hover {
   color: var(--md-accent-fg-color);
