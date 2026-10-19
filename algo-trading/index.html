@@ -340,6 +340,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fps-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FPS 24 &ndash; Unofficial Editorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -783,6 +811,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#central-limit-order-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Central limit order book
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Central limit order book">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limit-orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limit orders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancel-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cancel requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#market-orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market orders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1008,6 +1097,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#central-limit-order-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Central limit order book
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Central limit order book">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limit-orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limit orders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancel-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cancel requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#market-orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market orders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1075,6 +1225,24 @@
 <p>If the share price doesn't actually drop in the first place, then hey, crisis averted, and you only incur the cost of buying the put option. If the share price <em>does</em> drop to <span class="arithmatex">\(\$150\)</span>, then you can choose to exercise the put option and sell <span class="arithmatex">\(100\)</span> of your shares at a higher price of <span class="arithmatex">\(\$190\)</span> instead, which is at least better than nothing, right?</p>
 <p>Alternatively, you can choose to sell the put option itself. It'd be quite valuable right now for other people who own a lot of company <span class="arithmatex">\(X\)</span>'s shares. The ability to buy and sell options really does open up a whole new world of 5D chess in the stock exchange. </p>
 <p>Unlike shares, which are initially issued by companies, in theory, anyone in the market can offer (<strong>write</strong>) an option, and anyone in the market can buy (<strong>hold</strong>) that option. Lastly, and this is somewhat obvious, but for options that are publicly available for trade, they're generally standardized by the stock exchange's regulations. You can't just make up a put option to sell a bajillion shares at a ludicrously high price, for example.</p>
+<h2 id="central-limit-order-book">Central limit order book</h2>
+<p>The <strong>central limit order book</strong> (<strong>CLOB</strong>) is a mystical data structure at the heart of (most) exchanges. Simply put, it maintains a list of unmatched buy and sell orders. The <strong>matching engine</strong> then matches these orders using some algorithm.</p>
+<p>At any point, for company <span class="arithmatex">\(X\)</span>'s shares, the highest unmatched bid (buy) price is always less than the lowest ask (sell) price. Buyers want to buy shares at <span class="arithmatex">\(\$190\)</span> or below, but sellers only want to sell shares at <span class="arithmatex">\(\$210\)</span> or above, and thus no orders can be matched. The <strong>bid-ask spread</strong> is the size of this gap, so <span class="arithmatex">\(\$210 - \$190 = \$20\)</span>. It's only when someone <strong>crosses</strong> this spread (i.e., someone submits a sell order at <span class="arithmatex">\(\leq \$190\)</span> or submits a buy order at <span class="arithmatex">\(\geq \$210\)</span>) that a match occurs.</p>
+<p>When an order comes in and there's more than one order that it can be matched with, most sane matching algorithms will prioritize by price: buy orders at higher prices will get matched first, and conversely, sell orders at lower prices will get matched first.</p>
+<p>An order may not be <strong>filled</strong> completely: if someone wants to sell <span class="arithmatex">\(100\)</span> shares and an incoming buy order only wants <span class="arithmatex">\(80\)</span> shares, then after the match, the original sell order still remains, but at a smaller size of <span class="arithmatex">\(100 - 80 = 20\)</span> shares. </p>
+<p>If there are multiple orders at the same price level, the matching algorithm can, for example, either prioritize by time (<strong>FIFO</strong>), or fill orders proportionally by their size, so as to incentivize larger-sized orders to join the queue (<strong>Pro-Rata</strong>).</p>
+<h3 id="limit-orders">Limit orders</h3>
+<p>When you submit a <strong>buy limit order</strong> at <span class="arithmatex">\(\$100\)</span>, the matching engine immediately matches your buy order against other <strong>resting</strong> (unmatched) sell orders at price levels not exceeding <span class="arithmatex">\(\$100\)</span>. After all the matching, if the order still hasn't been filled completely, the remainder either gets placed into the CLOB, or canceled, depending on the buy order's specs. Same logic for a <strong>sell limit order</strong>.</p>
+<h3 id="cancel-requests">Cancel requests</h3>
+<p>If you have a resting order in the CLOB and you wanna get rid of it, just submit a <strong>cancel request</strong>. If it hasn't been matched by the time the request is processed, it will be removed.</p>
+<h3 id="market-orders">Market orders</h3>
+<p>For matching purposes, a <strong>market buy order</strong> is equivalent to a limit buy order at a price of <span class="arithmatex">\(\infty\)</span>, and a <strong>market sell order</strong> is equivalent to a limit sell order at a price of <span class="arithmatex">\(-\infty\)</span>. If there are enough resting orders (which there usually are), your order will be filled completely.</p>
+<p>The main concern of market orders is <strong>slippage</strong>: for market buy orders, the ask prices you match with may gradually increase, and for market sell orders, the bid prices you match with may gradually decrease.</p>
+<h3 id="data">Data</h3>
+<p>We love data, because we can analyze it and stuff to gamble better. The stock exchanges can sell their market data to the data providers (that's actually a pretty big source of their revenue). The data providers then clean up and repackage the data to sell to us peasants.</p>
+<p>Now, one big issue is that there is <em>way</em> too much raw data. The stock exchanges aren't just sending their data via e-mail or whatever; most likely they're transmitting it over the wire. So along the way, things might get cut down to make the data more manageable. Thus, what we peasants get may be <strong>aggregated</strong>.</p>
+<p>A basic form of data is CLOB data. First, we tally up all the resting orders in the CLOB and record each order's <strong>price</strong>, <strong>size</strong> (number of shares), and <strong>side</strong> (whether the submitted order was a buy or a sell). Public data usually does not reveal who made what order, but there are some rare exceptions.</p>
+<p>Then, for a fixed price and side, the total size across all orders on that side and at that price level is accumulated into one mega-order. So if it says there are <span class="arithmatex">\(1000\)</span> shares at bid price <span class="arithmatex">\(\$100\)</span>, we don't know whether those <span class="arithmatex">\(1000\)</span> shares are coming from <span class="arithmatex">\(1\)</span> order or <span class="arithmatex">\(100\)</span> orders, let alone how many participants submitted those orders.</p>
 
 
 
@@ -1095,7 +1263,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 12, 2026 13:30:05 UTC"><span class="timeago" datetime="2026-09-12T13:30:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 12, 2026 13:30:05 UTC">2026-09-12</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 28, 2026 13:22:29 UTC"><span class="timeago" datetime="2026-09-28T13:22:29+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 28, 2026 13:22:29 UTC">2026-09-28</span>
   </span>
 
     
