@@ -262,3 +262,8 @@ html .md-footer-meta.md-typeset a:hover {
   margin-right: auto;
   max-width: 100%;
 }
+
+.md-typeset .wrap pre > code {
+  white-space: pre-wrap;
+  padding-right: calc(40em / 17);
+}
