@@ -265,5 +265,6 @@ html .md-footer-meta.md-typeset a:hover {
 
 .md-typeset .wrap pre > code {
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
   padding-right: calc(40em / 17);
 }
